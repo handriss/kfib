@@ -1,7 +1,11 @@
 package com.codecool.repository;
 
-/**
- * Created by handris on 3/7/17.
- */
-public class RoleRepository {
+import org.springframework.context.annotation.Role;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+
+public interface RoleRepository extends CrudRepository<Role, Long> {
+    List<Role> findByName(String name);
 }
