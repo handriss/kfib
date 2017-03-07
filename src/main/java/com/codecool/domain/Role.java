@@ -1,8 +1,13 @@
 package com.codecool.domain;
 
 
+import lombok.Data;
+
+import javax.persistence.Entity;
 import java.util.Set;
 
+@Data
+@Entity
 public class Role {
 
     private Long id;
