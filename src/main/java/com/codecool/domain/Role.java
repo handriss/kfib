@@ -14,7 +14,7 @@ import java.util.Set;
 public class Role {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="role_id", unique = true)
     private Long id;
 

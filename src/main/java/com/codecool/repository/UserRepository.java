@@ -1,7 +1,13 @@
 package com.codecool.repository;
 
-/**
- * Created by handris on 3/7/17.
- */
-public class UserRepository {
+
+import com.codecool.domain.User;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface UserRepository extends CrudRepository<User, Long> {
+
+    List<User> findByEmail(String email);
+
 }
