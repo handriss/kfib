@@ -1,11 +1,12 @@
 package com.codecool.repository;
 
-import org.springframework.context.annotation.Role;
-import org.springframework.data.repository.CrudRepository;
+import com.codecool.domain.Role;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 
-public interface RoleRepository extends CrudRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
+
     List<Role> findByName(String name);
 }

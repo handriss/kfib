@@ -38,6 +38,6 @@ public class DataLoader {
 
         User user = new User("andrashinkel@gmail.com", "admin", roles);
 
-        user
+        log.info("Postconstruct ran.");
     }
 }

@@ -2,12 +2,10 @@ package com.codecool.repository;
 
 
 import com.codecool.domain.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface UserRepository extends JpaRepository<User, Long> {
 
-public interface UserRepository extends CrudRepository<User, Long> {
-
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 
 }
