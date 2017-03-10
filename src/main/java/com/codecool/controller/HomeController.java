@@ -1,7 +1,15 @@
 package com.codecool.controller;
 
-/**
- * Created by handris on 3/7/17.
- */
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
 public class HomeController {
+
+    @RequestMapping("/")
+    public String home(){
+        return "index";
+    }
+
 }

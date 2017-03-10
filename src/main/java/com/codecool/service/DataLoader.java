@@ -37,6 +37,7 @@ public class DataLoader {
         Role userRole = new Role("USER");
 
         roleService.save(adminRole);
+        roleService.save(userRole);
 
         roles.add(adminRole);
         roles.add(userRole);
@@ -46,6 +47,6 @@ public class DataLoader {
         log.info("Postconstruct ran.");
         log.info(user.toString());
 
-//        userService.save(user);
+        userService.save(user);
     }
 }
