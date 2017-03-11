@@ -1,5 +1,6 @@
 package com.codecool.config;
 
+import com.codecool.controller.LoginRedirectController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -26,19 +28,37 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
+
         httpSecurity
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                    .antMatchers("/").permitAll()
+                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("email")
-                .permitAll()
+                    .formLogin()
+                    .successHandler(new LoginRedirectController())
+                    .loginPage("/login")
+                    .permitAll()
                 .and()
-                .logout()
-                .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                    .logout()
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login?logout")
+                    .permitAll();
+
+
+//        httpSecurity
+//                .authorizeRequests()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .usernameParameter("email")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/login?logout")
+//                .permitAll();
     }
 
 
