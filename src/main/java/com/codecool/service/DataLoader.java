@@ -1,6 +1,7 @@
 package com.codecool.service;
 
 
+import com.codecool.domain.Post;
 import com.codecool.domain.Role;
 import com.codecool.domain.User;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +50,9 @@ public class DataLoader {
         userService.save(user);
 
         log.info("Postconstruct ran.");
-        log.info(user.getId().toString());
+
+        Post post1 = new Post("Kockásfülű nyúl");
+
 
     }
 }

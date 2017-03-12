@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +19,11 @@ public class Author {
     private Long id;
     private String name;
     private String email;
+
+
+    @OneToMany
+    @JoinTable(name="author_posts", joinColumns={@JoinColumn(name="author_id", referencedColumnName="id")}, inverseJoinColumns={@JoinColumn(name="dog_id", referencedColumnName="id")})
+    private List<Post> posts;
 
     private Author(){}
 

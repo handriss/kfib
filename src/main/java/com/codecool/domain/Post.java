@@ -33,9 +33,6 @@ public class Post {
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
 
-    @ManyToOne
-    private Author author;
-
     private Post(){}
 
     public Post(String title) {
