@@ -60,8 +60,5 @@ public class DataLoader {
         User user = new User("admin@admin.com",  passwordEncoder.encode("admin"), roles, posts);
 
         userService.save(user);
-
-        log.info("Postconstruct ran.");
-
     }
 }

@@ -1,9 +1,9 @@
 package com.codecool.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name="post")
 public class Post {
@@ -35,6 +34,7 @@ public class Post {
     private Date postedOn;
 
     @ManyToMany(mappedBy = "posts")
+    @JsonIgnore
     private Set<User> users;
 
     private Post(){}
