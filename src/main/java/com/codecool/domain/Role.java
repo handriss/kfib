@@ -1,24 +1,24 @@
 package com.codecool.domain;
 
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name="role")
 @Slf4j
 public class Role {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name="role_id", unique = true)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="email")
     private String name;
 
     @ManyToMany(mappedBy = "roles")

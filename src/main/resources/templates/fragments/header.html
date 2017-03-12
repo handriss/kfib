@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+
+<div th:fragment="header">
+
+    <div class="container">
+        <div class="container-flue">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class=""><a href="/posts">Posts</a></li>
+                    <li class=""><a href="/authors">Authors</a></li>
+                </ul>
+                <div class="navbar-text navbar-right">
+                    Welcome <span sec:authentication="name">Guest</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

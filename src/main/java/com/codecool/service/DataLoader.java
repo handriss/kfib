@@ -5,6 +5,7 @@ import com.codecool.domain.Role;
 import com.codecool.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,13 +19,14 @@ import java.util.Set;
 public class DataLoader {
 
     private UserService userService;
-
     private RoleService roleService;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public DataLoader(UserService userService, RoleService roleService) {
+    public DataLoader(UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -42,11 +44,12 @@ public class DataLoader {
         roles.add(adminRole);
         roles.add(userRole);
 
-        User user = new User("andrashinkel@gmail.com", "admin", roles);
-
-        log.info("Postconstruct ran.");
-        log.info(user.toString());
+        User user = new User("admin@admin.com",  passwordEncoder.encode("admin"), roles);
 
         userService.save(user);
+
+        log.info("Postconstruct ran.");
+        log.info(user.getId().toString());
+
     }
 }
