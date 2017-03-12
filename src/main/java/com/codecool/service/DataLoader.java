@@ -21,13 +21,15 @@ public class DataLoader {
 
     private UserService userService;
     private RoleService roleService;
+    private PostService postService;
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public DataLoader(UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
+    public DataLoader(PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
+        this.postService = postService;
     }
 
 
@@ -52,6 +54,8 @@ public class DataLoader {
         log.info("Postconstruct ran.");
 
         Post post1 = new Post("Kockásfülű nyúl");
+        postService.save(post1);
+
 
 
     }
