@@ -20,12 +20,14 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public void save(Post post) {
-        postRepository.save(post);
-    }
+    public void save(Post post) { postRepository.save(post);}
 
     public void delete(Post post) {
         postRepository.delete(post);
+    }
+
+    public void deleteById(long id){
+        this.delete(postRepository.findOne(id));
     }
 
     public List<Post> findAll() {
@@ -34,5 +36,15 @@ public class PostService {
 
     public Post findByTitle(String title){
         return postRepository.findByTitle(title);
+    }
+
+    public Post findById(Long id){ return postRepository.findById(id);}
+
+    public Post update(long id,Post update) {
+        Post post = postRepository.findOne(id);
+        if( update.getTitle() != null ) {
+            post.setTitle(update.getTitle());
+        }
+        return postRepository.save(post);
     }
 }
