@@ -13,5 +13,4 @@ public class Post {
     private Date postedOn;
     private Author author;
 
-
 }
