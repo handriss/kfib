@@ -22,13 +22,14 @@ public class Author {
 
 
     @OneToMany
-    @JoinTable(name="author_posts", joinColumns={@JoinColumn(name="author_id", referencedColumnName="id")}, inverseJoinColumns={@JoinColumn(name="dog_id", referencedColumnName="id")})
+    @JoinTable(name="author_posts", joinColumns={@JoinColumn(name="author_id", referencedColumnName="id")}, inverseJoinColumns={@JoinColumn(name="post_id", referencedColumnName="id")})
     private List<Post> posts;
 
     private Author(){}
 
-    public Author(String name, String email) {
+    public Author(String name, String email, List<Post> posts) {
         this.name = name;
         this.email = email;
+        this.posts = posts;
     }
 }

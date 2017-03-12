@@ -1,6 +1,7 @@
 package com.codecool.service;
 
 
+import com.codecool.domain.Author;
 import com.codecool.domain.Post;
 import com.codecool.domain.Role;
 import com.codecool.domain.User;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -22,14 +25,16 @@ public class DataLoader {
     private UserService userService;
     private RoleService roleService;
     private PostService postService;
+    private AuthorService authorService;
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public DataLoader(PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
+    public DataLoader(AuthorService authorService, PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
         this.postService = postService;
+        this.authorService = authorService;
     }
 
 
@@ -54,9 +59,16 @@ public class DataLoader {
         log.info("Postconstruct ran.");
 
         Post post1 = new Post("Kockásfülű nyúl");
+        Post post2 = new Post("Lola és bolka");
         postService.save(post1);
+        postService.save(post2);
 
+        List<Post> posts = new ArrayList<>();
+        posts.add(post1);
+        posts.add(post2);
 
+        Author cica = new Author("name", "email", posts);
+        authorService.save(cica);
 
     }
 }
