@@ -38,8 +38,8 @@ public class DataLoader {
     public void loadData(){
 
         Set<Role> roles = new HashSet<>();
-        Role adminRole = new Role("ADMIN");
-        Role userRole = new Role("USER");
+        Role adminRole = new Role("ROLE_ADMIN");
+        Role userRole = new Role("ROLE_USER");
 
         roleService.save(adminRole);
         roleService.save(userRole);

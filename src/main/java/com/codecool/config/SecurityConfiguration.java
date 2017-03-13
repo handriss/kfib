@@ -45,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .logoutSuccessUrl("/login?logout")
                     .permitAll();
 
-        http.formLogin().defaultSuccessUrl("/admin", true);
+//        http.formLogin().defaultSuccessUrl("/admin", true);
     }
 
     @Autowired

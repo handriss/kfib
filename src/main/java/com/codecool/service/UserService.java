@@ -5,6 +5,9 @@ import com.codecool.domain.User;
 import com.codecool.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
-public class UserService {
+public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private RoleService roleService;
     private BCryptPasswordEncoder passwordEncoder;
@@ -46,6 +49,18 @@ public class UserService {
 
     public User getByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Transactional( readOnly = true)
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+
+        User user = findByEmail(userName);
+
+        if(user == null){
+            throw new UsernameNotFoundException(userName);
+        }
+
+        return new UserDetailsImpl(user);
     }
 
 }
