@@ -55,7 +55,8 @@ used to vertically center elements, may need modification if you're not using de
 /*
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
-
-Admin navbar boostrap template
-
 */
+
+#post-list-panel-body{
+    margin: 10px 10px 10px 10px;
+}
