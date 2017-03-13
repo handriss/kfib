@@ -24,6 +24,28 @@
 
 </div>
 
+<div th:fragment="admin_header">
+
+    <div class="container">
+        <div class="container-flue">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Users</a></li>
+                    <li class=""><a href="/posts">Posts</a></li>
+                    <li class=""><a href="/authors">Log</a></li>
+                </ul>
+                <div class="navbar-text navbar-right">
+                    Welcome <span sec:authentication="name">Guest</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </body>
 
 </html>
