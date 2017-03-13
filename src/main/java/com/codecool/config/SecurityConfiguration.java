@@ -31,8 +31,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 authorizeRequests()
-                    .antMatchers("/", "/assets/**", "/swagger-ui.html", "/v2/api-docs", "/configuration/ui", "/swagger-resources").permitAll()
-                    .antMatchers("/admin/**").hasRole("ADMIN")
+                    .antMatchers("/admin/posts","/", "/assets/**", "/swagger-ui.html", "/v2/api-docs", "/configuration/ui", "/swagger-resources").permitAll()
+//                    .antMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
