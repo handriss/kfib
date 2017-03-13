@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 authorizeRequests()
-                    .antMatchers("/", "/swagger-ui.html", "/v2/api-docs", "/configuration/ui", "/swagger-resources").permitAll()
+                    .antMatchers("/", "/assets/**", "/swagger-ui.html", "/v2/api-docs", "/configuration/ui", "/swagger-resources").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
                 .and()
@@ -56,7 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationSuccessHandler successHandler() {
         SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
-        handler.setUseReferer(true);
+        handler.setUseReferer(false);
         return handler;
     }
 }
