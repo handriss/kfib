@@ -25,12 +25,14 @@ public class AdminController {
     @RequestMapping("/admin/posts")
     public String list(Model model){
         model.addAttribute("posts", postService.findAll());
+//        model.addAttribute("url", "/admin/posts");
         log.info(postService.findAll().toString());
         return "admin/list";
     }
 
     @RequestMapping("/admin/create-post")
-    public String createPost(){
+    public String createPost(Model model){
+//        model.addAttribute("url", "/admin/create-post");
         return "admin/create-post";
     }
 }

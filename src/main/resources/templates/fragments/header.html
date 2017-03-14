@@ -43,9 +43,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">List Posts</a></li>
-                    <!--<li><a href="#">Create Post</a></li>-->
-                    <li><a href="/admin/create-post" th:href="@{/admin/create-post}">Create Post</a></li>
+                    <!--<li th:class="@{/admin/posts} == ${url} ? 'active' : ''"><a href="#">List Posts</a></li>-->
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a th:href="@{/admin/posts}">List Posts</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/create-post' ? 'active':''}"><a th:href="@{/admin/create-post}">Create Post</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
