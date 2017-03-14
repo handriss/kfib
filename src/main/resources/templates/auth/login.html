@@ -4,40 +4,36 @@
 
 <body>
 
+    <div th:replace="fragments/header :: header"></div>
+
+    <!--LOGIN FORM-->
     <div class="container">
-        <div class="row">
-
-            <div th:replace="fragments/header :: header"></div>
-
+        <div class="row login-form-margin">
             <div class="col-md-4 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Welcome to my site</h3>
+                        <h3 class="panel-title">Bejelentkezés</h3>
                     </div>
                     <div class="panel-body">
-
-
                         <form th:action="@{/login}" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" name="username" type="email" placeholder="Email Address" minlength="1" required="required" autofocus="autofocus"/>
+                                    <input class="form-control" name="username" type="email" placeholder="E-mail"
+                                           minlength="1" required="required" autofocus="autofocus"/>
                                 </div>
-
                                 <div class="form-group">
-                                    <input class="form-control" name="password" type="password" placeholder="Password" minlength="1" required="required"/>
+                                    <input class="form-control" name="password" type="password" placeholder="Jelszó"
+                                           minlength="1" required="required"/>
                                 </div>
-
-                                <button id="submitButton" type="submit" class="btn btn-success btn-block">Login</button>
+                                <button id="submitButton" type="submit" class="btn btn-success btn-block">Bejelentkezés</button>
                             </fieldset>
                         </form>
-
                     </div>
+
+                    <!--CLOSER TAG-->
                 </div>
             </div>
-
-
         </div>
     </div>
-
-</body>
+    </body>
 </html>
