@@ -19,25 +19,26 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
 
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    @Column(columnDefinition = "TEXT")
-    private String teaser;
+//    @Column(columnDefinition = "TEXT")
+//    private String teaser;
 
-    private String slug;
+//    private String slug;
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date postedOn;
+//    @CreatedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date postedOn;
 
     @ManyToMany(mappedBy = "posts")
     @JsonIgnore
     private Set<User> users;
 
-    private Post(){}
+    public Post(){}
 
     public Post(String title, Set<User> users) {
         this.title = title;
