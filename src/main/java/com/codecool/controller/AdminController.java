@@ -29,10 +29,8 @@ public class AdminController {
         return "admin/list";
     }
 
-    @RequestMapping("/authors")
-    public String list2(Model model){
-        model.addAttribute("posts", postService.findAll());
-        return "admin/list";
+    @RequestMapping("/admin/create-post")
+    public String createPost(){
+        return "admin/create-post";
     }
-
 }
