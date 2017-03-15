@@ -1,4 +1,4 @@
-package com.codecool.service;
+package com.codecool.service.upload;
 
 
 import org.springframework.core.io.Resource;
