@@ -1,7 +1,9 @@
 package com.codecool.controller;
 
-/**
- * Created by handris on 3/15/17.
- */
+import org.springframework.stereotype.Controller;
+
+@Controller
 public class FileUploadController {
+
+
 }
