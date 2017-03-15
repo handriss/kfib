@@ -5,7 +5,7 @@
 <div th:fragment="universal-error">
 
     <div class="error-404">
-        <div class="error-code m-b-10 m-t-20">404 <i class="fa fa-warning"></i></div>
+        <div th:text="${code}" class="error-code m-b-10 m-t-20">404 <i class="fa fa-warning"></i></div>
         <h2 class="font-bold">Sajnos az általad kért oldal nem található.</h2>
 
         <div class="error-desc">
