@@ -4,6 +4,7 @@ package com.codecool.service;
 import com.codecool.domain.Post;
 import com.codecool.domain.Role;
 import com.codecool.domain.User;
+import com.codecool.service.upload.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,13 +24,15 @@ public class DataLoader {
     private RoleService roleService;
     private PostService postService;
     private BCryptPasswordEncoder passwordEncoder;
+    private StorageService storageService;
 
     @Autowired
-    public DataLoader(PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
+    public DataLoader(StorageService storageService, PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
         this.postService = postService;
+        this.storageService = storageService;
     }
 
 

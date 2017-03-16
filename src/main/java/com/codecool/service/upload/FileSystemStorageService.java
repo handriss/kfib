@@ -1,6 +1,7 @@
 package com.codecool.service.upload;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -15,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+@Slf4j
 @Service
 public class FileSystemStorageService implements StorageService {
 
@@ -28,8 +30,9 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
+        log.info("init ran...");
         try {
-            Files.createDirectory(rootLocation);
+            Files.createDirectories(rootLocation);
         } catch (IOException e) {
             throw new StorageException("Could not initialize storage", e);
         }
@@ -37,6 +40,9 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void store(MultipartFile file) {
+
+        log.info("\n\n\nstore called....");
+
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file " + file.getOriginalFilename());
@@ -49,6 +55,7 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public Stream<Path> loadAll() {
+        log.info("loadAll called...");
         try {
             return Files.walk(this.rootLocation, 1)
                     .filter(path -> !path.equals(this.rootLocation))
@@ -82,6 +89,7 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void deleteAll() {
+        log.info("deleteAll ran...");
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 }

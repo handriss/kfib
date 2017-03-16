@@ -14,4 +14,5 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         viewControllerRegistry.addViewController("/login").setViewName("auth/login");
         viewControllerRegistry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
+
 }
