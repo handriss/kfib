@@ -30,7 +30,6 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void init() {
-        log.info("init ran...");
         try {
             Files.createDirectories(rootLocation);
         } catch (IOException e) {
@@ -40,8 +39,6 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void store(MultipartFile file) {
-
-        log.info("\n\n\nstore called....");
 
         try {
             if (file.isEmpty()) {
@@ -55,7 +52,6 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public Stream<Path> loadAll() {
-        log.info("loadAll called...");
         try {
             return Files.walk(this.rootLocation, 1)
                     .filter(path -> !path.equals(this.rootLocation))
@@ -89,7 +85,6 @@ public class FileSystemStorageService implements StorageService {
 
     @Override
     public void deleteAll() {
-        log.info("deleteAll ran...");
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 }

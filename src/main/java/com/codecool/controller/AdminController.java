@@ -41,8 +41,6 @@ public class AdminController {
 
     @PostMapping("/admin/create")
     public String savePost(Post post){
-//        Set<User> emptySet = new HashSet();
-//        post.setUsers(emptySet);
         postService.save(post);
         return "admin/list";
     }
