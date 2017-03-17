@@ -1,6 +1,7 @@
 package com.codecool.service;
 
 
+import com.codecool.model.File;
 import com.codecool.model.Post;
 import com.codecool.model.Role;
 import com.codecool.model.User;
@@ -25,20 +26,26 @@ public class DataLoader {
     private PostService postService;
     private BCryptPasswordEncoder passwordEncoder;
     private StorageService storageService;
+    private FileService fileService;
 
     @Autowired
-    public DataLoader(StorageService storageService, PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
+    public DataLoader(FileService fileService, StorageService storageService, PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
         this.passwordEncoder = passwordEncoder;
         this.postService = postService;
         this.storageService = storageService;
+        this.fileService = fileService;
     }
 
 
 
     @PostConstruct
     public void loadData(){
+
+        File file = new File("picture01");
+        fileService.save(file);
+
 
         Set<Role> roles = new HashSet<>();
         Role adminRole = new Role("ROLE_ADMIN");

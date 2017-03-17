@@ -30,5 +30,9 @@ public class File {
 
     private File(){}
 
-
+    public File(String name) {
+        this.name = name;
+        this.data = null;
+        this.correspondingPosts = null;
+    }
 }
