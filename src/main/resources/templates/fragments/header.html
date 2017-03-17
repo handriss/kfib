@@ -44,12 +44,18 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
-                            th:href="@{/admin/posts}">List Posts</a></li>
+
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/create-post' ? 'active':''}"><a
-                            th:href="@{/admin/create-post}">Create Post</a></li>
+                            th:href="@{/admin/create-post}">Új poszt létrehozása</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
+                            th:href="@{/admin/posts}">Posztkezelő</a></li>
+
+                    <li class="divider-vertical"></li>
+
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/upload-file' ? 'active':''}"><a
+                            th:href="@{/admin/upload-file}">Új fájl feltöltése</a></li>
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/browse-files' ? 'active':''}"><a
-                            th:href="@{/admin/browse-files}">Browse Uploaded Files</a></li>
+                            th:href="@{/admin/browse-files}">Fájlkezelő</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">

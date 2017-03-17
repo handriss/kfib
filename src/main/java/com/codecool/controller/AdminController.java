@@ -1,7 +1,9 @@
 package com.codecool.controller;
 
 
+import com.codecool.model.File;
 import com.codecool.model.Post;
+import com.codecool.service.FileService;
 import com.codecool.service.PostService;
 import com.codecool.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,11 +22,13 @@ public class AdminController {
 
     private PostService postService;
     private UserService userService;
+    private FileService fileService;
 
     @Autowired
-    public AdminController(PostService postService, UserService userService) {
+    public AdminController(PostService postService, UserService userService, FileService fileService) {
         this.postService = postService;
         this.userService = userService;
+        this.fileService = fileService;
     }
 
     @GetMapping("/posts")
@@ -46,8 +50,18 @@ public class AdminController {
         return "admin/list";
     }
 
+    @GetMapping("/upload-file")
+    public String createFile(Model model){
+        File file = new File();
+        model.addAttribute("file", file);
+
+        return "admin/upload-file";
+    }
+
     @GetMapping("/browse-files")
     public String listFiles(Model model){
+
+        model.addAttribute("files", fileService.findAll());
 
         return "admin/browse-file";
     }

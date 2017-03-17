@@ -28,7 +28,7 @@ public class File {
     @ManyToMany(mappedBy = "files")
     private Set<Post> correspondingPosts;
 
-    private File(){}
+    public File(){}
 
     public File(String name) {
         this.name = name;

@@ -43,8 +43,37 @@ public class DataLoader {
     @PostConstruct
     public void loadData(){
 
-        File file = new File("picture01");
-        fileService.save(file);
+        File file1 = new File("picture01");
+        File file2 = new File("picture02");
+        File file3 = new File("picture03");
+        File file4 = new File("picture04");
+        File file5 = new File("picture05");
+        File file6 = new File("picture06");
+        File file7 = new File("picture07");
+        File file8 = new File("picture08");
+        File file9 = new File("picture09");
+        File file10 = new File("picture10");
+        File file11 = new File("picture11");
+        File file12 = new File("picture12");
+        File file13 = new File("picture13");
+        File file14 = new File("picture14");
+        File file15 = new File("picture15");
+
+        fileService.save(file1);
+        fileService.save(file2);
+        fileService.save(file3);
+        fileService.save(file4);
+        fileService.save(file5);
+        fileService.save(file6);
+        fileService.save(file7);
+        fileService.save(file8);
+        fileService.save(file9);
+        fileService.save(file10);
+        fileService.save(file11);
+        fileService.save(file12);
+        fileService.save(file13);
+        fileService.save(file14);
+        fileService.save(file15);
 
 
         Set<Role> roles = new HashSet<>();
