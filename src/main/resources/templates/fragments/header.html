@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+<!--DEFAULT HEADER-->
+<div th:fragment="header">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/}">KFIB</a>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<!--ADMIN HEADER-->
+<!--Source: https://getbootstrap.com/components/#navbar-->
+<div th:fragment="admin_header">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/}">KFIB</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
+                            th:href="@{/admin/posts}">List Posts</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/create-post' ? 'active':''}"><a
+                            th:href="@{/admin/create-post}">Create Post</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
+                        <a>
+                            <span th:case="${false}">You are not logged in</span>
+                            <span th:case="${true}">Logged in as <span sec:authentication="name">Guest</span></span>
+                        </a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/logout}">Logout</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+</body>
+</html>
