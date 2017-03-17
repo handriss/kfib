@@ -58,6 +58,12 @@ public class AdminController {
         return "admin/upload-file";
     }
 
+    @PostMapping("/upload-file")
+    public String createFile(File file){
+        fileService.save(file);
+        return "admin/upload-file";
+    }
+
     @GetMapping("/browse-files")
     public String listFiles(Model model){
 
