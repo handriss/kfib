@@ -4,11 +4,11 @@ package com.codecool.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 @Getter
@@ -23,7 +23,13 @@ public class File {
 
     private String name;
 
+    private String url;
+
     private byte[] data;
+
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date uploadedOn;
 
     @ManyToMany(mappedBy = "files")
     private Set<Post> correspondingPosts;
@@ -34,5 +40,6 @@ public class File {
         this.name = name;
         this.data = null;
         this.correspondingPosts = null;
+        this.uploadedOn = new Timestamp(System.currentTimeMillis());
     }
 }
