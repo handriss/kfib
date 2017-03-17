@@ -34,12 +34,12 @@ public class Post {
     @JsonIgnore
     private Set<User> users;
 
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(name="post_file", joinColumns = @JoinColumn(name="post_id"), inverseJoinColumns = @JoinColumn(name="file_id"))
+    private Set<File> files;
+
     public Post(){}
 
-//    public Post(String title, Set<User> users) {
-//        this.title = title;
-//        this.users = users;
-//    }
 
     public Post(String title) {
         this.title = title;
