@@ -1,8 +1,8 @@
 package com.codecool.service;
 
 
-import com.codecool.domain.Role;
-import com.codecool.domain.User;
+import com.codecool.model.Role;
+import com.codecool.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

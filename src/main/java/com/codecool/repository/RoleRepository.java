@@ -1,6 +1,6 @@
 package com.codecool.repository;
 
-import com.codecool.domain.Role;
+import com.codecool.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package com.codecool.service;
 
 
-import com.codecool.domain.Post;
+import com.codecool.model.Post;
 import com.codecool.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

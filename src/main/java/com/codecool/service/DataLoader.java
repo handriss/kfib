@@ -1,9 +1,9 @@
 package com.codecool.service;
 
 
-import com.codecool.domain.Post;
-import com.codecool.domain.Role;
-import com.codecool.domain.User;
+import com.codecool.model.Post;
+import com.codecool.model.Role;
+import com.codecool.model.User;
 import com.codecool.service.upload.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.codecool.domain.enums;
+package com.codecool.model.enums;
 
 
 public enum DocumentCategory {
