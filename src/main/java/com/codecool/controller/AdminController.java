@@ -10,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Slf4j
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
     private PostService postService;
@@ -25,23 +27,28 @@ public class AdminController {
         this.userService = userService;
     }
 
-    @GetMapping("/admin/posts")
+    @GetMapping("/posts")
     public String list(Model model){
         model.addAttribute("posts", postService.findAll());
-        log.info(postService.findAll().toString());
         return "admin/list";
     }
 
-    @GetMapping("/admin/create-post")
+    @GetMapping("/create-post")
     public String createPost(Model model){
         Post post = new Post();
         model.addAttribute("post", post);
         return "admin/create-post";
     }
 
-    @PostMapping("/admin/create")
+    @PostMapping("/create-post")
     public String savePost(Post post){
         postService.save(post);
         return "admin/list";
+    }
+
+    @GetMapping("/browse-files")
+    public String listFiles(Model model){
+
+        return "admin/browse-file";
     }
 }

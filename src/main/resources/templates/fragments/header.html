@@ -48,6 +48,8 @@
                             th:href="@{/admin/posts}">List Posts</a></li>
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/create-post' ? 'active':''}"><a
                             th:href="@{/admin/create-post}">Create Post</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/browse-files' ? 'active':''}"><a
+                            th:href="@{/admin/browse-files}">Browse Uploaded Files</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
