@@ -49,7 +49,8 @@
             <td th:text="${post.body}"></td>
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
-                <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                <a th:href="@{/admin/posts/} + ${post.id}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
+
                 <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
             </td>
         </tr>

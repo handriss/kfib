@@ -1,6 +1,7 @@
 package com.codecool.controller;
 
 
+import com.codecool.exception.PostNotFoundException;
 import com.codecool.model.Post;
 import com.codecool.service.FileService;
 import com.codecool.service.PostService;
@@ -61,16 +62,35 @@ public class AdminController {
     @RequestMapping( value = "/posts/{id}", method = RequestMethod.GET )
     public String getPost(@PathVariable(value="id") long id, Model model){
 
+        Post post = postService.findById(id);
+
+        if(post == null){
+            throw new PostNotFoundException("Az általad megadott azonosítóhoz (" + id + ") nem tartozik tartalom.");
+        }
+
+        model.addAttribute("post", post);
+
         List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
         model.addAttribute("tags", tags);
 
         List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
         model.addAttribute("types", types);
 
-        Post post = postService.findById(id);
-        model.addAttribute("post", post);
-
         return "admin/create-post";
+    }
+
+    @ExceptionHandler(NumberFormatException.class)
+    public String handleWrongFormatId(Model model){
+        model.addAttribute("message", "Az általad megadott azonosító nem szám formátumú. Kérlek, egész számot adj meg.");
+
+        return "error/post-not-found";
+    }
+
+    @ExceptionHandler(PostNotFoundException.class)
+    public String handlePostWithIdDoesNotExist(Model model, PostNotFoundException exception){
+        model.addAttribute("message", exception.getMessage());
+
+        return "error/post-not-found";
     }
 
 

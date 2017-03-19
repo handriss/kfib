@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+
+<div th:replace="fragments/header :: admin_header"></div>
+
+<div class="container">
+    <div class="row error-404">
+        <div class="alert alert-danger">
+            <strong>Hiba történt! </strong><p th:text="${message}">Hiba leírása</p>
+        </div>
+    </div>
+
+    <div class="row error-404">
+        <div class="error-desc">
+            <div>
+                <a href="/" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span> Vissza a főoldalra</a>
+                <a href="/admin/posts" class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span> Vissza a tartalomkezelőbe</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
