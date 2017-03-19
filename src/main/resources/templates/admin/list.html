@@ -26,18 +26,18 @@
         <thead>
         <tr>
             <th class="dt-center">Id</th>
-            <th class="dt-center">Title</th>
-            <th class="dt-center">Body</th>
-            <th class="dt-center">Posted on</th>
+            <th class="dt-center">Cím</th>
+            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
         </thead>
         <tfoot>
         <tr>
             <th class="dt-center">Id</th>
-            <th class="dt-center">Title</th>
-            <th class="dt-center">Body</th>
-            <th class="dt-center">Posted on</th>
+            <th class="dt-center">Cím</th>
+            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
         </tfoot>
@@ -47,7 +47,7 @@
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
             <td th:text="${post.body}"></td>
-            <td th:text="${post.postedOn}"></td>
+            <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
                 <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
                 <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
