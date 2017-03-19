@@ -6,64 +6,126 @@
 
 <div th:replace="fragments/header :: admin_header"></div>
 
-    <div class="container">
-        <form>
+<div class="container">
 
-            <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default panel-table">
+    <form action="">
+        <!--  General -->
+        <div class="form-group">
 
-                <!--PANEL HEADING-->
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col col-xs-6">
-                            <h3 class="panel-title">Dokumentum feltöltése</h3>
+            <div class="row">
+                <h2 class="heading">Cím és tartalom</h2>
+            </div>
+
+            <div class="row">
+                <div class="controls">
+                    <input type="text" id="title" class="floatLabel" name="name"/>
+                    <label for="title">Cím</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="controls">
+                    <textarea name="body" class="floatLabel" id="body"></textarea>
+                    <label for="body">Tartalom</label>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--Target audience type-->
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading">Célközönség</h2>
+            </div>
+            <div class="row">
+                <div class="searchable-container">
+
+
+                    <div th:each="tag : ${tags}" class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                        <div class="info-block block-info clearfix">
+                            <div class="square-box pull-left">
+                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                            </div>
+                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                <label class="btn btn-default">
+                                    <div class="bizcontent">
+                                        <input type="checkbox" name="var_id[]" autocomplete="off" value=""/>
+                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                        <h5 th:text="${tag}">Coffee</h5>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!--PANEL BODY-->
-                <div id="post-list-panel-body" class="panel-body">
-
-                        <!--TITLE-->
-                        <div class="form-group">
-                            <label>Cím</label>
-                            <input type="text" class="form-control" placeholder="Cím megadása"/>
-                        </div>
-
-                        <!--TYPE OF DOCOUMENT-->
-                        <div class="form-group">
-                            <label>Example multiple select</label>
-                            <select multiple="multiple" class="form-control">
-                                <option>Technikai kivetítés</option>
-                                <option>Költségvetési elemzés</option>
-                                <option>Egyéb</option>
-                            </select>
-                        </div>
-
-                        <!--TEXTREA FOR DETAILS-->
-                        <div class="form-group">
-                            <label for="exampleTextarea">Example textarea</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                        </div>
-
-                        <!--UPLOAD FILE-->
-                        <div class="form-group">
-                            <label>File kiválasztása</label>
-                            <input type="file" class="form-control-file" aria-describedby="fileHelp"/>
-                        </div>
-
-                </div>
-
-                <!--PANEL FOOTER-->
-                <div class="panel-footer text-right">
-                    <!--SUBMIT BUTTON-->
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-
             </div>
         </div>
 
-        </form>
-    </div>
+        <!--Analysis type-->
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading">Elemzés fajtája</h2>
+            </div>
+            <div class="row">
+                <div class="searchable-container">
+
+
+                    <div th:each="type : ${types}" class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                        <div class="info-block block-info clearfix">
+                            <div class="square-box pull-left">
+                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                            </div>
+                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                <label class="btn btn-default">
+                                    <div class="bizcontent">
+                                        <input type="checkbox" name="var_id[]" autocomplete="off" value=""/>
+                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                        <h5 th:text="${type}">Coffee</h5>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading">Fájlok feltöltése</h2>
+            </div>
+            <div class="row">
+                <span>Coming soon...</span>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading">Szeretnéd aktiválni az új tartalmat?</h2>
+            </div>
+            <div class="row little-left-margin">
+                <input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading"></h2>
+            </div>
+            <div class="row little-left-margin">
+                <button type="submit" value="Létrehozás" class="col-1-4 btn-rounded">Létrehozás</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+<div th:replace="fragments/javascript-links :: javascript-link"></div>
+
 </body>
 </html>

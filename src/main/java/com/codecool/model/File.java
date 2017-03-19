@@ -34,7 +34,9 @@ public class File {
     @ManyToMany(mappedBy = "files")
     private Set<Post> correspondingPosts;
 
-    public File(){}
+    public File(){
+        this.uploadedOn = new Timestamp(System.currentTimeMillis());
+    }
 
     public File(String name) {
         this.name = name;

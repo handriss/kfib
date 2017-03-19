@@ -24,41 +24,55 @@ $(document).ready(function() {
 // ---------------------------------------------------------------------------------------------------------------------
 // JS for file upload page
 
-+ function($) {
-    'use strict';
+$(document).ready(function(){
+    var i=1;
+    $("#add_row").click(function(){
+        $('#addr'+i).html("</td><td><input name='input-file-preview"+i+"' type='file' class='form-control input-md'/></td>");
 
-    // UPLOAD CLASS DEFINITION
-    // ======================
+        $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+        i++;
+    });
+    $("#delete_row").click(function(){
+        if(i>1){
+            $("#addr"+(i-1)).html('');
+            i--;
+        }
+    });
 
-    var dropZone = document.getElementById('drop-zone');
-    var uploadForm = document.getElementById('js-upload-form');
+});
 
-    var startUpload = function(files) {
-        console.log(files)
+// ---------------------------------------------------------------------------------------------------------------------
+// JS for uploading posts
+
+(function($){
+    function floatLabel(inputType){
+        $(inputType).each(function(){
+            var $this = $(this);
+            // on focus add cladd active to label
+            $this.focus(function(){
+                $this.next().addClass("active");
+            });
+            //on blur check field and remove class if needed
+            $this.blur(function(){
+                if($this.val() === '' || $this.val() === 'blank'){
+                    $this.next().removeClass();
+                }
+            });
+        });
     }
+    // just add a class of "floatLabel to the input field!"
+    floatLabel(".floatLabel");
+})(jQuery);
 
-    uploadForm.addEventListener('submit', function(e) {
-        var uploadFiles = document.getElementById('js-upload-files').files;
-        e.preventDefault()
+// ---------------------------------------------------------------------------------------------------------------------
+// Js for tag selection
 
-        startUpload(uploadFiles)
-    })
-
-    dropZone.ondrop = function(e) {
-        e.preventDefault();
-        this.className = 'upload-drop-zone';
-
-        startUpload(e.dataTransfer.files)
-    }
-
-    dropZone.ondragover = function() {
-        this.className = 'upload-drop-zone drop';
-        return false;
-    }
-
-    dropZone.ondragleave = function() {
-        this.className = 'upload-drop-zone';
-        return false;
-    }
-
-}(jQuery);
+$(function() {
+    $('#search').on('keyup', function() {
+        var pattern = $(this).val();
+        $('.searchable-container .items').hide();
+        $('.searchable-container .items').filter(function() {
+            return $(this).text().match(new RegExp(pattern, 'i'));
+        }).show();
+    });
+});
