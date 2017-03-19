@@ -28,7 +28,7 @@ public class FileUploadController {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/upload")
     public String listUploadedFiles(Model model) throws IOException {
 
         model.addAttribute("files", storageService
@@ -39,7 +39,7 @@ public class FileUploadController {
                                 .build().toString())
                 .collect(Collectors.toList()));
 
-        return "uploadForm";
+        return "backend_admin/uploadForm";
     }
 
     @GetMapping("/files/{filename:.+}")
