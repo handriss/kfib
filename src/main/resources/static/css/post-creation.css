@@ -1,6 +1,5 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*Own additions for styling the page creation page*/
-/* TODO: PUT IT INTO A SEPARATE CSS UNIQUE TO CREATE-POST HTML*/
 
 .little-left-margin{
     margin-left: 1px;
@@ -31,11 +30,6 @@
     background-color: #333333;
     border-color: #333333;
 }
-
-/*.btn-success:hover, .btn-success:focus {*/
-/*background-color: #4686CC;*/
-/*border-color: #4686CC;*/
-/*}*/
 
 .btn-success:hover, .btn-success:focus, .btn-success:checked {
     background-color: #4686CC;

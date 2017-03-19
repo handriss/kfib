@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/head :: head">
-    <link rel="stylesheet"  th:href="@{/css/create-post.css}" />
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org"
+                xmlns:form="http://www.springframework.org/tags/form"
+>
+<head th:include="fragments/head :: head"></head>
+
+<head>
+    <link rel="stylesheet"  th:href="@{/css/post-creation.css}" />
 </head>
 
 <body>
@@ -10,9 +15,13 @@
 
 <div class="container">
 
-    <form action="">
+    <form action="#" th:action="@{/admin/create-post}" th:object="${post}" method="post">
 
-<!--------------------------------------------------------------------------------------------------------------------->
+        <input type="hidden" th:field="*{id}" />
+
+        <!--<div id="organizationNameSpan" hidden="hidden" class="alert alert-error alert-dismissible" role="alert"></div>-->
+
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!--Title and post body-->
         <div class="form-group">
@@ -22,20 +31,20 @@
 
             <div class="row">
                 <div class="controls">
-                    <input type="text" id="title" class="floatLabel" name="name"/>
+                    <input type="text" th:field="*{title}" id="title" class="floatLabel" required="required" autofocus="autofocus" name="name"/>
                     <label for="title">Cím</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="controls">
-                    <textarea name="body" class="floatLabel" id="body"></textarea>
+                    <textarea th:field="*{body}" name="body" required="required" class="floatLabel" id="body"></textarea>
                     <label for="body">Tartalom</label>
                 </div>
             </div>
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!--Target audience type-->
         <div class="form-group">
@@ -66,7 +75,7 @@
             </div>
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!--Analysis type-->
         <div class="form-group">
@@ -97,7 +106,8 @@
             </div>
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
 
         <!--File upload-->
         <div class="form-group">
@@ -110,7 +120,8 @@
 
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
 
         <!--Post activation-->
         <div class="form-group">
@@ -124,7 +135,8 @@
 
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
 
         <!--Submit Button-->
         <div class="form-group">
@@ -136,7 +148,7 @@
             </div>
         </div>
 
-<!--------------------------------------------------------------------------------------------------------------------->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
     </form>
 </div>
