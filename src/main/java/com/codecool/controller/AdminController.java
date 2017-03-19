@@ -56,7 +56,7 @@ public class AdminController {
     @PostMapping("/create-post")
     public String savePost(Post post){
         postService.save(post);
-        return "admin/list";
+        return "redirect:/admin/posts";
     }
 
     @RequestMapping( value = "/posts/{id}", method = RequestMethod.GET )
@@ -77,6 +77,18 @@ public class AdminController {
         model.addAttribute("types", types);
 
         return "admin/create-post";
+    }
+
+    @DeleteMapping("/posts/{id}")
+    public String deletePost(@PathVariable(value="id") long id){
+        postService.deleteById(id);
+        return "redirect:/admin/posts";
+    }
+
+    @DeleteMapping("/cicamica")
+    public String probaDelete(){
+        log.info("cicamica route called with delete.....");
+        return "redirect:/admin/posts";
     }
 
     @ExceptionHandler(NumberFormatException.class)
