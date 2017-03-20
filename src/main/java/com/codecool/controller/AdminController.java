@@ -79,15 +79,9 @@ public class AdminController {
         return "admin/create-post";
     }
 
-    @DeleteMapping("/posts/{id}")
+    @GetMapping("/delete-post/{id}")
     public String deletePost(@PathVariable(value="id") long id){
         postService.deleteById(id);
-        return "redirect:/admin/posts";
-    }
-
-    @DeleteMapping("/cicamica")
-    public String probaDelete(){
-        log.info("cicamica route called with delete.....");
         return "redirect:/admin/posts";
     }
 

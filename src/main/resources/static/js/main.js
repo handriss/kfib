@@ -92,6 +92,6 @@ $('#confirm-delete').on('click', '.btn-ok', function(e) {
 });
 $('#confirm-delete').on('show.bs.modal', function(e) {
     var data = $(e.relatedTarget).data();
-    $('.title', this).text(data.recordTitle);
+    $('.title', this).text('/admin/delete-post/' + data.recordTitle);
     $('.btn-ok', this).data('recordId', data.recordId);
 });
