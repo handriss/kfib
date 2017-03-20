@@ -50,8 +50,9 @@
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
                 <a th:href="@{/admin/posts/} + ${post.id}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+                <a th:attr="data-record-title=${post.id}" data-target="#confirm-delete" data-toggle="modal" class="btn btn-danger"><em class="fa fa-trash"></em></a>
             </td>
+
         </tr>
         </tbody>
     </table>
