@@ -1,7 +1,6 @@
 package com.codecool.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -30,8 +29,8 @@ public class Post {
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
 
-    @ManyToMany(mappedBy = "posts")
-    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="user_post", joinColumns = @JoinColumn(name="role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
     private Set<User> users;
 
     @ManyToMany(fetch=FetchType.EAGER)
@@ -39,7 +38,6 @@ public class Post {
     private Set<File> files;
 
     public Post(){}
-
 
     public Post(String title) {
         this.title = title;
