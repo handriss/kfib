@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head :: head"></head>
+<head th:replace="fragments/head :: head"></head>
 
 <body>
 
@@ -1164,29 +1164,9 @@
     </div>
 </div>
 
-<!--&lt;!&ndash;============-->
-<!--9 ) Javascript-->
-<!--=============&ndash;&gt;-->
 
-<!--<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>-->
-<!--<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>-->
-<!--<script type="text/javascript" src="library/jquery-easing/jquery.easing.min.js"></script>-->
-<!--<script type="text/javascript" src="library/easy-pie-charts/jquery.easypiechart.min.js"></script>-->
-<!--<script type="text/javascript" src="library/Filterizr/jquery.filterizr.min.js"></script>-->
-<!--<script type="text/javascript" src="library/popup/jquery.popup.min.js"></script>-->
-<!--<script type="text/javascript" src="library/owl-carousel/owl.carousel.min.js"></script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDirYnFlHB8ScnXrEpbWcpv5q95RyAl0tg"></script>-->
-<!--<script type="text/javascript" src="library/gMap/jquery.gmap.min.js"></script>-->
-<!--<script type="text/javascript" src="library/buggyfill/viewport-units-buggyfill.hacks.js"></script>-->
-<!--<script type="text/javascript" src="library/buggyfill/viewport-units-buggyfill.js"></script>-->
-<!--<script>-->
-<!--window.viewportUnitsBuggyfill.init({-->
-<!--refreshDebounceWait: 50,-->
-<!--hacks: window.viewportUnitsBuggyfillHacks-->
-<!--});-->
-<!--</script>-->
-<!--<script type="text/javascript" src="js/script.js"></script>-->
-<div th:replace="footer :: footer"></div>
+<div th:replace="fragments/javascript-links :: javascript-link"></div>
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
