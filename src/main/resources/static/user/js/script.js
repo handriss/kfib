@@ -22,7 +22,7 @@
 
 $(window).load(function () {
     $('#preloader').delay(350).fadeOut('slow', function () {
-        $('.profile-page, .resume-page, .contact-page, .portfolio-page').hide();
+        $('.profile-page, .resume-page, .contact-page, .portfolio-page, .donate-page').hide();
     });
 });
 
@@ -111,6 +111,12 @@ $(document).ready(function () {
     // Show Reletive Page Onclick
 
     $('.menu div.profile-btn').on('click', function () {
+        $('.donate-page').css({
+            visibility: 'hidden'
+        });
+        $('.profile-page').css({
+            visibility: 'visible'
+        });
         $('.profile-page').fadeIn(1200);
     });
 
@@ -125,6 +131,18 @@ $(document).ready(function () {
     $('.menu div.contact-btn').on('click', function () {
         $('.contact-page').fadeIn(1200);
     });
+
+    $('.donate').on('click', function () {
+        $('.profile-page').css({
+            visibility: 'hidden'
+        });
+        $('.donate-page').css({
+            visibility: 'visible'
+        });
+
+        $('.donate-page').fadeIn(1200);
+    });
+
 
     // Close Button, Hide Menu
 

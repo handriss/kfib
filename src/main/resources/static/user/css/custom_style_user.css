@@ -63,6 +63,13 @@
     color: #3b4446;
 }
 
+
+
+.social-media {
+    font-size: 25px;
+    margin-top: 5px;
+    text-align: left;
+}
 .social-media a {
     color: #3b4446;
     text-decoration: none;

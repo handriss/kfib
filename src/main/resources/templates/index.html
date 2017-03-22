@@ -41,19 +41,6 @@
                 </h3>
             </div>
 
-            <p class="social-media hidden-xs">
-                <a href="https://www.facebook.com/K%C3%B6lts%C3%A9gvet%C3%A9si-Felel%C5%91ss%C3%A9gi-Int%C3%A9zet-Budapest-282593051757248/?fref=ts"
-                   class="fa fa-facebook" data-toggle="tooltip" title="Facebook"></a>
-                <!--<a href="#" class="fa fa-twitter" data-toggle="tooltip" title="Twitter"></a>-->
-                <!--<a href="#" class="fa fa-plus" data-toggle="tooltip" title="Google+"></a>-->
-                <!--<a href="#" class="fa fa-linkedin" data-toggle="tooltip" title="Linkedin"></a>-->
-                <!--<a href="#" class="fa fa-behance" data-toggle="tooltip" title="Behance"></a>-->
-                <!--<a href="#" class="fa fa-flickr" data-toggle="tooltip" title="Flicker"></a>-->
-                <!--<a href="#" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></a>-->
-            </p>
-
-            <!-- Social Media Icons [ END ] -->
-
         </div>
     </div>
 
@@ -151,6 +138,22 @@
                 <div class="col-sm-10">
                     <h2>KAP<span>CS</span>OLAT</h2>
                     <h3>Say hello or find me.</h3>
+
+
+                    <p class="social-media hidden-xs">
+                        <a href="https://www.facebook.com/K%C3%B6lts%C3%A9gvet%C3%A9si-Felel%C5%91ss%C3%A9gi-Int%C3%A9zet-Budapest-282593051757248/?fref=ts"
+                           class="fa fa-facebook" data-toggle="tooltip" title="Facebook"></a>
+                        <a href="#" class="fa fa-cc-paypal" data-toggle="tooltip" title="Paypal">
+                            <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+                                <!--<input type="hidden" name="cmd" value="_s-xclick" />-->
+                                <!--<input type="hidden" name="hosted_button_id" value="TW6MN3SU7SMLY" />-->
+                                <!--<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />-->
+                            <!--</form>-->
+                        </a>
+                    </p>
+
+                    <!-- Social Media Icons [ END ] -->
+
                 </div>
             </div>
         </div>
@@ -167,7 +170,7 @@
 <div class="close-btn"></div>
 
 <!--=============
-5 ) Profile Page
+5 ) Profile Page - RÓLUNK
 ==============-->
 
 <div class="profile-page">
@@ -234,7 +237,7 @@
                         <!--</p>-->
                         <!--<a href="#" class="hire-me">Hire Me</a>-->
                         <!--<a href="#">Download Resume</a>-->
-                        <a href="#" class="hire-me"><i class="fa fa-cc-paypal" aria-hidden="true"></i> Adományozás</a>
+                        <a href="#" class="donate"><i class="fa fa-cc-paypal" aria-hidden="true"></i> Adományozás</a>
                         <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
                     </div>
                 </div>
@@ -338,6 +341,38 @@
                 <!--Copyright © 2015 All right reserved-->
             <!--</p>-->
         <!--</div>-->
+    </div>
+</div>
+
+<!--=============
+5.1 ) Profile Page - DONATE
+==============-->
+
+<div class="donate-page">
+
+    <!--( a ) Profile Page Fixed Image Portion -->
+
+    <div class="image-container col-md-5 col-sm-12">
+        <div class="mask">
+        </div>
+        <div class="main-heading">
+            <h1>ADOM<span>Á</span>NYOZÁS</h1>
+        </div>
+    </div>
+
+    <!--( b ) Profile Page Content -->
+
+    <div class="content-container col-md-7 col-sm-12">
+
+        <!--( A ) Story of Glory -->
+
+        <div class="story clearfix">
+            <h2 class="small-heading">ADOMÁNNYOZÁS</h2>
+            <div class="col-lg-11 col-lg-offset-1">
+                    <div th:replace="fragments/faq :: donate_faq"></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
