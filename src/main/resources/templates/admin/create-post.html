@@ -3,10 +3,10 @@
                 xmlns:th="http://www.thymeleaf.org"
                 xmlns:form="http://www.springframework.org/tags/form"
 >
-<head th:include="fragments/head :: head"></head>
+<head th:include="fragments/head :: head_admin"></head>
 
 <head>
-    <link rel="stylesheet"  th:href="@{admin/css/post-creation.css}" />
+    <link rel="stylesheet"  th:href="@{css/post-creation.css}" />
 </head>
 
 <body>
@@ -153,7 +153,7 @@
     </form>
 </div>
 
-<div th:replace="fragments/javascript-links :: javascript-link"></div>
+<div th:replace="fragments/javascript-links :: javascript-link-admin"></div>
 
 </body>
 </html>
