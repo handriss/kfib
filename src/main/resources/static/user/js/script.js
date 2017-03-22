@@ -132,7 +132,7 @@ $(document).ready(function () {
         $('.contact-page').fadeIn(1200);
     });
 
-    $('.donate').on('click', function () {
+    $('.donate, .fa-cc-paypal').on('click', function () {
         $('.profile-page').css({
             visibility: 'hidden'
         });
@@ -153,7 +153,7 @@ $(document).ready(function () {
         $('.introduction, .menu').animate({
             left: 0
         }, 1000, 'easeOutQuart');
-        $('.profile-page, .resume-page, .portfolio-page, .contact-page').fadeOut(800);
+        $('.profile-page, .resume-page, .portfolio-page, .contact-page, .donate-page').fadeOut(800);
     });
 
     /*  --------------------------------

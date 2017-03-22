@@ -270,7 +270,7 @@
 
 /*-----------------------------------------------*/
 /*------------------
-   5 ) Close Button
+    ) Close Button
   ------------------*/
 
 .close-btn {
@@ -285,3 +285,32 @@
     top: 30px;
     background-size: cover;
 }
+
+
+/*-----------------------------------------------*/
+/*------------------
+   5.1 ) Donate page
+  ------------------*/
+
+.panel_faq  {
+    margin-left: 0;
+}
+
+.donation_descr h4{
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+.story-content .donation_descr p{
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+    margin: 15px;
+}
+
+.justified-paragraph {
+    text-align: justify;
+}
+
+/*-----------------------------------------------*/
