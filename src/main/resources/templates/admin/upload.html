@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<div id="container">
+    <div th:replace="fragments/header :: admin_header"></div>
+
+   <p>File upload</p>
+
+    <form action="#" th:action="@{/admin/upload-file}" th:object="${file}" method="post">
+        <table>
+            <tr>
+                <td>File to upload</td>
+                <td><input type="file" name="file"/></td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Upload"/></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+<div th:replace="fragments/modals :: are-you-sure-modal"></div>
+<div th:replace="fragments/javascript-links :: javascript-link"></div>
+</body>
+</html>
