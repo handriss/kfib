@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
 
 @Slf4j
 @Controller
@@ -27,8 +26,6 @@ public class UploadController {
     @GetMapping("/upload-file")
     public String homeUpload(){
 
-        log.info("upload called with get method...");
-
         return "admin/upload";
     }
 
@@ -37,12 +34,11 @@ public class UploadController {
 
         AWSCredentials credentials = new BasicAWSCredentials("", "");
 
+        AmazonS3 s3Client = new AmazonS3Client(credentials);
 
-        AmazonS3 s3client = new AmazonS3Client(credentials);
+        String bucketName = "kfib-proba";
 
-        String bucketName = "kfib-" + UUID.randomUUID();
-
-        s3client.createBucket(bucketName);
+        s3Client.createBucket(bucketName);
 
         ObjectMetadata md = new ObjectMetadata();
         md.setContentType("application/pdf");
@@ -50,9 +46,9 @@ public class UploadController {
         try{
             InputStream inputStream = file.getInputStream();
 
-            s3client.putObject(new PutObjectRequest(bucketName, name, inputStream, md).withCannedAcl(CannedAccessControlList.PublicRead));
+            s3Client.putObject(new PutObjectRequest(bucketName, name, inputStream, md).withCannedAcl(CannedAccessControlList.PublicRead));
 
-            S3Object s3Object = s3client.getObject(new GetObjectRequest(bucketName, name));
+            S3Object s3Object = s3Client.getObject(new GetObjectRequest(bucketName, name));
 
             log.info("Url of the image:\n");
             log.info(s3Object.getObjectContent().getHttpRequest().getURI().toString());
@@ -60,9 +56,6 @@ public class UploadController {
         }catch(IOException e){
             e.printStackTrace();
         }
-
-
-        log.info("upload called with post method...");
 
         return "redirect:/admin/posts";
     }
