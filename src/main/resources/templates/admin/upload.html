@@ -8,7 +8,9 @@
 
    <p>File upload</p>
 
-    <form action="#" th:action="@{/admin/upload-file}" th:object="${file}" method="post">
+    <form action="#" th:action="@{/admin/upload-file}" th:object="${file}" method="post" enctype="multipart/form-data">
+
+    <!--<form method="POST" enctype="multipart/form-data" action="/admin/upload">-->
         <table>
             <tr>
                 <td>File to upload</td>
