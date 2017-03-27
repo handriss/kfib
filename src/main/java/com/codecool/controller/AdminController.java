@@ -33,6 +33,12 @@ public class AdminController {
         this.fileService = fileService;
     }
 
+    @GetMapping("/upload")
+    public String uploadFile(Model model){
+
+        return "admin/upload";
+    }
+
     @GetMapping("/posts")
     public String list(Model model){
         model.addAttribute("posts", postService.findAll());

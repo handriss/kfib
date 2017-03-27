@@ -4,32 +4,16 @@
 
 <body>
 <div id="container">
+
     <div th:replace="fragments/header :: admin_header"></div>
 
-   <p>File upload</p>
-
-    <form action="#" th:action="@{/admin/upload-file}" th:object="${file}" method="post" enctype="multipart/form-data">
-
-    <!--<form method="POST" enctype="multipart/form-data" action="/admin/upload">-->
-        <table>
-            <tr>
-                <td>File to upload</td>
-                <td><input type="file" name="file"/></td>
-            </tr>
-            <tr>
-                <td>Name: </td>
-                <td><input type="text" name="name"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Upload"/></td>
-            </tr>
-        </table>
-    </form>
+    <p>File upload</p>
 
 </div>
 
 <div th:replace="fragments/modals :: are-you-sure-modal"></div>
 <div th:replace="fragments/javascript-links :: javascript-link"></div>
+<script type="text/javascript" src="/js/upload.js"></script>
+
 </body>
 </html>
