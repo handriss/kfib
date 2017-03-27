@@ -33,12 +33,6 @@ public class AdminController {
         this.fileService = fileService;
     }
 
-    @GetMapping("/upload")
-    public String uploadFile(Model model){
-
-        return "admin/upload";
-    }
-
     @GetMapping("/posts")
     public String list(Model model){
         model.addAttribute("posts", postService.findAll());
@@ -105,23 +99,6 @@ public class AdminController {
         return "error/post-not-found";
     }
 
-
-
-
-//    TODO: remove these two routes, upload-file route is to be removed
-//    @GetMapping("/upload-file")
-//    public String createFile(Model model){
-//        File file = new File();
-//        model.addAttribute("file", file);
-//
-//        return "admin/upload-file";
-//    }
-//
-//    @PostMapping("/upload-file")
-//    public String createFile(File file){
-//        fileService.save(file);
-//        return "admin/upload-file";
-//    }
 
     @GetMapping("/browse-files")
     public String listFiles(Model model){
