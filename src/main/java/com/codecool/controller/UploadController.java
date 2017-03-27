@@ -6,12 +6,10 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.*;
+import com.codecool.model.Shop;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -22,6 +20,17 @@ import java.io.InputStream;
 @Controller
 @RequestMapping("/admin")
 public class UploadController {
+
+    @RequestMapping(value="/json-proba/{name}", method = RequestMethod.GET)
+    public @ResponseBody Shop jsonProba(@PathVariable String name){
+
+        Shop shop = new Shop();
+        shop.setName(name);
+        shop.setStaffName(new String[]{"nameOne", "nameTwo"});
+
+        return shop;
+    }
+
 
     @GetMapping("/upload-file")
     public String homeUpload(){
