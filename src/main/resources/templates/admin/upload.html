@@ -9,6 +9,49 @@
 
     <p>File upload</p>
 
+    <button class="btn btn-primary btn-lg" id="openUpload">Upload Files</button>
+    <div class="modal" id="uploadModal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" style="overflow: hidden">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Add new file</h4>
+
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div id="upload">
+                        <div id="drop">Drop files here<a>Browse</a>
+
+                            <input type="file" name="upl" multiple="multiple" />
+                        </div>
+                        <div class="fileupload-buttonbar">
+                            <div>
+                                <button type="submit" class="btn btn-success start"> <i class="glyphicon glyphicon-upload"></i><span>Start upload</span>
+
+                                </button>
+                                <button type="reset" class="btn btn-warning cancel"> <i class="glyphicon glyphicon-upload"></i><span>Clear upload</span>
+
+                                </button>
+                                <button type="reset" class="btn btn-danger cancel"> <i class="glyphicon glyphicon-ban-circle"></i><span>Cancel All</span>
+
+                                </button>
+                            </div>
+                        </div>
+                        <!-- The table listing the files available for upload/download -->
+                        <!--<table class="table table-striped">
+                            <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
+                        </table>-->
+                        <ol class="files upload-files-list"></ol>
+                        <!--files go here-->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div th:replace="fragments/modals :: are-you-sure-modal"></div>
