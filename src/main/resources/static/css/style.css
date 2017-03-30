@@ -432,3 +432,10 @@ button:hover {
     margin-left:2px;
 }
 
+#uploadedFiles {
+    margin-top: 20px;
+}
+
+.file-list {
+    margin-top: 5px;
+}
