@@ -21,10 +21,8 @@ window.onload = function() {
 
     auth.onAuthStateChanged(function(user) {
         if (user) {
-            console.log('Anonymous user signed-in.', user);
             document.getElementById('file').disabled = false;
         } else {
-            console.log('There was no anonymous session. Creating a new anonymous user.');
             auth.signInAnonymously();
         }
     });

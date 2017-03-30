@@ -104,13 +104,22 @@
 
         <!--File upload-->
         <div class="form-group">
+
             <div class="row">
                 <h2 class="heading">Fájlok feltöltése</h2>
             </div>
+
             <div class="row">
-                <div id="messagesDiv">
-                    <input type="file" id="file" name="file"/>
-                    <span id="linkbox"></span>
+                <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="input-group image-preview">
+                        <span class="input-group-btn">
+                            <div class="btn btn-default image-preview-input">
+                                <span class="glyphicon glyphicon-folder-open"></span>
+                                <span class="image-preview-input-title">Fájl kiválasztása</span>
+                                <input type="file" id="file" name="file"/>
+                            </div>
+                        </span>
+                    </div>
                 </div>
             </div>
 
