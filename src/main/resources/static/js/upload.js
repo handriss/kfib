@@ -15,23 +15,6 @@ function handleFileSelect(evt) {
 
 }
 
-function handleFileSelect2(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    var file = evt.target.files[0];
-
-    var metadata = {
-        'contentType': file.type
-    };
-
-    storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
-        var url = snapshot.downloadURL;
-        document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
-    }).catch(function(error) {
-        console.error('Upload failed:', error);
-    });
-}
-
 window.onload = function() {
     document.getElementById('file').addEventListener('change', handleFileSelect, false);
     document.getElementById('file').disabled = true;
