@@ -5,16 +5,11 @@
 <head th:replace="fragments/head :: firebaseInitialization"></head>
 
 <body>
+
+<div th:replace="fragments/header :: admin_header"></div>
+
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-    <!-- Header section containing title -->
-    <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-            <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
-                <h3>Firebase SDK for Cloud Storage Quickstart</h3>
-            </div>
-        </div>
-    </header>
 
     <main class="mdl-layout__content mdl-color--grey-100">
         <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
@@ -35,55 +30,13 @@
         </div>
     </main>
 </div>
+
 <script>
 
-
-
-    var auth = firebase.auth();
-    var storageRef = firebase.storage().ref();
-
-    function handleFileSelect(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        var file = evt.target.files[0];
-
-        var metadata = {
-            'contentType': file.type
-        };
-
-        // Push to child path.
-        // [START oncomplete]
-        storageRef.child('images/' + file.name).put(file, metadata).then(function(snapshot) {
-            console.log('Uploaded', snapshot.totalBytes, 'bytes.');
-            console.log(snapshot.metadata);
-            var url = snapshot.downloadURL;
-            console.log('File available at', url);
-            // [START_EXCLUDE]
-            document.getElementById('linkbox').innerHTML = '<a href="' +  url + '">Click For File</a>';
-            // [END_EXCLUDE]
-        }).catch(function(error) {
-            // [START onfailure]
-            console.error('Upload failed:', error);
-            // [END onfailure]
-        });
-        // [END oncomplete]
-    }
-
-    window.onload = function() {
-        document.getElementById('file').addEventListener('change', handleFileSelect, false);
-        document.getElementById('file').disabled = true;
-
-        auth.onAuthStateChanged(function(user) {
-            if (user) {
-                console.log('Anonymous user signed-in.', user);
-                document.getElementById('file').disabled = false;
-            } else {
-                console.log('There was no anonymous session. Creating a new anonymous user.');
-                // Sign the user in anonymously since accessing Storage requires the user to be authorized.
-                auth.signInAnonymously();
-            }
-        });
-    }
 </script>
+
+<div th:replace="fragments/javascript-links :: javascript-link"></div>
+<div th:replace="fragments/javascript-links :: file-upload"></div>
+
 </body>
 </html>
