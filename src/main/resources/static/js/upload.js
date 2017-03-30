@@ -28,4 +28,4 @@ window.onload = function() {
             auth.signInAnonymously();
         }
     });
-}
+};

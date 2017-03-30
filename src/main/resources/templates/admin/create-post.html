@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:th="http://www.thymeleaf.org"
-                xmlns:form="http://www.springframework.org/tags/form"
->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/head :: head"></head>
-
 <head>
     <link rel="stylesheet"  th:href="@{/css/post-creation.css}" />
 </head>
@@ -19,9 +15,6 @@
 
         <input type="hidden" th:field="*{id}" />
 
-        <!--<div id="organizationNameSpan" hidden="hidden" class="alert alert-error alert-dismissible" role="alert"></div>-->
-
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!--Title and post body-->
         <div class="form-group">
@@ -115,7 +108,10 @@
                 <h2 class="heading">Fájlok feltöltése</h2>
             </div>
             <div class="row">
-                <span>Coming soon...</span>
+                <div id="messagesDiv">
+                    <input type="file" id="file" name="file"/>
+                    <span id="linkbox"></span>
+                </div>
             </div>
 
         </div>
@@ -154,6 +150,8 @@
 </div>
 
 <div th:replace="fragments/javascript-links :: javascript-link"></div>
+<div th:replace="fragments/javascript-links :: file-upload"></div>
+
 
 </body>
 </html>
