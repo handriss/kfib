@@ -21,4 +21,17 @@
         <link rel="stylesheet"  th:href="@{/css/style.css}" />
     </head>
 
+    <head th:fragment="firebaseInitialization">
+        <script>
+            var config = {
+                apiKey: "AIzaSyAQguIPlj06NUO7AL6niuH0DIHx4sBmto0",
+                authDomain: "kfib-d5ded.firebaseapp.com",
+                databaseURL: "https://kfib-d5ded.firebaseio.com",
+                storageBucket: "kfib-d5ded.appspot.com",
+                messagingSenderId: "823339470062"
+            };
+            firebase.initializeApp(config);
+        </script>
+    </head>
+
 </html>
