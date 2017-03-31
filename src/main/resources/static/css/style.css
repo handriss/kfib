@@ -438,4 +438,6 @@ button:hover {
 
 .file-list {
     margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
 }
