@@ -2,6 +2,7 @@ package com.codecool.controller;
 
 
 import com.codecool.exception.PostNotFoundException;
+import com.codecool.model.File;
 import com.codecool.model.Post;
 import com.codecool.service.FileService;
 import com.codecool.service.PostService;
@@ -42,6 +43,9 @@ public class AdminController {
     @GetMapping("/create-post")
     public String createPost(Model model){
 
+        List<File> files = fileService.findAll();
+        model.addAttribute("files", files);
+
         List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
         model.addAttribute("tags", tags);
 
@@ -55,6 +59,8 @@ public class AdminController {
 
     @PostMapping("/create-post")
     public String savePost(Post post){
+
+
         postService.save(post);
         return "redirect:/admin/posts";
     }
@@ -99,12 +105,4 @@ public class AdminController {
         return "error/post-not-found";
     }
 
-
-    @GetMapping("/browse-files")
-    public String listFiles(Model model){
-
-        model.addAttribute("files", fileService.findAll());
-
-        return "admin/browse-file";
-    }
 }

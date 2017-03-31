@@ -25,8 +25,6 @@ public class File {
 
     private String url;
 
-    private byte[] data;
-
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date uploadedOn;
@@ -40,7 +38,6 @@ public class File {
 
     public File(String name) {
         this.name = name;
-        this.data = null;
         this.correspondingPosts = null;
         this.uploadedOn = new Timestamp(System.currentTimeMillis());
     }

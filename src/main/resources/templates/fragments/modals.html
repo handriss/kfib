@@ -42,6 +42,9 @@
                 <div class="modal-body">
 
                     <p>Ide jön a fileselector...</p>
+                    <ul th:each="file : ${files}">
+                        <li th:text="${file.name}"></li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Mégsem</button>
