@@ -125,7 +125,7 @@
                             <input type="file" id="file" name="file"/>
                         </div>
 
-                        <div class="btn btn-default image-preview-input">
+                        <div class="btn btn-default image-preview-input" data-target="#file-selector" data-toggle="modal">
                             <span class="glyphicon glyphicon-folder-open"></span>
                             <span class="image-preview-input-title">Már feltöltött fájlok kiválasztása</span>
                         </div>
@@ -174,7 +174,7 @@
 
     </form>
 </div>
-
+<div th:replace="fragments/modals :: file-selector-modal"></div>
 <div th:replace="fragments/javascript-links :: javascript-link"></div>
 <div th:replace="fragments/javascript-links :: file-upload"></div>
 
