@@ -36,8 +36,9 @@ public class File {
         this.uploadedOn = new Timestamp(System.currentTimeMillis());
     }
 
-    public File(String name) {
+    public File(String name, String url) {
         this.name = name;
+        this.url = url;
         this.correspondingPosts = null;
         this.uploadedOn = new Timestamp(System.currentTimeMillis());
     }

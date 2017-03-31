@@ -66,14 +66,12 @@ $(function () {
         init();
     });
 
-    $('#get-checked-data').on('click', function(event) {
-        event.preventDefault();
-        var checkedItems = {}, counter = 0;
-        $("#check-list-box li.active").each(function(idx, li) {
-            checkedItems[counter] = $(li).text();
-            counter++;
+
+    $('#submit-files-button').on('click', function(event){
+
+        $('#check-list-box li.active').each(function(idx, li){
+
+            $('#uploadedFiles').append('<a href=' + $(li).attr("url") + ' class="list-group-item list-group-item-success file list"><span class="badge alert-success pull-right"><span class="glyphicon glyphicon-remove"></span></span>' + $(li).text() + '</a>');
         });
-        console.log(checkedItems);
-        // $('#display-json').html(JSON.stringify(checkedItems, null, '\t'));
     });
 });
