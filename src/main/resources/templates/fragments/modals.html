@@ -42,12 +42,13 @@
                 <div class="modal-body">
 
                     <div class="row">
-                            <div class="well">
-                                <ul th:each="file : ${files}" id="check-list-box" class="list-group checked-list-box">
-                                    <li th:attr="url=${file.url}" th:text="${file.name}" class="list-group-item file-row" data-color="info"></li>
-                                </ul>
-                            </div>
+                        <div class="well">
+                            <ul th:each="file : ${files}" id="check-list-box" class="list-group checked-list-box">
+                                <li th:attr="url=${file.url}" th:text="${file.name}" class="list-group-item file-row" data-color="info"></li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success btn-ok" data-dismiss="modal" id="submit-files-button">Rendben</button>
