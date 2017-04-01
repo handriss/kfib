@@ -71,7 +71,8 @@ $(function () {
 
         $('#check-list-box li.active').each(function(idx, li){
 
-            $('#uploadedFiles').append('<a href=' + $(li).attr("url") + ' class="list-group-item list-group-item-success file list"><span class="badge alert-success pull-right"><span class="glyphicon glyphicon-remove"></span></span>' + $(li).text() + '</a>');
+            $('#uploadedFiles').append('<a href=' + $(li).attr("url") + ' ><div class="alert alert-info alert-labeled"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Bezárás</span></button><div class="alert-labeled-row file-list"><p class="alert-body alert-body-right alert-labelled-cell">' + $(li).text() + '</p></div></div></a>');
+
         });
     });
 });

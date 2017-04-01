@@ -436,12 +436,6 @@ button:hover {
     margin-top: 20px;
 }
 
-.file-list {
-    margin-top: 5px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 /* CSS REQUIRED */
 .state-icon {
     left: -5px;
@@ -460,11 +454,15 @@ button:hover {
 
 .alert-labeled{
     padding: 0px;
+    white-space:nowrap;
+    overflow: hidden;
+    /*width: 50px;*/
 }
 
 .alert-labeled-row{
     display: table-row;
     padding: 0px;
+    display: inline-block;
 }
 
 .alert-labelled-cell{
