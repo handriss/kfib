@@ -1,7 +1,7 @@
 package com.codecool.model.enums;
 
 
-public enum DocumentCategory {
+public enum PostCategory {
     TECHNIKAI_KIVETÍTÉSEK,
     KÖLTSÉGVETÉSI_ELEMZÉSEK,
     EGYÉB
