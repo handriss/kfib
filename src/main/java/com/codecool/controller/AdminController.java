@@ -4,6 +4,8 @@ package com.codecool.controller;
 import com.codecool.exception.PostNotFoundException;
 import com.codecool.model.File;
 import com.codecool.model.Post;
+import com.codecool.model.enums.PostCategory;
+import com.codecool.model.enums.TargetCategory;
 import com.codecool.service.FileService;
 import com.codecool.service.PostService;
 import com.codecool.service.UserService;
@@ -46,11 +48,11 @@ public class AdminController {
         List<File> files = fileService.findAll();
         model.addAttribute("files", files);
 
-        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-        model.addAttribute("tags", tags);
-
-        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-        model.addAttribute("types", types);
+//        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
+//        model.addAttribute("tags", tags);
+//
+//        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
+//        model.addAttribute("types", types);
 
         Post post = new Post();
         model.addAttribute("post", post);

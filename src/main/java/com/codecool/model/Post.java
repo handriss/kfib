@@ -1,6 +1,8 @@
 package com.codecool.model;
 
 
+import com.codecool.model.enums.PostCategory;
+import com.codecool.model.enums.TargetCategory;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -25,6 +27,12 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
+    @Enumerated(EnumType.STRING)
+    private PostCategory postCategory;
+
+    @Enumerated(EnumType.STRING)
+    private TargetCategory targetCategory;
+
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
@@ -42,9 +50,5 @@ public class Post {
     public Post(String title) {
         this.title = title;
         this.postedOn = new Timestamp(System.currentTimeMillis());
-    }
-
-    public void addUser(User user){
-        this.users.add(user);
     }
 }
