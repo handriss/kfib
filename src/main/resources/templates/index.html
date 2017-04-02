@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head_user"></head>
+<head th:replace="fragments/skeleton/head :: head_user"></head>
 
 <body>
 
@@ -35,7 +35,7 @@
                 FELELŐSSÉGI INTÉZET <span></span></h1>
             <h2>Budapesti nonprofit elemző központ</h2>
             <br/>
-            <div class="heading">
+            <div class="heading introduction-description">
                 <h3>"Küldetésünk, hogy Magyarországon is meghonosodjék az átlátható, szakmai érveken
                     és tényeken alapuló döntéshozatal."
                 </h3>
@@ -47,11 +47,12 @@
     <!-- ( b ) Navigation Menu -->
 
     <div class="menu">
+
         <!--eredetileg ez volt a profile-->
         <div class="portfolio-btn">
             <!--<img alt="" src="user/user/user/images/menu/profile_btn.jpg">-->
             <!--<img alt="" src="user/user/user/images/menu/menu-1.jpg">-->
-            <img alt="" src="user/images/menu/menugeneral2.jpg"/>
+            <!--<img alt="" src="user/imag/menu/menugeneral2.jpg"/>-->
             <div class="mask">
             </div>
             <div class="heading col-xs-11 col-xs-offset-1">
@@ -62,16 +63,16 @@
                     <h2>PR<span>O</span>JEKTEK</h2>
                     <h3>Some words about me.</h3>
 
-                    <div class="project-tag">
-                        <a href="#" class="fa fa-pie-chart" data-toggle="tooltip" data-placement="right" title="Költségvetési elemzések"></a>
-                        <a href="#" class="fa fa-pie-chart" data-toggle="tooltip" data-placement="right" title="Költségvetési elemzések"></a>
-                        <!--<a href="#" class="fa fa-twitter" data-toggle="tooltip" title="Twitter"></a>-->
-                        <!--<a href="#" class="fa fa-plus" data-toggle="tooltip" title="Google+"></a>-->
-                        <!--<a href="#" class="fa fa-linkedin" data-toggle="tooltip" title="Linkedin"></a>-->
-                        <!--<a href="#" class="fa fa-behance" data-toggle="tooltip" title="Behance"></a>-->
-                        <!--<a href="#" class="fa fa-flickr" data-toggle="tooltip" title="Flicker"></a>-->
-                        <!--<a href="#" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></a>-->
-                    </div>
+                    <!--<div>-->
+                        <!--<a href="#" class="fa fa-pie-chart" data-toggle="tooltip" data-placement="right" title="Költségvetési elemzések"></a>-->
+                        <!--<a href="#" class="fa fa-pie-chart" data-toggle="tooltip" data-placement="right" title="Költségvetési elemzések"></a>-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-twitter" data-toggle="tooltip" title="Twitter"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-plus" data-toggle="tooltip" title="Google+"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-linkedin" data-toggle="tooltip" title="Linkedin"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-behance" data-toggle="tooltip" title="Behance"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-flickr" data-toggle="tooltip" title="Flicker"></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="#" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></a>&ndash;&gt;-->
+                    <!--</div>-->
 
                     <!--<button type="button" class="btn btn-success" aria-label="Left Align" title="TECHNIKAI KIVETÍTÉSEK">-->
                         <!--<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>-->
@@ -100,7 +101,7 @@
         <div class="resume-btn">
             <!--<img alt="" src="user/user/images/menu/resume_btn.jpg">-->
             <!--<img alt="" src="user/user/images/menu/menu-1.jpg">-->
-            <img alt="" src="user/images/menu/menugeneral2.jpg"/>
+            <!--<img alt="" src="user/images/menu/menugeneral2.jpg"/>-->
             <div class="mask">
             </div>
             <div class="heading col-xs-11 col-xs-offset-1">
@@ -120,7 +121,7 @@
         <div class="profile-btn">
             <!--<img alt="" src="user/user/images/menu/portfolio_btn.jpg">-->
             <!--<img alt="" src="user/user/images/menu/menu-1.jpg">-->
-            <img alt="" src="user/images/menu/menugeneral2.jpg"/>
+            <!--<img alt="" src="user/images/menu/menugeneral2.jpg"/>-->
             <div class="mask">
             </div>
             <div class="heading col-xs-11 col-xs-offset-1">
@@ -140,7 +141,7 @@
         <div class="contact-btn">
             <!--<img alt="" src="user/user/images/menu/contact_btn.jpg">-->
             <!--<img alt="" src="user/user/images/menu/menu-1.jpg">-->
-            <img alt="" src="user/images/menu/menugeneral2.jpg"/>
+            <!--<img alt="" src="user/images/menu/menugeneral2.jpg"/>-->
             <div class="mask">
             </div>
             <div class="heading col-xs-11 col-xs-offset-1">
@@ -384,42 +385,94 @@
 
                 <!--( B ) What Can I Do -->
 
-                <div class="services-container clearfix donation_descr">
+                <div class="services-container clearfix">
                     <h2 class="small-heading">Hogyan támogathatom?</h2>
                     <p>Kérjük Önt, hogy cégén keresztül vagy magánszemélyként támogassa munkánkat, amellyel
                         hozzájárulunk az ország költségvetésének átláthatóságához, a megalapozott döntéshozatalhoz!
                     </p>
+
+                    <!--( B ) Testimonials Section -->
+
+                    <div class="testimonials clearfix">
+                        <h2 class="small-heading">Támogatási módok</h2>
+                        <p>Kérjük, válassza ki az alábbi adományozási módok közül az Önnek legkényelmesebb megoldást:</p>
+
+                        <div class="testimonials-container col-sm-10 col-sm-offset-1">
+                            <div class="owl-carousel">
+                                <div>
+                                    <p>
+                                        Banki átutalás - Bankszámlánk adatai:
+                                        - kedvezményezett neve: kfib.hu Közhasznú Nonprofit Kft.
+                                        - bankszámlaszáma: 16200010-00128333 (Magnet Bank).
+                                        Ha cégként támogatja munkánkat, kérjük, hogy az átutalás közleményében adja meg a cég elérhetőségét, hogy megküldhessük az adókedvezmény igénybevételéhez szükséges dokumentumokat.
+                                    </p>
+                                    <!--<h3>Justin Peterson</h3>-->
+                                </div>
+
+                                <!-- Single Testimonial Item [ END ] -->
+
+                                <div>
+                                    <p>
+                                        Postai befizetés sárga csekken. Kérjen tőlünk csekket a kapcsolat@kfib.hu e-mail címen!
+                                    </p>
+                                    <!--<h3>Cristina Devis</h3>-->
+                                </div>
+
+                                <!-- Single Testimonial Item [ END ] -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                     <h4>3+1 érv, amiért érdemes támogatnia munkánkat:</h4>
 
-                    <div class="services col-lg-4 col-md-6 col-sm-4">
-                        <i class="ion-compass"></i>
-                        <h3>KISZÁMÍTHATÓSÁG</h3>
+                        <div class="services col-lg-4 col-md-6 col-sm-4 cause_box">
+                            <i class="ion-compass"></i>
+                            <h3>KISZÁMÍTHATÓSÁG</h3>
 
-                        <p class="justified-paragraph ">
-                            Ön, akár mint adófizető, akár mint cégvezető kiszámítható, stabil gazdasági környezetben
-                            végezhesse munkáját, tervezhesse jövőjét. Mi a kiszámíthatóság és a stabilitás
-                            megteremtéséért dolgozunk.
-                        </p>
-                    </div>
+                            <p class="justified-paragraph ">
+                                Ön, akár mint adófizető, akár mint cégvezető kiszámítható, stabil gazdasági környezetben
+                                végezhesse munkáját, tervezhesse jövőjét. Mi a kiszámíthatóság és a stabilitás
+                                megteremtéséért dolgozunk.
+                            </p>
 
-                    <!-- Single Service Item [ END ]  -->
+                        </div>
 
-                    <div class="services col-lg-4 col-md-6 col-sm-4">
-                        <i class="ion-android-people"></i>
-                        <h3>FÜGGETLENSÉG</h3>
+                        <div class="services col-lg-4 col-md-6 col-sm-4 cause_box">
+                            <i class="ion-android-people"></i>
+                            <h3>FÜGGETLENSÉG</h3>
 
-                        <p class="justified-paragraph ">
-                            Ön, mint a közügyek iránt érdeklődő állampolgár valós, politikai és üzleti érdekek be
-                            folyásától mentes, magas szakmai színvonalú anyagokat olvashasson az ország egészét érintő g
-                            azdasági kérdésekről.
-                        </p>
-                    </div>
+                            <p class="justified-paragraph ">
+                                Ön, mint a közügyek iránt érdeklődő állampolgár valós, politikai és üzleti érdekek be
+                                folyásától mentes, magas szakmai színvonalú anyagokat olvashasson az ország egészét érintő g
+                                azdasági kérdésekről.
+                            </p>
+                        </div>
 
+                        <div class="services col-lg-4 col-md-6 col-sm-4 cause_box">
+                            <i class="ion-android-people"></i>
+                            <h3>KONTROLL</h3>
 
+                            <p class="justified-paragraph ">
+                                Ön, mint választópolgár a politikai folyamatok feletti civil kontrollt erősítse a kiszámítható és reális költségvetés érdekében.
+                            </p>
+                        </div>
+
+                        <div class="services col-lg-4 col-md-6 col-sm-4 cause_box">
+                            <i class="ion-android-people"></i>
+                            <h3>ADÓZÁS</h3>
+
+                            <p class="justified-paragraph ">
+                                A cég által befizetett adomány költségként vehető figyelembe, tehát az adomány mentesül a társasági adó alól.  A kedvezmény automatikus; a szükséges dokumentumokat megküldjük adományozóinknak a törvény által előírt határidőre.
+                            </p>
+                        </div>
                 </div>
             </div>
 
-            <div class="col-lg-12 col-lg-offset-1 panel_faq">
+            <div class="col-lg-12 col-lg-offset-1">
                 <div th:replace="fragments/faq :: donate_faq"></div>
             </div>
         </div>
@@ -671,7 +724,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="1">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_1.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_1.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -684,7 +737,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-1">
-                        <img alt="" src="user/user/images/portfolio/image_1.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_1.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -705,7 +758,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="2">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_2.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_2.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -718,7 +771,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-2">
-                        <img alt="" src="user/user/images/portfolio/image_2.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_2.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -739,7 +792,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="3">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_3.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_3.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -752,7 +805,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-3">
-                        <img alt="" src="user/user/images/portfolio/image_3.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_3.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -773,7 +826,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="1">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_4.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_4.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -786,7 +839,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-4">
-                        <img alt="" src="user/user/images/portfolio/image_4.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_4.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -807,7 +860,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="2">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_5.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_5.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -820,7 +873,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-5">
-                        <img alt="" src="user/user/images/portfolio/image_5.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_5.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -841,7 +894,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="3">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_6.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_6.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -854,7 +907,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-6">
-                        <img alt="" src="user/user/images/portfolio/image_6.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_6.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -875,7 +928,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="2">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_7.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_7.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -888,7 +941,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-7">
-                        <img alt="" src="user/user/images/portfolio/image_7.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_7.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -909,7 +962,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="1">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_8.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_8.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -922,7 +975,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-8">
-                        <img alt="" src="user/user/images/portfolio/image_8.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_8.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -943,7 +996,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="3">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_9.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_9.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -956,7 +1009,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-9">
-                        <img alt="" src="user/user/images/portfolio/image_9.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_9.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -977,7 +1030,7 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 filtr-item" data-category="2">
                         <div class="project">
-                            <img src="user/user/images/portfolio/thumbs/image_10.jpg" alt=""/>
+                            <img src="user/images/portfolio/thumbs/image_10.jpg" alt=""/>
                             <div class="ovrly">
                             </div>
                             <div class="buttons">
@@ -990,7 +1043,7 @@
                     <!-- Popup Content -->
 
                     <div class="pop-up-box" id="portfolio-10">
-                        <img alt="" src="user/user/images/portfolio/image_10.jpg" class=" hidden-xs"/>
+                        <img alt="" src="user/images/portfolio/image_10.jpg" class=" hidden-xs"/>
                         <div class="popup-content">
                             <h3>PROJECT NAME</h3>
                             <p>
@@ -1237,8 +1290,8 @@
 </div>
 
 
-<div th:replace="fragments/javascript-links :: javascript-link-user"></div>
-<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-user"></div>
+<div th:replace="fragments/skeleton/footer :: footer"></div>
 
 </body>
 </html>
