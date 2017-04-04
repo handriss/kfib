@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @Slf4j
 @Entity
-@Table(name="postCategories")
+@Table(name="post_category")
 public class PostCategory {
 
     @Id

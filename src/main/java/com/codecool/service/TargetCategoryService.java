@@ -1,7 +1,6 @@
 package com.codecool.service;
 
 import com.codecool.model.TargetCategory;
-import com.codecool.repository.PostCategoryRepository;
 import com.codecool.repository.TargetCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ public class TargetCategoryService {
     TargetCategoryRepository targetCategoryRepository;
 
     @Autowired
-    public TargetCategoryService(PostCategoryRepository postCategoryRepository) {
+    public TargetCategoryService(TargetCategoryRepository targetCategoryRepository) {
         this.targetCategoryRepository = targetCategoryRepository;
     }
 

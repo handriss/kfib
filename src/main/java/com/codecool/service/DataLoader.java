@@ -1,10 +1,9 @@
 package com.codecool.service;
 
 
-import com.codecool.model.File;
-import com.codecool.model.Post;
-import com.codecool.model.Role;
-import com.codecool.model.User;
+import com.codecool.model.*;
+import com.codecool.model.enums.PostCategoryEnum;
+import com.codecool.model.enums.TargetCategoryEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,18 +24,35 @@ public class DataLoader {
     private PostService postService;
     private BCryptPasswordEncoder passwordEncoder;
     private FileService fileService;
+    private PostCategoryService postCategoryService;
+    private TargetCategoryService targetCategoryService;
 
     @Autowired
-    public DataLoader(FileService fileService, PostService postService, UserService userService, RoleService roleService, BCryptPasswordEncoder passwordEncoder) {
+    public DataLoader(TargetCategoryService targetCategoryService, UserService userService, RoleService roleService, PostService postService, BCryptPasswordEncoder passwordEncoder, FileService fileService, PostCategoryService postCategoryService) {
         this.userService = userService;
         this.roleService = roleService;
-        this.passwordEncoder = passwordEncoder;
         this.postService = postService;
+        this.passwordEncoder = passwordEncoder;
         this.fileService = fileService;
+        this.postCategoryService = postCategoryService;
+        this.targetCategoryService = targetCategoryService;
     }
 
+
     @PostConstruct
-    public void fileUpload(){
+    public void enumLoader(){
+
+        for(PostCategoryEnum category : PostCategoryEnum.values()){
+            postCategoryService.save(new PostCategory(category.getName()));
+        }
+
+        for(TargetCategoryEnum category : TargetCategoryEnum.values()){
+            targetCategoryService.save(new TargetCategory(category.getName()));
+        }
+
+//        for(TargetCategoryEnum category : TargetCategoryEnum.values()){
+//            targetCategoryService.save(new TargetCategory(category.getName()));
+//        }
 
     }
 
@@ -46,34 +62,10 @@ public class DataLoader {
         File file1 = new File("picture01", "https://www.google.hu/");
         File file2 = new File("picture02", "https://www.google.hu/");
         File file3 = new File("picture03", "https://www.google.hu/");
-//        File file4 = new File("picture04");
-//        File file5 = new File("picture05");
-//        File file6 = new File("picture06");
-//        File file7 = new File("picture07");
-//        File file8 = new File("picture08");
-//        File file9 = new File("picture09");
-//        File file10 = new File("picture10");
-//        File file11 = new File("picture11");
-//        File file12 = new File("picture12");
-//        File file13 = new File("picture13");
-//        File file14 = new File("picture14");
-//        File file15 = new File("picture15");
 
         fileService.save(file1);
         fileService.save(file2);
         fileService.save(file3);
-//        fileService.save(file4);
-//        fileService.save(file5);
-//        fileService.save(file6);
-//        fileService.save(file7);
-//        fileService.save(file8);
-//        fileService.save(file9);
-//        fileService.save(file10);
-//        fileService.save(file11);
-//        fileService.save(file12);
-//        fileService.save(file13);
-//        fileService.save(file14);
-//        fileService.save(file15);
 
 
         Set<Role> roles = new HashSet<>();
