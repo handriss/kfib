@@ -1,8 +1,6 @@
 package com.codecool.model;
 
 
-import com.codecool.model.enums.PostCategory;
-import com.codecool.model.enums.TargetCategory;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,15 +25,17 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    @Enumerated(EnumType.STRING)
-    private PostCategory postCategory;
-
-    @Enumerated(EnumType.STRING)
-    private TargetCategory targetCategory;
-
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="postCategory_post", joinColumns = @JoinColumn(name="kutya2"), inverseJoinColumns = @JoinColumn(name="cica2"))
+    private Set<PostCategory> postCategories;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="targetCategory_post", joinColumns = @JoinColumn(name="kutya"), inverseJoinColumns = @JoinColumn(name="cica"))
+    private Set<TargetCategory> targetCategories;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_post", joinColumns = @JoinColumn(name="role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))

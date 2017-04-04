@@ -4,8 +4,6 @@ package com.codecool.controller;
 import com.codecool.exception.PostNotFoundException;
 import com.codecool.model.File;
 import com.codecool.model.Post;
-import com.codecool.model.enums.PostCategory;
-import com.codecool.model.enums.TargetCategory;
 import com.codecool.service.FileService;
 import com.codecool.service.PostService;
 import com.codecool.service.UserService;
