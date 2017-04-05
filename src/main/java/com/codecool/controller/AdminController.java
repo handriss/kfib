@@ -4,17 +4,13 @@ package com.codecool.controller;
 import com.codecool.exception.PostNotFoundException;
 import com.codecool.model.File;
 import com.codecool.model.Post;
-import com.codecool.service.FileService;
-import com.codecool.service.PostService;
-import com.codecool.service.UserService;
+import com.codecool.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -26,12 +22,16 @@ public class AdminController {
     private PostService postService;
     private UserService userService;
     private FileService fileService;
+    private PostCategoryService postCategoryService;
+    private TargetCategoryService targetCategoryService;
 
     @Autowired
-    public AdminController(PostService postService, UserService userService, FileService fileService) {
+    public AdminController(PostService postService, UserService userService, FileService fileService, PostCategoryService postCategoryService, TargetCategoryService targetCategoryService) {
         this.postService = postService;
         this.userService = userService;
         this.fileService = fileService;
+        this.postCategoryService = postCategoryService;
+        this.targetCategoryService = targetCategoryService;
     }
 
     @GetMapping("/posts")
@@ -45,6 +45,9 @@ public class AdminController {
 
         List<File> files = fileService.findAll();
         model.addAttribute("files", files);
+
+//        List<PostCategory> postCategories = postCategoryService.findAll();
+//        model.addAttribute("postCategories", postCategories);
 
 //        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
 //        model.addAttribute("tags", tags);
@@ -60,7 +63,7 @@ public class AdminController {
     @PostMapping("/create-post")
     public String savePost(Post post){
 
-
+        log.info(post.getPostCategories().toString());
         postService.save(post);
         return "redirect:/admin/posts";
     }
@@ -76,11 +79,11 @@ public class AdminController {
 
         model.addAttribute("post", post);
 
-        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-        model.addAttribute("tags", tags);
-
-        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-        model.addAttribute("types", types);
+//        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
+//        model.addAttribute("tags", tags);
+//
+//        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
+//        model.addAttribute("types", types);
 
         return "admin/create-post";
     }

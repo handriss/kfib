@@ -1,9 +1,10 @@
 package com.codecool.service;
 
 
-import com.codecool.model.*;
-import com.codecool.model.enums.PostCategoryEnum;
-import com.codecool.model.enums.TargetCategoryEnum;
+import com.codecool.model.File;
+import com.codecool.model.Post;
+import com.codecool.model.Role;
+import com.codecool.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -39,22 +40,19 @@ public class DataLoader {
     }
 
 
-    @PostConstruct
-    public void enumLoader(){
-
-        for(PostCategoryEnum category : PostCategoryEnum.values()){
-            postCategoryService.save(new PostCategory(category.getName()));
-        }
-
-        for(TargetCategoryEnum category : TargetCategoryEnum.values()){
-            targetCategoryService.save(new TargetCategory(category.getName()));
-        }
-
+//    @PostConstruct
+//    public void enumLoader(){
+//
+//        for(PostCategoryEnum category : PostCategoryEnum.values()){
+//            postCategoryService.save(new PostCategory(category.getName()));
+//        }
+//
 //        for(TargetCategoryEnum category : TargetCategoryEnum.values()){
 //            targetCategoryService.save(new TargetCategory(category.getName()));
 //        }
-
-    }
+//
+//
+//    }
 
     @PostConstruct
     public void loadData(){

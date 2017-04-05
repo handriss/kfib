@@ -1,12 +1,15 @@
 package com.codecool.model;
 
 
+import com.codecool.model.enums.PostCategoryEnum;
+import com.codecool.model.enums.TargetCategoryEnum;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
@@ -29,13 +32,17 @@ public class Post {
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="postCategory_post", joinColumns = @JoinColumn(name="kutya2"), inverseJoinColumns = @JoinColumn(name="cica2"))
-    private Set<PostCategory> postCategories;
+    private ArrayList<PostCategoryEnum> postCategories;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="targetCategory_post", joinColumns = @JoinColumn(name="kutya"), inverseJoinColumns = @JoinColumn(name="cica"))
-    private Set<TargetCategory> targetCategories;
+    private ArrayList<TargetCategoryEnum> targetCategories;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name="postCategory_post", joinColumns = @JoinColumn(name="kutya2"), inverseJoinColumns = @JoinColumn(name="cica2"))
+//    private Set<PostCategoryEnum> postCategories;
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name="targetCategory_post", joinColumns = @JoinColumn(name="kutya"), inverseJoinColumns = @JoinColumn(name="cica"))
+//    private Set<TargetCategoryEnum> targetCategories;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_post", joinColumns = @JoinColumn(name="role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))

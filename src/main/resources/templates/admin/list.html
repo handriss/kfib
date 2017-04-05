@@ -27,7 +27,7 @@
         <tr>
             <th class="dt-center">Id</th>
             <th class="dt-center">Cím</th>
-            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Elemzés fajtája</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -36,7 +36,7 @@
         <tr>
             <th class="dt-center">Id</th>
             <th class="dt-center">Cím</th>
-            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Elemzés fajtája</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -46,7 +46,8 @@
         <tr th:each="post : ${posts}">
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
-            <td th:text="${post.body}"></td>
+            <td th:text="${post.postCategories}"></td>
+
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
                 <a th:href="@{/admin/posts/} + ${post.id}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
