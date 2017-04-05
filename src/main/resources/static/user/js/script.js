@@ -22,7 +22,7 @@
 
 $(window).load(function () {
     $('#preloader').delay(350).fadeOut('slow', function () {
-        $('.profile-page, .resume-page, .contact-page, .portfolio-page, .donate-page').hide();
+        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
     });
 });
 
@@ -125,7 +125,7 @@ $(document).ready(function () {
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
-        $('.portfolio-page').fadeIn(1200);
+        $('.project-page').fadeIn(1200);
     });
 
     $('.menu div.contact-btn').on('click', function () {
@@ -136,6 +136,7 @@ $(document).ready(function () {
         $('.profile-page').css({
             visibility: 'hidden'
         });
+        console.log("cica");
         $('.donate-page').css({
             visibility: 'visible'
         });
@@ -153,7 +154,7 @@ $(document).ready(function () {
         $('.introduction, .menu').animate({
             left: 0
         }, 1000, 'easeOutQuart');
-        $('.profile-page, .resume-page, .portfolio-page, .contact-page, .donate-page').fadeOut(800);
+        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page').fadeOut(800);
     });
 
     /*  --------------------------------

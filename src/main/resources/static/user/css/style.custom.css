@@ -534,7 +534,7 @@ body {
 
 .profile-page,
 .resume-page,
-.portfolio-page,
+.project-page,
 .contact-page {
     position: absolute;
     top: 0;
@@ -900,15 +900,15 @@ body {
 }
 
 /*--------------------
-   9 ) Portfolio Page
+   9 ) Portfolio Page - PROJEKTEK
   --------------------*/
 
 /* ( a ) Portfolio Section */
 
-.portfolio-page .image-container {
-    background: url(../images/background/portfolio_image.jpg);
-    background-size: cover;
-    background-position: bottom;
+.project-page .image-container {
+    /*background: url(../images/background/portfolio_image.jpg);*/
+    /*background-size: cover;*/
+    /*background-position: bottom;*/
 }
 
 .project-controls {
@@ -916,10 +916,11 @@ body {
     text-align: center;
 }
 
-.filter {
+/*custom property*/
+.according-to-user {
     background: none;
-    border: 1px solid #5cb85c;
-    color: #5cb85c;
+    border: 1px solid #449d44;
+    color: #449d44;
     margin: 10px 0;
     padding: 10px 25px;
     -webkir-transition: all 0.3s;
@@ -929,8 +930,44 @@ body {
     transition: all 0.3s;
 }
 
-.filter:hover {
+/*custom property*/
+.according-to-type{
+    background: none;
+    border: 1px solid #455689;
+    color: #455689;
+    margin: 10px 0;
+    padding: 10px 25px;
+    -webkir-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.according-to-importance {
+    background: none;
+    border: 1px solid #884455;
+    color: #884455;
+    margin: 10px 0;
+    padding: 10px 25px;
+    -webkir-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/*custom property*/
+.according-to-user:hover {
     background: #5cb85c;
+    color: #fff;
+}
+.according-to-type:hover {
+    background: #455689;
+    color: #fff;
+}
+.according-to-importance:hover {
+    background: #884455;
     color: #fff;
 }
 
@@ -1127,6 +1164,12 @@ body {
     text-align: center;
 }
 
+
+/*custom property*/
+.project-text {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 /*-------------------
    10 ) Contact Page
   -------------------*/
