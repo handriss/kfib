@@ -46,15 +46,6 @@ public class AdminController {
         List<File> files = fileService.findAll();
         model.addAttribute("files", files);
 
-//        List<PostCategory> postCategories = postCategoryService.findAll();
-//        model.addAttribute("postCategories", postCategories);
-
-//        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-//        model.addAttribute("tags", tags);
-//
-//        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-//        model.addAttribute("types", types);
-
         Post post = new Post();
         model.addAttribute("post", post);
         return "admin/create-post";
@@ -78,12 +69,6 @@ public class AdminController {
         }
 
         model.addAttribute("post", post);
-
-//        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-//        model.addAttribute("tags", tags);
-//
-//        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-//        model.addAttribute("types", types);
 
         return "admin/create-post";
     }
