@@ -3,6 +3,7 @@ package com.codecool.model;
 
 import com.codecool.model.enums.PostCategoryEnum;
 import com.codecool.model.enums.TargetCategoryEnum;
+import lombok.extern.slf4j.Slf4j;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
 
+@Slf4j
 @Getter
 @Setter
 @Entity
@@ -35,14 +37,6 @@ public class Post {
     private ArrayList<PostCategoryEnum> postCategories;
 
     private ArrayList<TargetCategoryEnum> targetCategories;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name="postCategory_post", joinColumns = @JoinColumn(name="kutya2"), inverseJoinColumns = @JoinColumn(name="cica2"))
-//    private Set<PostCategoryEnum> postCategories;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name="targetCategory_post", joinColumns = @JoinColumn(name="kutya"), inverseJoinColumns = @JoinColumn(name="cica"))
-//    private Set<TargetCategoryEnum> targetCategories;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_post", joinColumns = @JoinColumn(name="role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))

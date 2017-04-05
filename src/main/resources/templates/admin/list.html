@@ -46,7 +46,13 @@
         <tr th:each="post : ${posts}">
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
-            <td th:text="${post.postCategories}"></td>
+            <td>
+                <div th:each="category : ${post.postCategories}">
+                    <span th:text="${category.name}"></span>
+                </div>
+            </td>
+
+            <!--<td th:text="${post.postCategories}"></td>-->
 
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">

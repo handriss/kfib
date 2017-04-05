@@ -25,34 +25,16 @@ public class DataLoader {
     private PostService postService;
     private BCryptPasswordEncoder passwordEncoder;
     private FileService fileService;
-    private PostCategoryService postCategoryService;
-    private TargetCategoryService targetCategoryService;
 
     @Autowired
-    public DataLoader(TargetCategoryService targetCategoryService, UserService userService, RoleService roleService, PostService postService, BCryptPasswordEncoder passwordEncoder, FileService fileService, PostCategoryService postCategoryService) {
+    public DataLoader(UserService userService, RoleService roleService, PostService postService, BCryptPasswordEncoder passwordEncoder, FileService fileService) {
         this.userService = userService;
         this.roleService = roleService;
         this.postService = postService;
         this.passwordEncoder = passwordEncoder;
         this.fileService = fileService;
-        this.postCategoryService = postCategoryService;
-        this.targetCategoryService = targetCategoryService;
     }
 
-
-//    @PostConstruct
-//    public void enumLoader(){
-//
-//        for(PostCategoryEnum category : PostCategoryEnum.values()){
-//            postCategoryService.save(new PostCategory(category.getName()));
-//        }
-//
-//        for(TargetCategoryEnum category : TargetCategoryEnum.values()){
-//            targetCategoryService.save(new TargetCategory(category.getName()));
-//        }
-//
-//
-//    }
 
     @PostConstruct
     public void loadData(){
@@ -80,34 +62,11 @@ public class DataLoader {
         Post post1 = new Post("Kockásfülű nyúl");
         Post post2 = new Post("Lola és bolka");
         Post post3 = new Post("Lola és bolka");
-        Post post4 = new Post("Lola és bolka");
-        Post post5 = new Post("Lola és bolka");
-        Post post6 = new Post("Lola és bolka");
-        Post post7 = new Post("Lola és bolka");
-        Post post8 = new Post("Lola és bolka");
-        Post post9 = new Post("Lola és bolka");
-        Post post10 = new Post("Lola és bolka");
-        Post post11 = new Post("Lola és bolka");
-        Post post12 = new Post("Lola és bolka");
-        Post post13 = new Post("Lola és bolka");
-        Post post14 = new Post("Lola és bolka");
-        Post post15 = new Post("Lola és bolka");
 
         postService.save(post1);
         postService.save(post2);
         postService.save(post3);
-        postService.save(post4);
-        postService.save(post5);
-        postService.save(post6);
-        postService.save(post7);
-        postService.save(post8);
-        postService.save(post9);
-        postService.save(post10);
-        postService.save(post11);
-        postService.save(post12);
-        postService.save(post13);
-        postService.save(post14);
-        postService.save(post15);
+
 
         posts.add(post1);
         posts.add(post2);

@@ -50,10 +50,6 @@
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
                             th:href="@{/admin/posts}">Tartalomkezelő</a></li>
 
-                    <li class="divider-vertical"></li>
-
-                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/browse-files' ? 'active':''}"><a
-                            th:href="@{/admin/browse-files}">Fájlkezelő</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
