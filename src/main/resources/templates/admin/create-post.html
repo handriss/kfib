@@ -46,13 +46,27 @@
             </div>
             <div class="row">
 
-                <select th:field="*{postCategories}" class="form-control" multiple="multiple">
+                <!--<select th:field="*{postCategories}" class="form-control" multiple="multiple">-->
+                    <!--<option th:each="category : ${T(com.codecool.model.enums.PostCategoryEnum).values()}"-->
+                            <!--th:value="${category}"-->
+                            <!--th:text="${category.name}">-->
+                    <!--</option>-->
+                <!--</select>-->
+
+                <select th:field="*{postCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
                     <option th:each="category : ${T(com.codecool.model.enums.PostCategoryEnum).values()}"
                             th:value="${category}"
-                            th:text="${category.name}">
+                            th:text="${category.name}"
+                            data-icon="glyphicon-link">
                     </option>
                 </select>
 
+                <!--<select type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">-->
+                    <!--<option value="0" data-icon="glyphicon-picture text-primary" selected="selected">Photos</option>-->
+                    <!--<option value="1" data-icon="glyphicon-link">Link</option>-->
+                    <!--<option value="2" data-icon="glyphicon-pencil text-danger" selected="selected">Edit</option>-->
+                    <!--<option value="3" data-icon="glyphicon-shopping-cart">Cart</option>-->
+                <!--</select>-->
 
             </div>
         </div>
@@ -73,27 +87,6 @@
                     </option>
                 </select>
 
-                <div class="searchable-container">
-
-                    <!--<div th:each="category : ${T(com.codecool.model.enums.PostCategoryEnum).values()}" class="col-xs-5 col-sm-5 col-md-3 col-lg-3">-->
-
-                        <!--<div class="info-block block-info clearfix">-->
-                            <!--<div class="square-box pull-left">-->
-                                <!--<span class="glyphicon glyphicon-tags glyphicon-lg"></span>-->
-                            <!--</div>-->
-                            <!--<div data-toggle="buttons" class="btn-group bizmoduleselect">-->
-                                <!--<label class="btn btn-default">-->
-                                    <!--<div class="bizcontent">-->
-                                        <!--<input th:field="*{postCategories}" type="checkbox" name="var_id[]" autocomplete="off" value=""/>-->
-                                        <!--<span class="glyphicon glyphicon-ok glyphicon-lg"></span>-->
-                                        <!--<h5 th:value="${category}" th:text="${category}">Type A</h5>-->
-                                    <!--</div>-->
-                                <!--</label>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                </div>
             </div>
         </div>
 
