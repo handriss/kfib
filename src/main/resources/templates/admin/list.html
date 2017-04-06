@@ -50,12 +50,12 @@
             <td th:text="${post.title}"></td>
             <td>
                 <div th:each="category : ${post.postCategories}">
-                    <span th:text="${category}"></span>
+                    <span th:text="${category.name}"></span>
                 </div>
             </td>
             <td>
                 <div th:each="category : ${post.targetCategories}">
-                    <span th:text="${category}"></span>
+                    <span th:text="${category.name}"></span>
                 </div>
             </td>
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
