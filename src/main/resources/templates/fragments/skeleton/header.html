@@ -2,26 +2,6 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.w3.org/1999/xhtml">
 <body>
-<!--DEFAULT HEADER-->
-<!--<div th:fragment="header">-->
-
-    <!--<nav class="navbar navbar-default">-->
-        <!--<div class="container-fluid">-->
-            <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
-            <!--<div class="navbar-header">-->
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-                        <!--data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
-                    <!--<span class="sr-only">Toggle navigation</span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                <!--</button>-->
-                <!--<a class="navbar-brand" th:href="@{/}">KFIB</a>-->
-            <!--</div>-->
-
-        <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
-    <!--</nav>-->
-<!--</div>-->
 
 <!--ADMIN HEADER-->
 <!--Source: https://getbootstrap.com/components/#navbar-->
@@ -49,11 +29,11 @@
                             th:href="@{/admin/create-post}">Új tartalom létrehozása</a></li>
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
                             th:href="@{/admin/posts}">Tartalomkezelő</a></li>
-
-                    <li class="divider-vertical"></li>
-
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/upload-files' ? 'active':''}"><a
+                            th:href="@{/admin/upload-files}">Új fájl feltöltése</a></li>
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/browse-files' ? 'active':''}"><a
                             th:href="@{/admin/browse-files}">Fájlkezelő</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li th:switch="${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}">
