@@ -63,7 +63,7 @@
             <!--<td th:text="${post.isActive}"></td>-->
 
 
-            <td th:text="${post.isActive() ? 'Igen' : 'Nem'}"></td>
+            <td class="text-center"><span class="badge" th:text="${post.isActive() ? 'Aktív' : 'Inaktív'}"></span></td>
 
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
