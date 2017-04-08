@@ -685,9 +685,9 @@ background: #fff;
 
 /* ( b ) What Can I Do */
 
-.services-container {
-    background: #5cb85c;
-}
+/*.services-container {*/
+    /*background: #5cb85c;*/
+/*}*/
 
 .services-container h2 {
     color: #fff;
@@ -1164,9 +1164,9 @@ background: #fff;
 
 /* ( b )  Testimonial Section */
 
-.testimonials {
-    background: #5cb85c;
-}
+/*.testimonials {*/
+    /*background: #5cb85c;*/
+/*}*/
 
 .testimonials h2 {
     color: #fff;
@@ -1403,22 +1403,22 @@ background: #fff;
 
 .donation-right{
     color: #3b4446;
-    background-color: rgba(92, 184, 92, 0.5);
-    border-radius: 10px;
-    background-size: cover;
-    min-height: 100vh;
+    /*background-color: rgba(92, 184, 92, 0.5);*/
+    /*border-radius: 10px;*/
+    /*background-size: cover;*/
+    /*min-height: 100vh;*/
 }
 
-.donation-right .story {
-    background: none;
-}
+/*.donation-right .story {*/
+    /*background: none;*/
+/*}*/
 
 
 
 .donation_descr {
     color: #3b4446;
-    background: #fff;
-    border-radius: 10px;
+    /*background: #fff;*/
+    /*border-radius: 10px;*/
     text-align: center;
     align-content: center;
 }
