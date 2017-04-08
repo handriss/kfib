@@ -28,7 +28,8 @@
             <th class="dt-center">Id</th>
             <th class="dt-center">Cím</th>
             <th class="dt-center">Elemzés fajtája</th>
-            <th class="dt-center">Célközönség</th>
+            <th class="dt-center">Célközönség</th>ű
+            <th class="dt-center">Státusz</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -39,6 +40,7 @@
             <th class="dt-center">Cím</th>
             <th class="dt-center">Elemzés fajtája</th>
             <th class="dt-center">Célközönség</th>
+            <th class="dt-center">Státusz</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -58,6 +60,11 @@
                     <span th:text="${category.name}"></span>
                 </div>
             </td>
+            <!--<td th:text="${post.isActive}"></td>-->
+
+
+            <td th:text="${post.isActive() ? 'Igen' : 'Nem'}"></td>
+
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
                 <a th:href="@{/admin/posts/} + ${post.id}" class="btn btn-default"><em class="fa fa-pencil"></em></a>

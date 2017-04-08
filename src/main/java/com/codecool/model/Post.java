@@ -46,9 +46,15 @@ public class Post {
     @JoinTable(name="post_file", joinColumns = @JoinColumn(name="post_id"), inverseJoinColumns = @JoinColumn(name="file_id"))
     private Set<File> files;
 
-    public Post(){}
+    private boolean isActive;
+
+    public Post(){
+        this.isActive = false;
+        this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
 
     public Post(String title) {
+        this.isActive = false;
         this.title = title;
         this.postedOn = new Timestamp(System.currentTimeMillis());
     }
