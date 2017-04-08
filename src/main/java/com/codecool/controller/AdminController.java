@@ -59,6 +59,21 @@ public class AdminController {
         return "redirect:/admin/posts";
     }
 
+    @GetMapping("/browse-files")
+    public String browseFiles(Model model){
+
+        List<File> files = fileService.findAll();
+        model.addAttribute("files", files);
+
+        return "admin/browse-files";
+    }
+
+    @GetMapping("/upload-files")
+    public String uploadFiles(Model model){
+
+        return "admin/upload-files";
+    }
+
     @RequestMapping( value = "/posts/{id}", method = RequestMethod.GET )
     public String getPost(@PathVariable(value="id") long id, Model model){
 

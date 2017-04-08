@@ -49,6 +49,10 @@
                             th:href="@{/admin/create-post}">Új tartalom létrehozása</a></li>
                     <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/posts' ? 'active':''}"><a
                             th:href="@{/admin/posts}">Tartalomkezelő</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/upload-files' ? 'active':''}"><a
+                            th:href="@{/admin/upload-files}">Új fájl feltöltése</a></li>
+                    <li th:classappend="${#httpServletRequest.getRequestURI() == '/admin/browse-files' ? 'active':''}"><a
+                            th:href="@{/admin/browse-files}">Fájlkezelő</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
