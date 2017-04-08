@@ -130,7 +130,8 @@
                 <h2 class="heading">Szeretnéd aktiválni az új tartalmat?</h2>
             </div>
             <div class="row little-left-margin">
-                <input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
+                <!--<input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>-->
+                <input th:field="*{isActive}" type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
             </div>
 
         </div>

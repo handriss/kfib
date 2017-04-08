@@ -46,7 +46,7 @@ public class Post {
     @JoinTable(name="post_file", joinColumns = @JoinColumn(name="post_id"), inverseJoinColumns = @JoinColumn(name="file_id"))
     private Set<File> files;
 
-    private boolean isActive;
+    private Boolean isActive;
 
     public Post(){
         this.isActive = false;
