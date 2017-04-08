@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="fragments/skeleton/head :: head_admin"></head>
 
 <body>
 <div id="container">
-    <div th:replace="fragments/header :: admin_header"></div>
+    <div th:replace="fragments/skeleton/header :: admin_header"></div>
 
 <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default panel-table">
@@ -81,7 +81,7 @@
 
 </div>
 
-<div th:replace="fragments/modals :: are-you-sure-modal"></div>
-<div th:replace="fragments/javascript-links :: javascript-link"></div>
+<div th:replace="fragments/skeleton/modals :: are-you-sure-modal"></div>
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-admin"></div>
 </body>
 </html>

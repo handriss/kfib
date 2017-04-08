@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+<div th:fragment="content-contact" class="contact-page">
+
+
+    <!--( a ) Contact Page Fixed Image Portion -->
+
+    <div class="image-container col-md-5 col-sm-12">
+        <div class="mask">
+        </div>
+        <div class="main-heading">
+            <h1>KAP<span>CS</span>OLAT</h1>
+        </div>
+    </div>
+
+    <!--( b ) Contact Page Content -->
+
+    <div class="content-container col-md-7 col-sm-12">
+
+        <!--( A ) Contact Form -->
+
+        <div>
+            <div class="contact-form col-sm-11 clearfix">
+
+                <!--( C ) Contact Details -->
+
+                <div class="contact-details clearfix">
+                    <h2 class="small-heading">Elérhetőségek</h2>
+                    <hr/>
+                    <h3 class="small-heading">Költségvetési Felelősségi Intézet | Budapest</h3>
+                    <hr/>
+                    <p>
+                        <i class="fa fa-map-marker"></i>
+                        Irodánk: 1052 Budapest, Váci utca. 16a
+                    </p>
+
+                    <!-- Single Contact Details Item [ END ] -->
+
+                    <p>
+                        <i class="fa fa-user-circle-o"></i>
+                        Ügyvezető: Romhányi Balázs
+                    </p>
+                    <p>
+                        <i class="fa fa-user-circle-o"></i>
+                        Elemző: Hosszú Edmond
+                    </p>
+
+                    <!-- Single Contact Details Item [ END ] -->
+
+                    <p>
+                        <i class="fa fa-envelope"></i>
+                        Email: balazs.romhanyi@kfib.hu
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope"></i>
+                        Email: info@kfib.hu
+                    </p>
+
+                    <!-- Single Contact Details Item [ END ] -->
+
+                    <p>
+                        <i class="fa fa-info-circle"></i>
+                        Cégjegyzékszám: 21/001 01-09-956341
+                    </p>
+
+                    <!-- Single Contact Details Item [ END ] -->
+
+                    <p>
+                        <i class="fa  fa-info-circle"></i>
+                        Adószám: 21/001 23171569-2-41
+                    </p>
+
+
+                    <!-- Single Contact Details Item [ END ] -->
+
+                    <div class="col-xs-12 social-media">
+                        <a href="https://www.facebook.com/K%C3%B6lts%C3%A9gvet%C3%A9si-Felel%C5%91ss%C3%A9gi-Int%C3%A9zet-Budapest-282593051757248/?fref=ts"
+                           class="fa fa-facebook" data-toggle="tooltip" title="Facebook"></a>
+                        <!--<a href="#" class="fa fa-twitter" data-toggle="tooltip" title="Twitter"></a>-->
+                        <!--<a href="#" class="fa fa-plus" data-toggle="tooltip" title="Google+"></a>-->
+                        <!--<a href="#" class="fa fa-linkedin" data-toggle="tooltip" title="Linkedin"></a>-->
+                        <!--<a href="#" class="fa fa-behance" data-toggle="tooltip" title="Behance"></a>-->
+                        <!--<a href="#" class="fa fa-flickr" data-toggle="tooltip" title="Flicker"></a>-->
+                        <!--<a href="#" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></a>-->
+                    </div>
+
+                    <!-- Social Media Icons [ END ] -->
+
+                </div>
+
+                <h2 class="small-heading">Üzenet küldése</h2>
+
+                <form action="https://formspree.io/kfib.proba@gmail.com" id="contactForm" method="post"
+                      name="contactForm">
+                    <fieldset>
+                        <div class="col-sm-12">
+                            <input id="name" name="name" placeholder="Név" type="text" value=""/>
+                        </div>
+
+                        <!-- Name Field [ END ] -->
+
+                        <div class="col-sm-12">
+                            <input id="email" name="email" placeholder="Email cím" type="text" value=""/>
+                        </div>
+
+                        <!-- Email Field [ END ] -->
+
+                        <div class="col-xs-12">
+                            <textarea cols="5" id="message" name="message" placeholder="Üzenet"></textarea>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <button class="btn btn-default" type="submit">Üzenet elküldése</button>
+                        </div>
+                        <!-- Submit Button [ END ] -->
+
+                    </fieldset>
+                </form>
+
+
+            </div>
+        </div>
+
+        <!-- ( D ) Footer -->
+
+        <div th:replace="fragments/skeleton/footer :: footer"></div>
+
+    </div>
+
+
+</div>
+</body>
+</html>
+

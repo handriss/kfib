@@ -67,7 +67,6 @@ public class DataLoader {
         postService.save(post2);
         postService.save(post3);
 
-
         posts.add(post1);
         posts.add(post2);
 

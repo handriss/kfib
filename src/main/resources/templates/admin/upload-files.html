@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/head :: head"></head>
+<head th:include="fragments/skeleton/head :: head_admin"></head>
 <head>
-    <link rel="stylesheet"  th:href="@{/css/post-creation.css}" />
+    <link rel="stylesheet"  th:href="@{/admin/css/post-creation.css}" />
 </head>
 
 <body>
 
-<div th:replace="fragments/header :: admin_header"></div>
+<div th:replace="fragments/skeleton/header :: admin_header"></div>
 
 <div class="container">
 
@@ -41,9 +41,9 @@
 
 </div>
 
-<div th:replace="fragments/javascript-links :: javascript-link"></div>
-<div th:replace="fragments/javascript-links :: file-upload"></div>
-<script type="text/javascript" src="/js/file-selector.js"></script>
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-admin"></div>
+<div th:replace="fragments/skeleton/javascript-links :: file-upload"></div>
+<script type="text/javascript" src="/admin/js/file-selector.js"></script>
 
 </body>
 </html>

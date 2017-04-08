@@ -1,19 +1,84 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/skeleton/head :: head_user"></head>
+
 <body>
-    <div id="container">
-        <div th:replace="fragments/header :: header"></div>
 
-        <div id="content">
-            <h1>Cicamica</h1>
-        </div>
+<!--===========
+2 ) Preloader
+============-->
 
-        <!--<div th:replace="fragments/footer :: footer"></div>-->
+<div id="preloader">
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+</div>
+
+<!--=========
+3 ) Homepage
+==========-->
+
+<div class="home-page">
+
+    <!--( a ) Introduction -->
+
+    <div th:replace="fragments/menu/menu-introduction :: menu-introduction"></div>
+
+
+    <!-- ( b ) Navigation Menu -->
+
+    <div class="menu">
+
+        <div th:replace="fragments/menu/menu-project :: menu-project"></div>
+
+        <div th:replace="fragments/menu/menu-data :: menu-data"></div>
+
+        <div th:replace="fragments/menu/menu-aboutus :: menu-aboutus"></div>
+
+        <div th:replace="fragments/menu/menu-contact :: menu-contact"></div>
+
+    </div>
+</div>
+
+<!--=============
+4 ) Close Button
+==============-->
+
+<div class="close-btn"></div>
+
+<!--=============
+5 ) Profile Page - PROJEKTEK - portfolio
+==============-->
+<div th:replace="fragments/content/project/content-project :: content-project"></div>
+
+<!--=============
+5.1 ) Profile Page - DONATE
+==============-->
+
+<div th:replace="fragments/content/aboutus/content-donate :: content-donate"></div>
+
+<!--=============
+6 ) Resume Page  - DATA - resume
+===============-->
+
+<div th:replace="fragments/content/data/content-data :: content-data"></div>
+
+<!--===============
+7 ) Portfolio Page  - ABOUTUS - profile
+================-->
+
+<div th:replace="fragments/content/aboutus/content-aboutus :: content-aboutus"></div>
+
+<!--==============
+8 ) Contact Page - KAPCSOLAT
+===============-->
+
+<div th:replace="fragments/content/contact/content-contact :: content-contact"></div>
+
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-user"></div>
+
 </body>
 </html>

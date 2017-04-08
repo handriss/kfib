@@ -22,16 +22,12 @@ public class AdminController {
     private PostService postService;
     private UserService userService;
     private FileService fileService;
-    private PostCategoryService postCategoryService;
-    private TargetCategoryService targetCategoryService;
 
     @Autowired
-    public AdminController(PostService postService, UserService userService, FileService fileService, PostCategoryService postCategoryService, TargetCategoryService targetCategoryService) {
+    public AdminController(PostService postService, UserService userService, FileService fileService) {
         this.postService = postService;
         this.userService = userService;
         this.fileService = fileService;
-        this.postCategoryService = postCategoryService;
-        this.targetCategoryService = targetCategoryService;
     }
 
     @GetMapping("/posts")
