@@ -129,11 +129,17 @@ $(document).ready(function () {
     });
 
     $('.menu div.contact-btn').on('click', function () {
+        $('.donate-page').css({
+            visibility: 'hidden'
+        });
+        $('.contact-page').css({
+            visibility: 'visible'
+        });
         $('.contact-page').fadeIn(1200);
     });
 
     $('.donate, .fa-cc-paypal').on('click', function () {
-        $('.profile-page').css({
+        $('.profile-page, .contact-page').css({
             visibility: 'hidden'
         });
         console.log("cica");
