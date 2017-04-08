@@ -603,11 +603,14 @@ background: #fff;
 
 }
 
+/*custom*/
 .content-container {
     left: 41.666%;
     position: relative;
     padding: 0;
-    background: #f5f5f5;
+    background: #eef7ee;
+    /*background: #cee9ce;*/
+
 }
 
 /*------------------
@@ -625,7 +628,7 @@ background: #fff;
     /*background: url(../images/background/story_bg.jpg);*/
     /*background: url(../images/background/aboutus-bg-art-green.jpg);*/
     /*background: url(../images/background/aboutus-bg-art-green2.jpg);*/
-    background: url(../images/background/aboutus-bg-art-green2.1.jpg);
+    /*background: url(../images/background/aboutus-bg-art-green2.1.jpg);*/
     /*background: url(../images/background/aboutus-bg-art-green3.jpg);*/
     /*background: url(../images/background/aboutus-bg-art-green4.jpg);*/
 
@@ -1204,10 +1207,10 @@ background: #fff;
 
 .contact-page .image-container {
     /*background: url(../images/background/contact_image.jpg);*/
-    background: url(../images/background/aboutus-left-simple-grey-2.2.jpg);
+    /*background: url(../images/background/aboutus-left-simple-grey-2.2.jpg);*/
 
-    background-size: cover;
-    background-position: bottom;
+    /*background-size: cover;*/
+    /*background-position: bottom;*/
 }
 
 .contact-form {
@@ -1327,12 +1330,12 @@ background: #fff;
     margin: 20px 0;
 }
 
-.contact-page .content-container .contact-details{
-    background-color: rgba(92, 184, 92, 0.5);
-    border-radius: 10px;
-    background-size: cover;
-    min-height: 100vh;
-}
+/*.contact-page .content-container .contact-details{*/
+    /*background-color: rgba(92, 184, 92, 0.5);*/
+    /*border-radius: 10px;*/
+    /*background-size: cover;*/
+    /*min-height: 100vh;*/
+/*}*/
 
 .contact-details .social-media {
     margin: 0;
@@ -1372,7 +1375,7 @@ background: #fff;
   -------------*/
 
 .footer {
-    background: #5cb85c;
+    background: #8ccd8c;
     padding: 10px 20px 6px 20px;
 }
 
