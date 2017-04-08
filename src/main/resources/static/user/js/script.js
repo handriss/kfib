@@ -21,7 +21,7 @@
  ------------------  */
 
 $(window).load(function () {
-    $('#preloader').delay(200).fadeOut('slow', function () {
+    $('#preloader').delay(100).fadeOut('slow', function () {
         $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
     });
 });

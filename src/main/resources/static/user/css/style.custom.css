@@ -621,9 +621,9 @@ background: #fff;
 
 
 .story {
-    /*background: url(../images/background/story_bg.jpg);*/
-    background-size: cover;
-    min-height: 100vh;
+    /*!*background: url(../images/background/story_bg.jpg);*!*/
+    /*background-size: cover;*/
+    /*min-height: 100vh;*/
 
     /*background: url(../images/background/story_bg.jpg);*/
     /*background: url(../images/background/aboutus-bg-art-green.jpg);*/
@@ -639,9 +639,9 @@ background: #fff;
 }
 
 .story-content img {
-    padding: 0;
+    /*padding: 0;*/
     /*border: 1px solid #5cb85c;*/
-    border: none;
+    /*border: none;*/
 }
 
 .story-content div h3 {
@@ -1440,16 +1440,16 @@ background: #fff;
     color: inherit;
 }
 
-.story-content .donation_descr p{
+.story-content.donation_descr p {
     color: #3b4446;
     text-align: center;
     font-size: 15px;
     margin: 15px;
 }
 
-.donation_descr .services .justified-paragraph {
-    text-align: justify;
-}
+/*.donation_descr .services .justified-paragraph {*/
+    /*text-align: justify;*/
+/*}*/
 
 .cause_box {
     width: 300px;
