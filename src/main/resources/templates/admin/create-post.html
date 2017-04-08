@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:th="http://www.thymeleaf.org"
-                xmlns:form="http://www.springframework.org/tags/form"
->
-<head th:include="fragments/head :: head_admin"></head>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/skeleton/head :: head_admin"></head>
 
 <head>
-    <link rel="stylesheet"  th:href="@{css/post-creation.css}" />
+    <link rel="stylesheet"  th:href="@{/admin/css/post-creation.css}" />
 </head>
 
 <body>
 
-<div th:replace="fragments/header :: admin_header"></div>
+<div th:replace="fragments/skeleton/header :: admin_header"></div>
 
 <div class="container">
 
@@ -19,9 +17,6 @@
 
         <input type="hidden" th:field="*{id}" />
 
-        <!--<div id="organizationNameSpan" hidden="hidden" class="alert alert-error alert-dismissible" role="alert"></div>-->
-
-        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
         <!--Title and post body-->
         <div class="form-group">
@@ -52,26 +47,15 @@
                 <h2 class="heading">Célközönség</h2>
             </div>
             <div class="row">
-                <div class="searchable-container">
 
-                    <div th:each="tag : ${tags}" class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
-                        <div class="info-block block-info clearfix">
-                            <div class="square-box pull-left">
-                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-                            </div>
-                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                <label class="btn btn-default">
-                                    <div class="bizcontent">
-                                        <input type="checkbox" name="var_id[]" autocomplete="off" value=""/>
-                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                        <h5 th:text="${tag}">Type A</h5>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                <select th:field="*{postCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
+                    <option th:each="category : ${T(com.codecool.model.enums.PostCategoryEnum).values()}"
+                            th:value="${category}"
+                            th:text="${category.name}"
+                            data-icon="glyphicon-link">
+                    </option>
+                </select>
 
-                </div>
             </div>
         </div>
 
@@ -83,26 +67,15 @@
                 <h2 class="heading">Elemzés fajtája</h2>
             </div>
             <div class="row">
-                <div class="searchable-container">
 
-                    <div th:each="type : ${types}" class="col-xs-5 col-sm-5 col-md-3 col-lg-3">
-                        <div class="info-block block-info clearfix">
-                            <div class="square-box pull-left">
-                                <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
-                            </div>
-                            <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                <label class="btn btn-default">
-                                    <div class="bizcontent">
-                                        <input type="checkbox" name="var_id[]" autocomplete="off" value=""/>
-                                        <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                        <h5 th:text="${type}">Coffee</h5>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                <select th:field="*{targetCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
+                    <option th:each="category : ${T(com.codecool.model.enums.TargetCategoryEnum).values()}"
+                            th:value="${category}"
+                            th:text="${category.name}"
+                            data-icon="glyphicon-link">
+                    </option>
+                </select>
 
-                </div>
             </div>
         </div>
 
@@ -111,11 +84,40 @@
 
         <!--File upload-->
         <div class="form-group">
+
             <div class="row">
                 <h2 class="heading">Fájlok feltöltése</h2>
             </div>
+
             <div class="row">
-                <span>Coming soon...</span>
+                <p>Tölts fel fájlokat, vagy válassz ki már feltöltött fájlokat, amelyek az új tartalomhoz tartoznak majd.</p>
+            </div>
+
+            <div class="row">
+
+                <div class="input-group image-preview">
+
+                    <span class="input-group-btn">
+
+                        <div class="btn btn-default image-preview-input">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="image-preview-input-title">Új fájlok feltöltése</span>
+                            <input type="file" id="file" name="file"/>
+                        </div>
+
+                        <div class="btn btn-default image-preview-input" data-target="#file-selector" data-toggle="modal">
+                            <span class="glyphicon glyphicon-folder-open"></span>
+                            <span class="image-preview-input-title">Már feltöltött fájlok kiválasztása</span>
+                        </div>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="list-group" id="uploadedFiles"></div>
             </div>
 
         </div>
@@ -130,7 +132,8 @@
                 <h2 class="heading">Szeretnéd aktiválni az új tartalmat?</h2>
             </div>
             <div class="row little-left-margin">
-                <input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
+                <!--<input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>-->
+                <input th:field="*{isActive}" type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
             </div>
 
         </div>
@@ -153,7 +156,10 @@
     </form>
 </div>
 
-<div th:replace="fragments/javascript-links :: javascript-link-admin"></div>
+<div th:replace="fragments/skeleton/modals :: file-selector-modal"></div>
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-admin"></div>
+<div th:replace="fragments/skeleton/javascript-links :: file-upload"></div>
+<script type="text/javascript" src="/admin/js/file-selector.js"></script>
 
 </body>
 </html>

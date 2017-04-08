@@ -2,18 +2,15 @@ package com.codecool.controller;
 
 
 import com.codecool.exception.PostNotFoundException;
+import com.codecool.model.File;
 import com.codecool.model.Post;
-import com.codecool.service.FileService;
-import com.codecool.service.PostService;
-import com.codecool.service.UserService;
+import com.codecool.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -42,11 +39,8 @@ public class AdminController {
     @GetMapping("/create-post")
     public String createPost(Model model){
 
-        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-        model.addAttribute("tags", tags);
-
-        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-        model.addAttribute("types", types);
+        List<File> files = fileService.findAll();
+        model.addAttribute("files", files);
 
         Post post = new Post();
         model.addAttribute("post", post);
@@ -55,8 +49,25 @@ public class AdminController {
 
     @PostMapping("/create-post")
     public String savePost(Post post){
+
+        log.info(post.getPostCategories().toString());
         postService.save(post);
         return "redirect:/admin/posts";
+    }
+
+    @GetMapping("/browse-files")
+    public String browseFiles(Model model){
+
+        List<File> files = fileService.findAll();
+        model.addAttribute("files", files);
+
+        return "admin/browse-files";
+    }
+
+    @GetMapping("/upload-files")
+    public String uploadFiles(Model model){
+
+        return "admin/upload-files";
     }
 
     @RequestMapping( value = "/posts/{id}", method = RequestMethod.GET )
@@ -69,12 +80,6 @@ public class AdminController {
         }
 
         model.addAttribute("post", post);
-
-        List<String> tags = new ArrayList<>(Arrays.asList("Újságíróknak", "Elemzőknek", "Civileknek", "Egyéb"));
-        model.addAttribute("tags", tags);
-
-        List<String> types = new ArrayList<>(Arrays.asList("Technikai kivetítés", "Költségvetési elemzés", "Egyéb"));
-        model.addAttribute("types", types);
 
         return "admin/create-post";
     }
@@ -99,29 +104,4 @@ public class AdminController {
         return "error/post-not-found";
     }
 
-
-
-
-//    TODO: remove these two routes, upload-file route is to be removed
-//    @GetMapping("/upload-file")
-//    public String createFile(Model model){
-//        File file = new File();
-//        model.addAttribute("file", file);
-//
-//        return "admin/upload-file";
-//    }
-//
-//    @PostMapping("/upload-file")
-//    public String createFile(File file){
-//        fileService.save(file);
-//        return "admin/upload-file";
-//    }
-
-    @GetMapping("/browse-files")
-    public String listFiles(Model model){
-
-        model.addAttribute("files", fileService.findAll());
-
-        return "admin/browse-file";
-    }
 }

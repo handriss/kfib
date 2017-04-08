@@ -99,31 +99,6 @@
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*Post creation*/
 
-/*html, body, div, span, applet, object, iframe,*/
-/*h1, h2, h3, h4, h5, h6, p, blockquote, pre,*/
-/*a, abbr, acronym, address, big, cite, code,*/
-/*del, dfn, em, img, ins, kbd, q, s, samp,*/
-/*small, strike, strong, sub, sup, tt, var,*/
-/*b, u, i, center,*/
-/*dl, dt, dd, ol, ul, li,*/
-/*fieldset, form, label, legend,*/
-/*table, caption, tbody, tfoot, thead, tr, th, td,*/
-/*article, aside, canvas, details, embed,*/
-/*figure, figcaption, footer, header,*/
-/*menu, nav, output, ruby, section, summary,*/
-/*time, mark, audio, video {*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*border: 0;*/
-    /*font: inherit;*/
-    /*font-size: 100%;*/
-    /*vertical-align: baseline;*/
-/*}*/
-
-/*html {*/
-    /*line-height: 1;*/
-/*}*/
-
 ol, ul {
     list-style: none;
 }
@@ -162,12 +137,6 @@ article, aside, details, figcaption, figure, footer, header main, menu, nav, sec
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-/*body {*/
-    /*text-align: center;*/
-    /*font-family: 'Lato', 'sans-serif';*/
-    /*font-weight: 400;*/
-/*}*/
 
 u.thick {
     font-weight: bold;
@@ -405,6 +374,94 @@ button:hover {
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-/*Are-you-sure-to-delete modal*/
+/*Upload cuccosnak a CSSje*/
+.container{
+    margin-top:20px;
+}
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+    font-size: 20px;
+    filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+
+#uploadedFiles {
+    margin-top: 20px;
+}
+
+/* CSS REQUIRED */
+.state-icon {
+    left: -5px;
+}
+.list-group-item-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(66, 139, 202);
+}
+
+/* DEMO ONLY - REMOVES UNWANTED MARGIN */
+.well .list-group {
+    margin-bottom: 0px;
+}
 
 
+
+.alert-labeled{
+    padding: 0px;
+    white-space:nowrap;
+    overflow: hidden;
+    /*width: 50px;*/
+}
+
+.alert-labeled-row{
+    display: table-row;
+    padding: 0px;
+    display: inline-block;
+}
+
+.alert-labelled-cell{
+    padding: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.alert-labeled .close > *{
+    padding:10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.alert-label{
+    vertical-align: middle;
+    background: #BCE8F1;
+    width: auto;
+    padding: 10px 15px;
+    height: 100%;
+    font-size:1.1em;
+}
+
+.multiselect-container{position:absolute;list-style-type:none;margin:0;padding:0}.multiselect-container .input-group{margin:5px}.multiselect-container>li{padding:0}.multiselect-container>li>a.multiselect-all label{font-weight:bold}.multiselect-container>li>label.multiselect-group{margin:0;padding:3px 20px 3px 10px;height:100%;font-weight:bold;}.multiselect-container>li>a>label{margin:0;height:100%;cursor:pointer;font-weight:normal}.multiselect-container>li>a>label.radio,.multiselect-container>li>a>label.checkbox{margin:0}.multiselect-container>li>a>label>input[type="checkbox"]{margin-bottom:5px}.btn-group>.btn-group:nth-child(2)>.multiselect.btn{border-top-left-radius:4px;border-bottom-left-radius:4px}
+
+.row {margin-bottom: 20px;}
+
+.btn {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
