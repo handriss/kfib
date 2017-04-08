@@ -1,7 +1,7 @@
 package com.codecool.controller;
 
 
-import com.codecool.domain.Post;
+import com.codecool.model.Post;
 import com.codecool.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,4 +42,5 @@ public class PostController {
     public void delete(@PathVariable(value="id") int id){
         postService.deleteById(id);
     }
+
 }

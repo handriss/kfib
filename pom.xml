@@ -77,6 +77,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+=======
+
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+>>>>>>> 92251953cf68df24c37df6446a3aacffae9145fb
+		</dependency>
 	</dependencies>
 
 	<build>

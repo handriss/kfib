@@ -1,12 +1,13 @@
 package com.codecool.service;
 
 
-import com.codecool.domain.Post;
+import com.codecool.model.Post;
 import com.codecool.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Slf4j
@@ -20,7 +21,10 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public void save(Post post) { postRepository.save(post);}
+    public void save(Post post) {
+        post.setPostedOn(new Timestamp(System.currentTimeMillis()));
+        postRepository.save(post);
+    }
 
     public void delete(Post post) {
         postRepository.delete(post);
@@ -45,6 +49,7 @@ public class PostService {
         if( update.getTitle() != null ) {
             post.setTitle(update.getTitle());
         }
+        post.setPostedOn(new Timestamp(System.currentTimeMillis()));
         return postRepository.save(post);
     }
 }

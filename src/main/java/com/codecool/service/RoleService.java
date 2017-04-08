@@ -1,7 +1,7 @@
 package com.codecool.service;
 
 
-import com.codecool.domain.Role;
+import com.codecool.model.Role;
 import com.codecool.repository.RoleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

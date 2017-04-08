@@ -1,7 +1,7 @@
 package com.codecool.repository;
 
 
-        import com.codecool.domain.User;
+        import com.codecool.model.User;
         import org.springframework.data.jpa.repository.JpaRepository;
         import org.springframework.stereotype.Repository;
 
