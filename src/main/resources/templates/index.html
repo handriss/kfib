@@ -36,6 +36,8 @@
 
         <div th:replace="fragments/menu/menu-data :: menu-data"></div>
 
+        <div th:replace="fragments/menu/menu-press :: menu-press"></div>
+
         <div th:replace="fragments/menu/menu-aboutus :: menu-aboutus"></div>
 
         <div th:replace="fragments/menu/menu-contact :: menu-contact"></div>
@@ -44,36 +46,32 @@
 </div>
 
 <!--=============
-4 ) Close Button
+Close Button
 ==============-->
 
 <div class="close-btn"></div>
 
 <!--=============
-5 ) Profile Page - PROJEKTEK - portfolio
+Profile Page - PROJEKTEK - portfolio
 ==============-->
 <div th:replace="fragments/content/project/content-project :: content-project"></div>
 
 <!--=============
-5.1 ) Profile Page - DONATE
-==============-->
-
-<div th:replace="fragments/content/aboutus/content-donate :: content-donate"></div>
-
-<!--=============
-6 ) Resume Page  - DATA - resume
+Resume Page  - DATA - resume
 ===============-->
 
 <div th:replace="fragments/content/data/content-data :: content-data"></div>
 
 <!--===============
-7 ) Portfolio Page  - ABOUTUS - profile
+Portfolio Page  - ABOUTUS - profile
 ================-->
 
 <div th:replace="fragments/content/aboutus/content-aboutus :: content-aboutus"></div>
+<!--Profile Page - DONATE-->
+<div th:replace="fragments/content/aboutus/content-donate :: content-donate"></div>
 
 <!--==============
-8 ) Contact Page - KAPCSOLAT
+Contact Page - KAPCSOLAT
 ===============-->
 
 <div th:replace="fragments/content/contact/content-contact :: content-contact"></div>
