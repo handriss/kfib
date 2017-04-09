@@ -954,65 +954,65 @@ background: #fff;
     /*text-align: center;*/
 }
 
-/*custom property*/
-.according-to-user {
-    background: none;
-    border: 1px solid #449d44;
-    color: #449d44;
-    margin: 10px 0;
-    padding: 10px 25px;
-    -webkir-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
+/*!*custom property*!*/
+/*.according-to-user {*/
+    /*background: none;*/
+    /*border: 1px solid #449d44;*/
+    /*color: #449d44;*/
+    /*margin: 10px 0;*/
+    /*padding: 10px 25px;*/
+    /*-webkir-transition: all 0.3s;*/
+    /*-moz-transition: all 0.3s;*/
+    /*-ms-transition: all 0.3s;*/
+    /*-o-transition: all 0.3s;*/
+    /*transition: all 0.3s;*/
+/*}*/
 
-/*custom property*/
-.according-to-type{
-    background: none;
-    border: 1px solid #455689;
-    color: #455689;
-    margin: 10px 0;
-    padding: 10px 25px;
-    -webkir-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
+/*!*custom property*!*/
+/*.according-to-type{*/
+    /*background: none;*/
+    /*border: 1px solid #455689;*/
+    /*color: #455689;*/
+    /*margin: 10px 0;*/
+    /*padding: 10px 25px;*/
+    /*-webkir-transition: all 0.3s;*/
+    /*-moz-transition: all 0.3s;*/
+    /*-ms-transition: all 0.3s;*/
+    /*-o-transition: all 0.3s;*/
+    /*transition: all 0.3s;*/
+/*}*/
 
-.according-to-importance {
-    background: none;
-    border: 1px solid #884455;
-    color: #884455;
-    margin: 10px 0;
-    padding: 10px 25px;
-    -webkir-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
+/*.according-to-importance {*/
+    /*background: none;*/
+    /*border: 1px solid #884455;*/
+    /*color: #884455;*/
+    /*margin: 10px 0;*/
+    /*padding: 10px 25px;*/
+    /*-webkir-transition: all 0.3s;*/
+    /*-moz-transition: all 0.3s;*/
+    /*-ms-transition: all 0.3s;*/
+    /*-o-transition: all 0.3s;*/
+    /*transition: all 0.3s;*/
+/*}*/
 
-/*custom property*/
-.according-to-user:hover {
-    background: #5cb85c;
-    color: #fff;
-}
-.according-to-type:hover {
-    background: #455689;
-    color: #fff;
-}
-.according-to-importance:hover {
-    background: #884455;
-    color: #fff;
-}
+/*!*custom property*!*/
+/*.according-to-user:hover {*/
+    /*background: #5cb85c;*/
+    /*color: #fff;*/
+/*}*/
+/*.according-to-type:hover {*/
+    /*background: #455689;*/
+    /*color: #fff;*/
+/*}*/
+/*.according-to-importance:hover {*/
+    /*background: #884455;*/
+    /*color: #fff;*/
+/*}*/
 
-.filter.active {
-    background: #5cb85c;
-    color: #fff;
-}
+/*.filter.active {*/
+    /*background: #5cb85c;*/
+    /*color: #fff;*/
+/*}*/
 
 #projects > .mix {
     display: none;
@@ -1021,6 +1021,20 @@ background: #fff;
 .projet-items {
     padding: 20px;
 }
+
+/*table, td, th {*/
+    /*border: 1px solid #ddd;*/
+    /*text-align: left;*/
+/*}*/
+
+/*table {*/
+    /*border-collapse: collapse;*/
+    /*width: 100%;*/
+/*}*/
+
+/*th, td {*/
+    /*padding: 15px;*/
+/*}*/
 
 /*----- Hover Effect Portfolio Image --------*/
 
