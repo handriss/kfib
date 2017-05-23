@@ -11,7 +11,7 @@ $(window).load(function () {
 $(document).ready(function () {
 
     $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
-
+    $('.close-btn').hide();
     'use strict';
 
     /*  ---------------------
@@ -76,6 +76,8 @@ $(document).ready(function () {
 
     $('.menu > div').on('click', function () {
 
+        $('.close-btn').show();
+
         var introWidth = $('.introduction').width(),
             menuWidth = $('.menu').width();
 
@@ -137,6 +139,9 @@ $(document).ready(function () {
     // Close Button, Hide Menu
 
     $('.close-btn').on('click', function () {
+
+        $('.close-btn').hide();
+
         $('.home-page').css({
             visibility: 'visible'
         });
