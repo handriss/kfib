@@ -29,3 +29,62 @@ ul.post-list li span.post-body{
     display:block;
     color:#A8A8A8;
 }
+
+
+
+
+
+
+.recipients .panel-body {
+    overflow: auto;
+    max-height: 200px;
+}
+.recipients .recipient {
+    display: block;
+    float: left;
+    width: 140px;
+    margin: 0 5px 5px 0;
+    font-size: 0.85em;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.recipients .recipient img {
+    float: left;
+    height: 28px;
+    margin-right: 5px;
+}
+.recipients .recipient .email {
+    font-size: 0.9em;
+    color: #999;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filter-list{
+    list-style-type: none;
+    /*display: inline-block;*/
+}
+
+
+#selectorWrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#userSort {
+    float: right;
+    width: 50%;
+    background-color: #CCF;
+}
+#projectSort {
+    float: left;
+    width: 50%;
+    background-color: #FFA;
+}
+
+.selector-button{
+    text-align: left;
+}

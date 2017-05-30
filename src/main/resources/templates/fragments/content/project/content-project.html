@@ -10,37 +10,73 @@
     <div class="image-container col-md-5 col-sm-12">
         <h2 class="small-heading">Projektek szűrése</h2>
 
-        <!--<div class="container">-->
-            <!--<div class="row text-center">-->
-                <!--<label for="default" class="btn btn-default">Default <input type="checkbox" id="default" class="badgebox"/><span class="badge">&check;</span></label>-->
-                <!--<label for="success" class="btn btn-success">Success <input type="checkbox" id="success" class="badgebox"/><span class="badge">&check;</span></label>-->
-        <input type="button" class="btn btn-default" value="Összes szűrő törlése"/>
-        <br/>
-        Kérem válasszon időbeli sorrendet! *
-        <br/>
-        <button>^</button>
-        <button>ˇ</button>
-        <br/>
-        <label for="warning" class="btn btn-warning">Kiemelt projektek <input type="checkbox" id="warning" class="badgebox"/><span class="badge">&check;</span></label>
-        <br/>
-        Kérem válasszon a felhasználók közül! *
-        <br/>
-        <label for="info" class="btn btn-info">Újságíró <input type="checkbox" id="info" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="info2" class="btn btn-info">Döntéshozó <input type="checkbox" id="info2" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="info3" class="btn btn-info">Civil szervezet <input type="checkbox" id="info3" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="info4" class="btn btn-info">Elemző <input type="checkbox" id="info4" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="info5" class="btn btn-info">Állampolgárok <input type="checkbox" id="info5" class="badgebox"/><span class="badge">&check;</span></label>
-        <br/>
-        Kérem válasszon a projektek típusa közül! *
-        <br/>
-        <label for="primary" class="btn btn-primary">Átláthatóság <input type="checkbox" id="primary" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary2" class="btn btn-primary">Technikai kivetítés <input type="checkbox" id="primary2" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary3" class="btn btn-primary">Költségvetési elemzés <input type="checkbox" id="primary3" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary4" class="btn btn-primary">Módszertan <input type="checkbox" id="primary4" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary5" class="btn btn-primary">OBI <input type="checkbox" id="primary5" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary6" class="btn btn-primary">Hatásvizsgálatok <input type="checkbox" id="primary6" class="badgebox"/><span class="badge">&check;</span></label>
-        <label for="primary7" class="btn btn-primary">Egyéb elemzések <input type="checkbox" id="primary7" class="badgebox"/><span class="badge">&check;</span></label>
+        <!--Összes szűrő törlése-->
 
+        <!--Kiemelt projektek mutatása-->
+
+        <!--Felhasználói besorolás: Újságíró, Döntéshozó, Civil szervezet, Elemző, Állampolgár-->
+        <!--Projektek típusa: Átláthatóság, Technikai kivetítés, Költségvetési elemzés, Módszertan, OBI, Hatásvizsgálatok, Egyéb elemzések-->
+
+        <div id="selectorWrapper">
+            <div id="userSort">
+                <ul class="filter-list">
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Újságíró</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Döntéshozó</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Civil szervezet</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Elemző</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Állampolgár</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="projectSort">
+                <ul class="filter-list">
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Átláthatóság</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Technikai kivetítés</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Költségvetési elemzés</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Módszertan</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">OBI</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Hatásvizsgálat</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                    <li class="button-checkbox">
+                        <button type="button" class="btn btn-lg btn-block selector-button" data-color="default">Egyéb elemzések</button>
+                        <input type="checkbox" class="hidden"/>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
     </div>
 
 
@@ -51,6 +87,54 @@
 
         <ul class="post-list">
 
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="post-title">You Tube</span>
+                    <span class="post-body">New subscribers!</span>
+                </a>
+            </li>
             <li>
                 <a href="">
                     <span class="post-title">You Tube</span>
