@@ -44,6 +44,12 @@ public class Post {
         this.postedOn = new Timestamp(System.currentTimeMillis());
     }
 
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
+        this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
+
     public void addUser(User user){
         this.users.add(user);
     }
