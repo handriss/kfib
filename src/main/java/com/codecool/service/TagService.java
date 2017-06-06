@@ -17,5 +17,4 @@ public class TagService {
         return TargetAudienceCategory.values();
     }
 
-
 }
