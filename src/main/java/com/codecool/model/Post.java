@@ -23,6 +23,9 @@ public class Post {
     private String title;
 
     @Column(columnDefinition = "TEXT")
+    private String introduction;
+
+    @Column(columnDefinition = "TEXT")
     private String body;
 
     @CreatedDate
@@ -46,6 +49,13 @@ public class Post {
 
     public Post(String title, String body) {
         this.title = title;
+        this.body = body;
+        this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
+
+    public Post(String title, String introduction, String body) {
+        this.title = title;
+        this.introduction = introduction;
         this.body = body;
         this.postedOn = new Timestamp(System.currentTimeMillis());
     }
