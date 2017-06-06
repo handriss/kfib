@@ -1,6 +1,8 @@
 package com.codecool.model;
 
 
+import com.codecool.model.enums.DocumentCategory;
+import com.codecool.model.enums.TargetAudienceCategory;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -8,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -27,6 +30,12 @@ public class Post {
 
     @Column(columnDefinition = "TEXT")
     private String body;
+
+    @ElementCollection
+    private List<DocumentCategory> documentCategories;
+
+    @ElementCollection
+    private List<TargetAudienceCategory> targetAudienceCategories;
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
@@ -58,6 +67,22 @@ public class Post {
         this.introduction = introduction;
         this.body = body;
         this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
+
+    public void addDocumentCategory(DocumentCategory documentCategory){
+        this.documentCategories.add(documentCategory);
+    }
+
+    public void removeDocumentCategory(DocumentCategory documentCategory){
+        this.documentCategories.remove(documentCategory);
+    }
+
+    public void addTargetAudienceCategory(TargetAudienceCategory targetAudienceCategory){
+        this.targetAudienceCategories.add(targetAudienceCategory);
+    }
+
+    public void removeTargetAudienceCategory(TargetAudienceCategory targetAudienceCategory){
+        this.targetAudienceCategories.remove(targetAudienceCategory);
     }
 
     public void addUser(User user){
