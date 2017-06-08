@@ -1,8 +1,6 @@
 package com.codecool.model;
 
 
-import com.codecool.model.enums.DocumentCategory;
-import com.codecool.model.enums.TargetAudienceCategory;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -10,7 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -31,11 +29,15 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    @ElementCollection
-    private List<DocumentCategory> documentCategories;
+    //    @ElementCollection
+//    @CollectionTable(name = "employee_courses", joinColumns = @JoinColumn(name = "idemployee"))
+//    private Set<Course> courses = new HashSet<Course>();
 
     @ElementCollection
-    private List<TargetAudienceCategory> targetAudienceCategories;
+    private Set<DocumentCategoryTag> documentCategoryTags = new HashSet<>();
+
+    @ElementCollection
+    private Set<TargetAudienceCategoryTag> targetAudienceCategoryTags = new HashSet<>();
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
@@ -49,7 +51,8 @@ public class Post {
     @JoinTable(name="post_file", joinColumns = @JoinColumn(name="post_id"), inverseJoinColumns = @JoinColumn(name="file_id"))
     private Set<File> files;
 
-    public Post(){}
+    public Post(){
+    }
 
     public Post(String title) {
         this.title = title;
@@ -69,23 +72,26 @@ public class Post {
         this.postedOn = new Timestamp(System.currentTimeMillis());
     }
 
-    public void addDocumentCategory(DocumentCategory documentCategory){
-        this.documentCategories.add(documentCategory);
+
+
+    public void addDocumentCategory(DocumentCategoryTag documentCategoryTag){
+        this.documentCategoryTags.add(documentCategoryTag);
     }
 
-    public void removeDocumentCategory(DocumentCategory documentCategory){
-        this.documentCategories.remove(documentCategory);
+    public void removeDocumentCategory(DocumentCategoryTag documentCategoryTag){
+        this.documentCategoryTags.remove(documentCategoryTag);
     }
 
-    public void addTargetAudienceCategory(TargetAudienceCategory targetAudienceCategory){
-        this.targetAudienceCategories.add(targetAudienceCategory);
+    public void addTargetAudienceCategory(TargetAudienceCategoryTag targetAudienceCategoryTag){
+        this.targetAudienceCategoryTags.add(targetAudienceCategoryTag);
     }
 
-    public void removeTargetAudienceCategory(TargetAudienceCategory targetAudienceCategory){
-        this.targetAudienceCategories.remove(targetAudienceCategory);
+    public void removeTargetAudienceCategory(TargetAudienceCategoryTag targetAudienceCategoryTag){
+        this.targetAudienceCategoryTags.remove(targetAudienceCategoryTag);
     }
 
     public void addUser(User user){
         this.users.add(user);
     }
+
 }
