@@ -56,6 +56,7 @@
             <li th:each="post : ${posts}">
                 <a href="">
                     <span th:text="${post.title}" class="post-title">Post title</span>
+                    <span th:text="${post.documentCategoryTags}" class="post-title">Documentcategories</span>
                     <span th:text="${post.body}" class="post-body">Post body</span>
                 </a>
             </li>

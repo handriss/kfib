@@ -59,17 +59,17 @@ public class DataLoader {
         post1.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.transparency));
 
         Post post2 = new Post("A 2017. évi költségvetési törvény és a középtávú pálya értékelése (2016-20)", "Jelen elemzés a Költségvetési Felelősségi Intézet kiadványaként, jelentős részben önkéntesek munkájával készült és – az azóta elkészült anyagok Módszertani Függelékeiben leírt eltérésektől eltekintve – a 2010 végén megszüntetett Költségvetési Tanács Titkárságán kidolgozott módszertanokra támaszkodik. Jelen tanulmány célzat és részrehajlás nélkül bemutatja a gazdasági folyamatok és a 2016. június 14- ig kihirdetett, vagy a parlament által elfogadott jogszabályok alapján kirajzolódó középtávú makrogazdasági és költségvetési pályát.");
-        post1.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.baselineProjection));
+        post2.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.baselineProjection));
 
 
         Post post3 = new Post("A 2017. évi költségvetési törvény és a középtávú pálya értékelése (2016-20)", "Jelen elemzés a Költségvetési Felelősségi Intézet kiadványaként, jelentős részben önkéntesek munkájával készült és – az azóta elkészült anyagok Módszertani Függelékeiben leírt eltérésektől eltekintve – a 2010 végén megszüntetett Költségvetési Tanács Titkárságán kidolgozott módszertanokra támaszkodik. Jelen tanulmány célzat és részrehajlás nélkül bemutatja a gazdasági folyamatok és a 2016. június 14- ig kihirdetett, vagy a parlament által elfogadott jogszabályok alapján kirajzolódó középtávú makrogazdasági és költségvetési pályát.");
-        post1.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.baselineProjection));
+        post3.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.baselineProjection));
 
         Post post4 = new Post("A 2017. évi költségvetési törvény és a középtávú pálya értékelése (2016-20)", "Jelen elemzés a Költségvetési Felelősségi Intézet kiadványaként, jelentős részben önkéntesek munkájával készült és – az azóta elkészült anyagok Módszertani Függelékeiben leírt eltérésektől eltekintve – a 2010 végén megszüntetett Költségvetési Tanács Titkárságán kidolgozott módszertanokra támaszkodik. Jelen tanulmány célzat és részrehajlás nélkül bemutatja a gazdasági folyamatok és a 2016. június 14- ig kihirdetett, vagy a parlament által elfogadott jogszabályok alapján kirajzolódó középtávú makrogazdasági és költségvetési pályát.");
-        post1.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.obi));
+        post4.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.obi));
 
         Post post5 = new Post("A 2017. évi költségvetési törvény és a középtávú pálya értékelése (2016-20)", "Jelen elemzés a Költségvetési Felelősségi Intézet kiadványaként, jelentős részben önkéntesek munkájával készült és – az azóta elkészült anyagok Módszertani Függelékeiben leírt eltérésektől eltekintve – a 2010 végén megszüntetett Költségvetési Tanács Titkárságán kidolgozott módszertanokra támaszkodik. Jelen tanulmány célzat és részrehajlás nélkül bemutatja a gazdasági folyamatok és a 2016. június 14- ig kihirdetett, vagy a parlament által elfogadott jogszabályok alapján kirajzolódó középtávú makrogazdasági és költségvetési pályát.");
-        post1.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.other));
+        post5.addDocumentCategory(new DocumentCategoryTag(DocumentCategory.other));
 
 
         postService.save(post1);
