@@ -1,20 +1,44 @@
 $(document).ready(function(){
 
-    console.log("just entered multisort");
+    var tagDictionary = {
+        "Újságíró": "journalist",
+        "Döntéshozó" : "decisionMaker",
+        "Civil szervezet" : "ngo",
+        "Elemző" : "analyst",
+        "Állampolgár" : "citizen",
 
-    // highlighted
-    // userSort
-    // projectSort
+        "Átláthatóság" : "transparency",
+        "Technikai kivetítés" : "baselineProjection",
+        "Költségvetési elemzés" : "budgetAnalysis",
+        "Módszertan" : "methodology",
+        "OBI" : "obi",
+        "Hatásvizsgálat" : "impactAssessment",
+        "Egyéb elemzések" : "other"
+    };
 
-    // var classesNodeList = document.querySelectorAll(".userSort");
-    // var classes = Array.prototype.map.call(classesNodeList, function(element) {
-    //     console.log(element);
-    // });
+    console.log(tagDictionary);
+
+    Array.prototype.map.call(document.querySelectorAll(".userSort"), function(element) {
+
+        element.addEventListener("click", function(){
+
+            // console.log(element.getElementsByTagName("span")[0].innerHTML);
+            // console.log(tagDictionary[element.getElementsByTagName("span")[0].innerHTML]);
+
+            var toggleableElements = document.getElementsByClassName(tagDictionary[element.getElementsByTagName("span")[0].innerHTML]);
+            for (var i = 0; i < toggleableElements.length; i++){
+                if( toggleableElements[i].style.display === 'none'){
+                    toggleableElements[i].style.display = 'block';
+                }else{
+                    toggleableElements[i].style.display = 'none';
+                }
+            }
+
+        });
+
+    });
 
     // TODO:
-    // - create real-looking posts, with at least one post in each category
-    // - add the categories to the posts in the back-end
-    // - add the categories to the posts in thymeleaf
     // - add click listeners to the selector buttons in multiSort.js
     // - a post should only show if its selector button is clicked
     //     - save selector buttons into a list

@@ -30,14 +30,14 @@
                 <h4>Célközönség szerinti szűrés</h4>
 
                 <li th:each="tag : ${targetAudienceTags}" class="button-checkbox">
-                    <button th:text="${tag.getName()}" type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"></button>
+                    <button type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
                     <input type="checkbox" class="hidden"/>
                 </li>
 
                 <li><br/><br/></li>
                 <h4>Téma szerinti szűrés</h4>
                 <li th:each="tag : ${documentCategoryTags}" class="button-checkbox">
-                    <button th:text="${tag.getName()}" type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"></button>
+                    <button type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
                     <input type="checkbox" class="hidden"/>
                 </li>
             </ul>
@@ -63,6 +63,8 @@
                             var currentListElement = postList[postList.length-1];
 
                             currentListElement.classList.add(currentCategory.documentCategory.$name);
+
+                            console.log(currentCategory.documentCategory.$name);
 
                         </script>
                     </div>
