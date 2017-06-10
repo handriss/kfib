@@ -66,6 +66,17 @@
 
                         </script>
                     </div>
+                    <div th:each="category, categoryIteration : ${post.targetAudienceCategoryTags}">
+                        <script th:inline="javascript">
+
+                            var currentCategory = [[${category}]];
+                            var postList = document.getElementsByClassName("postListItem");
+                            var currentListElement = postList[postList.length-1];
+
+                            currentListElement.classList.add(currentCategory.targetAudienceCategory.$name);
+
+                        </script>
+                    </div>
                     <span th:text="${post.title}" class="post-title">Post title</span>
                     <span th:text="${post.body}" class="post-body">Post body</span>
                 </a>
