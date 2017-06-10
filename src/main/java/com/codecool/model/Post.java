@@ -29,10 +29,6 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String body;
 
-    //    @ElementCollection
-//    @CollectionTable(name = "employee_courses", joinColumns = @JoinColumn(name = "idemployee"))
-//    private Set<Course> courses = new HashSet<Course>();
-
     @ElementCollection
     private Set<DocumentCategoryTag> documentCategoryTags = new HashSet<>();
 

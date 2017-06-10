@@ -53,10 +53,20 @@
 
         <ul class="post-list">
 
-            <li th:each="post : ${posts}">
+            <li th:each="post, postIteration : ${posts}" class="postListItem">
                 <a href="">
+                    <div th:each="category, categoryIteration : ${post.documentCategoryTags}">
+                        <script th:inline="javascript">
+
+                            var currentCategory = [[${category}]];
+                            var postList = document.getElementsByClassName("postListItem");
+                            var currentListElement = postList[postList.length-1];
+
+                            currentListElement.classList.add(currentCategory.documentCategory.$name);
+
+                        </script>
+                    </div>
                     <span th:text="${post.title}" class="post-title">Post title</span>
-                    <span th:text="${post.documentCategoryTags}" class="post-title">Documentcategories</span>
                     <span th:text="${post.body}" class="post-body">Post body</span>
                 </a>
             </li>

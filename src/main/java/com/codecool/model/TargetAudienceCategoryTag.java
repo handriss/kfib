@@ -17,4 +17,8 @@ public class TargetAudienceCategoryTag {
 
     private TargetAudienceCategoryTag() {}
 
+    @Override
+    public String toString() {
+        return targetAudienceCategory.toString();
+    }
 }

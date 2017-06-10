@@ -6,10 +6,10 @@ $(document).ready(function(){
     // userSort
     // projectSort
 
-    var classesNodeList = document.querySelectorAll(".userSort");
-    var classes = Array.prototype.map.call(classesNodeList, function(element) {
-        console.log(element);
-    });
+    // var classesNodeList = document.querySelectorAll(".userSort");
+    // var classes = Array.prototype.map.call(classesNodeList, function(element) {
+    //     console.log(element);
+    // });
 
     // TODO:
     // - create real-looking posts, with at least one post in each category
