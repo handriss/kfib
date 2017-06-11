@@ -64,8 +64,6 @@
 
                             currentListElement.classList.add(currentCategory.documentCategory.$name);
 
-                            console.log(currentCategory.documentCategory.$name);
-
                         </script>
                     </div>
                     <div th:each="category, categoryIteration : ${post.targetAudienceCategoryTags}">
@@ -80,6 +78,12 @@
                         </script>
                     </div>
                     <span th:text="${post.title}" class="post-title">Post title</span>
+                    <span th:each="tag : ${post.documentCategoryTags}" class="post-title">
+                        <div class="documentCategoryTag" th:text="${tag}"></div>
+                    </span>
+                    <span th:each="tag : ${post.targetAudienceCategoryTags}" class="post-title">
+                        <div class="targetAudienceCategoryTag" th:text="${tag}"></div>
+                    </span>
                     <span th:text="${post.body}" class="post-body">Post body</span>
                 </a>
             </li>

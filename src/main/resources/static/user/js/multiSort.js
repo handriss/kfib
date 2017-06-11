@@ -16,22 +16,24 @@ $(document).ready(function(){
         "Egyéb elemzések" : "other"
     };
 
-    console.log(tagDictionary);
-
     Array.prototype.map.call(document.querySelectorAll(".userSort"), function(element) {
 
         element.addEventListener("click", function(){
 
-            // console.log(element.getElementsByTagName("span")[0].innerHTML);
-            // console.log(tagDictionary[element.getElementsByTagName("span")[0].innerHTML]);
+            console.log("entered elementArray");
 
             var toggleableElements = document.getElementsByClassName(tagDictionary[element.getElementsByTagName("span")[0].innerHTML]);
             for (var i = 0; i < toggleableElements.length; i++){
-                if( toggleableElements[i].style.display === 'none'){
+
+                console.log("about to enter if");
+                if(element.classList.contains("active")){
+                    console.log("active true");
                     toggleableElements[i].style.display = 'block';
                 }else{
+                    console.log("active false");
                     toggleableElements[i].style.display = 'none';
                 }
+
             }
 
         });

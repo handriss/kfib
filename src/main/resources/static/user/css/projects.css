@@ -88,3 +88,17 @@ ul.post-list li span.post-body{
 .selector-button{
     text-align: left;
 }
+
+.targetAudienceCategoryTag{
+    display: inline-block;
+    overflow: hidden;
+    background-color: yellow;
+    border-radius: 5px;
+}
+
+.documentCategoryTag{
+    display: inline-block;
+    overflow: hidden;
+    background-color: green;
+    border-radius: 5px;
+}
