@@ -99,6 +99,7 @@ ul.post-list li span.post-body{
 .documentCategoryTag{
     display: inline-block;
     overflow: hidden;
-    background-color: green;
+    background-color: yellow;
     border-radius: 5px;
+    float: left;
 }
