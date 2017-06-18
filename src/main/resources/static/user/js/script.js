@@ -148,7 +148,7 @@ $(document).ready(function () {
         history.pushState(
             'mock data',
             'KFIB | Budapest',
-            ''
+            '/'
         );
 
         $('.close-btn').hide();
@@ -253,53 +253,6 @@ $(document).ready(function () {
         }
     }, 1000);
 
-    switch(window.location.pathname){
-        case "/projects":
-            setTimeout(function(){
-                hideMenu();
-
-                $('.donate-page').css({
-                    visibility: 'hidden'
-                });
-                $('.profile-page').css({
-                    visibility: 'visible'
-                });
-                $('.profile-page').fadeIn(1200);
-
-            }, 250);
-            break;
-
-        case "/data":
-            setTimeout(function(){
-                hideMenu();
-
-            }, 250);
-            break;
-
-        case "/press":
-            setTimeout(function(){
-                hideMenu();
-
-            }, 250);
-            break;
-
-        case "/aboutus":
-            setTimeout(function(){
-                hideMenu();
-
-            }, 250);
-            break;
-
-        case "/contact":
-            setTimeout(function(){
-                hideMenu();
-
-            }, 250);
-            break;
-
-        default:
-            console.log("default");
-    }
 
 });
 
