@@ -191,27 +191,22 @@ $(document).ready(function () {
         switch(window.location.pathname){
 
             case "/projects":
-                console.log("Projektek");
                 showProjects();
                 break;
 
             case "/data":
-                console.log("Adatok");
                 showData();
                 break;
 
             case "/press":
-                console.log("Sajtó");
                 showPress();
                 break;
 
             case "/aboutus":
-                console.log("Rólunk");
                 showAboutUs();
                 break;
 
             case "/contact":
-                console.log("Kapcsolat");
                 showContact();
                 break;
         }
@@ -223,32 +218,26 @@ $(document).ready(function () {
         switch(event.state.page){
 
             case "/main":
-                console.log("Main page");
                 showMainPage();
                 break;
 
             case "/projects":
-                console.log("Projektek");
                 showProjects();
                 break;
 
             case "/data":
-                console.log("Adatok");
                 showData();
                 break;
 
             case "/press":
-                console.log("Sajtó");
                 showPress();
                 break;
 
             case "/aboutus":
-                console.log("Rólunk");
                 showAboutUs();
                 break;
 
             case "/contacts":
-                console.log("Kapcsolat");
                 showContact();
                 break;
         }

@@ -39,14 +39,4 @@ $(document).ready(function(){
         });
 
     });
-
-    // TODO:
-    // - add click listeners to the selector buttons in multiSort.js
-    // - a post should only show if its selector button is clicked
-    //     - save selector buttons into a list
-    //     - research how to show/hide html elements, do i need an own implementation, is there a fucntion like that?
-
-
-
-
 });
