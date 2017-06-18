@@ -145,7 +145,7 @@ $(document).ready(function () {
         $('.introduction, .menu').animate({
             left: 0
         }, 1000, 'easeOutQuart');
-        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page').fadeOut(800);
+        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page, .press-page').fadeOut(800);
     });
 
     // console.log(window.location.pathname);
