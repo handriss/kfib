@@ -4,14 +4,13 @@
 
 $(window).load(function () {
     $('#preloader').delay(350).fadeOut('slow', function () {
-        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
+        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page').hide();
     });
 });
 
 $(document).ready(function () {
 
-    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
-    // $('.resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
+    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page , .close-btn').hide();
     'use strict';
 
     /*  ---------------------
@@ -82,7 +81,6 @@ $(document).ready(function () {
 
     $('.menu div.profile-btn').on('click', function () {
 
-        console.log("clicked");
         $('.donate-page').css({
             visibility: 'hidden'
         });
@@ -96,6 +94,11 @@ $(document).ready(function () {
         console.log("clicked");
 
         $('.resume-page').fadeIn(1200);
+    });
+
+    $('.menu div.press-btn').on('click', function () {
+
+        $('.press-page').fadeIn(1200);
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
@@ -186,36 +189,48 @@ $(document).ready(function () {
     $('.project-tag [data-toggle="tooltip"]').tooltip();
 
 
-    // switch(expression) {
-    //     case n:
-    //         code block
-    //         break;
-    //     case n:
-    //         code block
-    //         break;
-    //     default:
-    //         code block
-    // }
-
     switch(window.location.pathname){
         case "/projects":
-            console.log("projects");
+            setTimeout(function(){
+                hideMenu();
+
+                $('.donate-page').css({
+                    visibility: 'hidden'
+                });
+                $('.profile-page').css({
+                    visibility: 'visible'
+                });
+                $('.profile-page').fadeIn(1200);
+
+            }, 250);
             break;
 
         case "/data":
-            console.log("data");
+            setTimeout(function(){
+                hideMenu();
+
+            }, 250);
             break;
 
         case "/press":
-            console.log("press");
+            setTimeout(function(){
+                hideMenu();
+
+            }, 250);
             break;
 
         case "/aboutus":
-            console.log("aboutus");
+            setTimeout(function(){
+                hideMenu();
+
+            }, 250);
             break;
 
         case "/contact":
-            console.log("contact");
+            setTimeout(function(){
+                hideMenu();
+
+            }, 250);
             break;
 
         default:
