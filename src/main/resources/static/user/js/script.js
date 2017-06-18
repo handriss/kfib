@@ -4,13 +4,13 @@
 
 $(window).load(function () {
     $('#preloader').delay(350).fadeOut('slow', function () {
-        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
+        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page').hide();
     });
 });
 
 $(document).ready(function () {
 
-    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
+    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page, .close-btn').hide();
     // $('.resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
     'use strict';
 
@@ -73,51 +73,32 @@ $(document).ready(function () {
     // Hide Menu
 
     $('.menu > div').on('click', function () {
-
         hideMenu();
-
     });
 
     // Show Relative Page Onclick
 
     $('.menu div.profile-btn').on('click', function () {
-
-        console.log("clicked");
-        $('.donate-page').css({
-            visibility: 'hidden'
-        });
-        $('.profile-page').css({
-            visibility: 'visible'
-        });
-        $('.profile-page').fadeIn(1200);
+        showAboutUs();
     });
 
     $('.menu div.resume-btn').on('click', function () {
-        console.log("clicked");
+        showData();
+    });
 
-        $('.resume-page').fadeIn(1200);
+    $('.menu div.press-btn').on('click', function () {
+        showPress();
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
-        console.log("clicked");
-
-        $('.project-page').fadeIn(1200);
+        showProjects();
     });
 
     $('.menu div.contact-btn').on('click', function () {
-        console.log("clicked");
-
-        $('.donate-page').css({
-            visibility: 'hidden'
-        });
-        $('.contact-page').css({
-            visibility: 'visible'
-        });
-        $('.contact-page').fadeIn(1200);
+        showContact();
     });
 
     $('.donate, .fa-cc-paypal').on('click', function () {
-        console.log("clicked");
 
         $('.profile-page, .contact-page').css({
             visibility: 'hidden'
@@ -142,7 +123,15 @@ $(document).ready(function () {
         $('.introduction, .menu').animate({
             left: 0
         }, 1000, 'easeOutQuart');
-        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page').fadeOut(800);
+
+        $('.donate-page').css({
+            visibility: 'hidden'
+        });
+        $('.contact-page').css({
+            visibility: 'visible'
+        });
+
+        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page, .press-page').fadeOut(800);
     });
 
     // console.log(window.location.pathname);
@@ -186,19 +175,75 @@ $(document).ready(function () {
     $('.project-tag [data-toggle="tooltip"]').tooltip();
 
     setTimeout(function(){
-        console.log("cicafül");
+        switch(window.location.pathname){
 
-        hideMenu();
-        $('.donate-page').css({
-            visibility: 'hidden'
-        });
-        $('.profile-page').css({
-            visibility: 'visible'
-        });
-        $('.profile-page').fadeIn(1200);
-    }, 2000);
+            case "/projects":
+                console.log("Projektek");
+                showProjects();
+                break;
+
+            case "/data":
+                console.log("Adatok");
+                showData();
+                break;
+
+            case "/press":
+                console.log("Sajtó");
+                showPress();
+                break;
+
+            case "/aboutus":
+                console.log("Rólunk");
+                showAboutUs();
+                break;
+
+            case "/contact":
+                console.log("Kapcsolat");
+                showContact();
+                break;
+        }
+    }, 1000);
 
 });
+
+function showAboutUs(){
+    hideMenu();
+    $('.donate-page').css({
+        visibility: 'hidden'
+    });
+    $('.profile-page').css({
+        visibility: 'visible'
+    });
+    $('.profile-page').fadeIn(1200);
+}
+
+function showData(){
+    hideMenu();
+    $('.resume-page').fadeIn(1200);
+}
+
+function showPress(){
+    hideMenu();
+    $('.press-page').fadeIn(1200);
+}
+
+function showProjects(){
+    hideMenu();
+    $('.project-page').fadeIn(1200);
+}
+
+function showContact(){
+    hideMenu();
+    $('.donate-page').css({
+        visibility: 'hidden'
+    });
+    $('.contact-page').css({
+        visibility: 'visible'
+    });
+    $('.contact-page').fadeIn(1200);
+}
+
+
 
 function hideMenu(){
     $('.close-btn').show();
