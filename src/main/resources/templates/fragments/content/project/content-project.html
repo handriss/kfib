@@ -30,14 +30,14 @@
                 <h4>Célközönség szerinti szűrés</h4>
 
                 <li th:each="tag : ${targetAudienceTags}" class="button-checkbox">
-                    <button type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
+                    <button type="button" class="btn btn-lg btn-block selector-button userSort active data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
                     <input type="checkbox" class="hidden"/>
                 </li>
 
                 <li><br/><br/></li>
                 <h4>Téma szerinti szűrés</h4>
                 <li th:each="tag : ${documentCategoryTags}" class="button-checkbox">
-                    <button type="button" class="btn btn-lg btn-block selector-button userSort data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
+                    <button type="button" class="btn btn-lg btn-block selector-button userSort active data-first" data-color="default"><span th:text="${tag.getName()}"></span></button>
                     <input type="checkbox" class="hidden"/>
                 </li>
             </ul>

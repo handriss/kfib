@@ -10,15 +10,13 @@ $(window).load(function () {
 
 $(document).ready(function () {
 
-    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
-    $('.close-btn').hide();
+    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
+    // $('.resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
     'use strict';
 
     /*  ---------------------
      Homepage Responsive
      ---------------------  */
-
-
     function homepageResponsive() {
 
         // Homepage Main Portions Responsive
@@ -76,27 +74,15 @@ $(document).ready(function () {
 
     $('.menu > div').on('click', function () {
 
-        $('.close-btn').show();
-
-        var introWidth = $('.introduction').width(),
-            menuWidth = $('.menu').width();
-
-        $('.introduction').animate({
-            left: '-' + introWidth
-        }, 1000, 'easeOutQuart');
-        $('.menu').animate({
-            left: menuWidth
-        }, 1000, 'easeOutQuart', function () {
-            $('.home-page').css({
-                visibility: 'hidden'
-            });
-        });
+        hideMenu();
 
     });
 
-    // Show Reletive Page Onclick
+    // Show Relative Page Onclick
 
     $('.menu div.profile-btn').on('click', function () {
+
+        console.log("clicked");
         $('.donate-page').css({
             visibility: 'hidden'
         });
@@ -107,14 +93,20 @@ $(document).ready(function () {
     });
 
     $('.menu div.resume-btn').on('click', function () {
+        console.log("clicked");
+
         $('.resume-page').fadeIn(1200);
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
+        console.log("clicked");
+
         $('.project-page').fadeIn(1200);
     });
 
     $('.menu div.contact-btn').on('click', function () {
+        console.log("clicked");
+
         $('.donate-page').css({
             visibility: 'hidden'
         });
@@ -125,6 +117,8 @@ $(document).ready(function () {
     });
 
     $('.donate, .fa-cc-paypal').on('click', function () {
+        console.log("clicked");
+
         $('.profile-page, .contact-page').css({
             visibility: 'hidden'
         });
@@ -150,6 +144,9 @@ $(document).ready(function () {
         }, 1000, 'easeOutQuart');
         $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page').fadeOut(800);
     });
+
+    // console.log(window.location.pathname);
+
 
     /*  --------------------------------
      Maximize Services Items Height
@@ -188,16 +185,38 @@ $(document).ready(function () {
 
     $('.project-tag [data-toggle="tooltip"]').tooltip();
 
+    setTimeout(function(){
+        console.log("cicafül");
+
+        console.log("clicked");
+
+        hideMenu();
+        $('.resume-page').fadeIn(1200);
+    }, 250);
 
 });
 
+function hideMenu(){
+    $('.close-btn').show();
 
+    var introWidth = $('.introduction').width(),
+        menuWidth = $('.menu').width();
 
+    $('.introduction').animate({
+        left: '-' + introWidth
+    }, 1000, 'easeOutQuart');
+    $('.menu').animate({
+        left: menuWidth
+    }, 1000, 'easeOutQuart', function () {
+        $('.home-page').css({
+            visibility: 'hidden'
+        });
+    });
+}
 
-
-
-
-
+/*  --------------------------------
+ Selector button code on the projects page
+ --------------------------------  */
 
 $(function () {
     $('.button-checkbox').each(function () {
