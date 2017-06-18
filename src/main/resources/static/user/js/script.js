@@ -80,22 +80,47 @@ $(document).ready(function () {
 
     $('.menu div.profile-btn').on('click', function () {
         showAboutUs();
+        history.pushState(
+            'mock data',
+            'KFIB | Rólunk',
+            '/aboutus'
+        );
     });
 
     $('.menu div.resume-btn').on('click', function () {
         showData();
+        history.pushState(
+            'mock data',
+            'KFIB | Adatok',
+            '/data'
+        );
     });
 
     $('.menu div.press-btn').on('click', function () {
         showPress();
+        history.pushState(
+            'mock data',
+            'KFIB | Sajtó',
+            '/press'
+        );
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
         showProjects();
+        history.pushState(
+            'mock data',
+            'KFIB | Projektek',
+            '/projects'
+        );
     });
 
     $('.menu div.contact-btn').on('click', function () {
         showContact();
+        history.pushState(
+            'mock data',
+            'KFIB | Kapcsolat',
+            '/contact'
+        );
     });
 
     $('.donate, .fa-cc-paypal').on('click', function () {
@@ -115,19 +140,38 @@ $(document).ready(function () {
 
     $('.close-btn').on('click', function () {
 
+        history.pushState(
+            'mock data',
+            'KFIB | Budapest',
+            ''
+        );
+
         $('.close-btn').hide();
 
         $('.home-page').css({
             visibility: 'visible'
         });
+
         $('.introduction, .menu').animate({
             left: 0
         }, 1000, 'easeOutQuart');
 
-        $('.donate-page').css({
+        $('.profile-page').css({
             visibility: 'hidden'
         });
+        $('.resume-page').css({
+            visibility: 'visible'
+        });
+        $('.project-page').css({
+            visibility: 'visible'
+        });
         $('.contact-page').css({
+            visibility: 'visible'
+        });
+        $('.donate-page').css({
+            visibility: 'visible'
+        });
+        $('.press-page').css({
             visibility: 'visible'
         });
 
