@@ -20,7 +20,7 @@ public class HomeController {
         this.tagService = tagService;
     }
 
-    @RequestMapping(value={"", "/", "/projects", "/data", "/press", "/aboutus", "/contact"})
+    @RequestMapping(value={"{.*}"})
     public String home(Model model){
         model.addAttribute("posts", postService.findAll());
         model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());

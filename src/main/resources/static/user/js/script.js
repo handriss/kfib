@@ -209,6 +209,9 @@ $(document).ready(function () {
             case "/contact":
                 showContact();
                 break;
+
+            default:
+                showMainPage();
         }
     }, 1000);
 
@@ -240,6 +243,7 @@ $(document).ready(function () {
             case "/contacts":
                 showContact();
                 break;
+
         }
 
         event.preventDefault();
