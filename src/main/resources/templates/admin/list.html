@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head_admin"></head>
+<head th:replace="fragments/skeleton/head :: head_admin"></head>
 
 <body>
 <div id="container">
-    <div th:replace="fragments/header :: admin_header"></div>
+    <div th:replace="fragments/skeleton/header :: admin_header"></div>
 
 <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default panel-table">
@@ -27,7 +27,9 @@
         <tr>
             <th class="dt-center">Id</th>
             <th class="dt-center">Cím</th>
-            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Elemzés fajtája</th>
+            <th class="dt-center">Célközönség</th>ű
+            <th class="dt-center">Státusz</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -36,7 +38,9 @@
         <tr>
             <th class="dt-center">Id</th>
             <th class="dt-center">Cím</th>
-            <th class="dt-center">Tartalom</th>
+            <th class="dt-center">Elemzés fajtája</th>
+            <th class="dt-center">Célközönség</th>
+            <th class="dt-center">Státusz</th>
             <th class="dt-center">Utolsó módosítás</th>
             <th class="dt-center"><em class="fa fa-cog"></em></th>
         </tr>
@@ -46,7 +50,19 @@
         <tr th:each="post : ${posts}">
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
-            <td th:text="${post.body}"></td>
+            <td>
+                <div th:each="category : ${post.documentCategoryTags}">
+                    <span th:text="${category.documentCategory}"></span>
+                </div>
+            </td>
+            <td>
+                <div th:each="category : ${post.targetAudienceCategoryTags}">
+                    <span th:text="${category.targetAudienceCategory}"></span>
+                </div>
+            </td>
+
+            <td class="text-center"><span class="badge" th:text="${post.isActive ? 'Aktív' : 'Inaktív'}"></span></td>
+
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">
                 <a th:href="@{/admin/posts/} + ${post.id}" class="btn btn-default"><em class="fa fa-pencil"></em></a>
@@ -63,7 +79,7 @@
 
 </div>
 
-<div th:replace="fragments/modals :: are-you-sure-modal"></div>
-<div th:replace="fragments/javascript-links :: javascript-link-admin"></div>
+<div th:replace="fragments/skeleton/modals :: are-you-sure-modal"></div>
+<div th:replace="fragments/skeleton/javascript-links :: javascript-link-admin"></div>
 </body>
 </html>

@@ -23,6 +23,8 @@ public class Post {
 
     private String title;
 
+    private Boolean isActive = false;
+
     @Column(columnDefinition = "TEXT")
     private String introduction;
 

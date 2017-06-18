@@ -38,11 +38,11 @@ public class DataLoader {
     @PostConstruct
     public void loadData(){
 
-        File file1 = new File("picture01");
-        File file2 = new File("picture02");
-
-        fileService.save(file1);
-        fileService.save(file2);
+//        File file1 = new File("picture01");
+//        File file2 = new File("picture02");
+//
+//        fileService.save(file1);
+//        fileService.save(file2);
 
         Set<Role> roles = new HashSet<>();
         Role adminRole = new Role("ROLE_ADMIN");

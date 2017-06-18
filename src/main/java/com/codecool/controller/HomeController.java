@@ -20,7 +20,13 @@ public class HomeController {
         this.tagService = tagService;
     }
 
-    @RequestMapping(value={"{.*}"})
+    @RequestMapping("/login")
+    public String login(){
+        return "admin/auth/login";
+    }
+
+//    @RequestMapping(value={"{.*}"})
+    @RequestMapping("/")
     public String home(Model model){
         model.addAttribute("posts", postService.findAll());
         model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
