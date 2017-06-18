@@ -185,14 +185,51 @@ $(document).ready(function () {
 
     $('.project-tag [data-toggle="tooltip"]').tooltip();
 
-    setTimeout(function(){
-        console.log("cicafül");
 
-        console.log("clicked");
+    // switch(expression) {
+    //     case n:
+    //         code block
+    //         break;
+    //     case n:
+    //         code block
+    //         break;
+    //     default:
+    //         code block
+    // }
 
-        hideMenu();
-        $('.resume-page').fadeIn(1200);
-    }, 250);
+    switch(window.location.pathname){
+        case "/projects":
+            console.log("projects");
+            break;
+
+        case "/data":
+            console.log("data");
+            break;
+
+        case "/press":
+            console.log("press");
+            break;
+
+        case "/aboutus":
+            console.log("aboutus");
+            break;
+
+        case "/contact":
+            console.log("contact");
+            break;
+
+        default:
+            console.log("default");
+    }
+
+    // setTimeout(function(){
+    //     console.log(window.location.pathname);
+    //
+    //     console.log("clicked");
+    //
+    //     hideMenu();
+    //     $('.resume-page').fadeIn(1200);
+    // }, 250);
 
 });
 
