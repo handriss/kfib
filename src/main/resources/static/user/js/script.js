@@ -81,7 +81,7 @@ $(document).ready(function () {
     $('.menu div.profile-btn').on('click', function () {
         showAboutUs();
         history.pushState(
-            'mock data',
+            {page: '/aboutus'},
             'KFIB | Rólunk',
             '/aboutus'
         );
@@ -90,7 +90,7 @@ $(document).ready(function () {
     $('.menu div.resume-btn').on('click', function () {
         showData();
         history.pushState(
-            'mock data',
+            {page: '/data'},
             'KFIB | Adatok',
             '/data'
         );
@@ -99,7 +99,7 @@ $(document).ready(function () {
     $('.menu div.press-btn').on('click', function () {
         showPress();
         history.pushState(
-            'mock data',
+            {page: '/press'},
             'KFIB | Sajtó',
             '/press'
         );
@@ -113,7 +113,7 @@ $(document).ready(function () {
     $('.menu div.portfolio-btn').on('click', function () {
         showProjects();
         history.pushState(
-            'mock data',
+            {page: '/projects'},
             'KFIB | Projektek',
             '/projects'
         );
@@ -122,7 +122,7 @@ $(document).ready(function () {
     $('.menu div.contact-btn').on('click', function () {
         showContact();
         history.pushState(
-            'mock data',
+            {page: '/contact'},
             'KFIB | Kapcsolat',
             '/contact'
         );
@@ -144,43 +144,7 @@ $(document).ready(function () {
     // Close Button, Hide Menu
 
     $('.close-btn').on('click', function () {
-
-        history.pushState(
-            'mock data',
-            'KFIB | Budapest',
-            '/'
-        );
-
-        $('.close-btn').hide();
-
-        $('.home-page').css({
-            visibility: 'visible'
-        });
-
-        $('.introduction, .menu').animate({
-            left: 0
-        }, 1000, 'easeOutQuart');
-
-        $('.profile-page').css({
-            visibility: 'hidden'
-        });
-        $('.resume-page').css({
-            visibility: 'visible'
-        });
-        $('.project-page').css({
-            visibility: 'visible'
-        });
-        $('.contact-page').css({
-            visibility: 'visible'
-        });
-        $('.donate-page').css({
-            visibility: 'visible'
-        });
-        $('.press-page').css({
-            visibility: 'visible'
-        });
-
-        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page, .press-page').fadeOut(800);
+        showMainPage();
     });
 
     // console.log(window.location.pathname);
@@ -254,7 +218,83 @@ $(document).ready(function () {
     }, 1000);
 
 
+    window.addEventListener('popstate', function(event){
+
+        switch(event.state.page){
+
+            case "/main":
+                console.log("Main page");
+                showMainPage();
+                break;
+
+            case "/projects":
+                console.log("Projektek");
+                showProjects();
+                break;
+
+            case "/data":
+                console.log("Adatok");
+                showData();
+                break;
+
+            case "/press":
+                console.log("Sajtó");
+                showPress();
+                break;
+
+            case "/aboutus":
+                console.log("Rólunk");
+                showAboutUs();
+                break;
+
+            case "/contacts":
+                console.log("Kapcsolat");
+                showContact();
+                break;
+        }
+
+        event.preventDefault();
+    });
 });
+
+function showMainPage(){
+    history.pushState(
+        {page: '/main'},
+        'KFIB | Budapest',
+        '/'
+    );
+
+    $('.close-btn').hide();
+
+    $('.home-page').css({
+        visibility: 'visible'
+    });
+
+    $('.introduction, .menu').animate({
+        left: 0
+    }, 1000, 'easeOutQuart');
+
+    $('.profile-page').css({
+        visibility: 'hidden'
+    });
+    $('.resume-page').css({
+        visibility: 'visible'
+    });
+    $('.project-page').css({
+        visibility: 'visible'
+    });
+    $('.contact-page').css({
+        visibility: 'visible'
+    });
+    $('.donate-page').css({
+        visibility: 'visible'
+    });
+    $('.press-page').css({
+        visibility: 'visible'
+    });
+
+    $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page, .press-page').fadeOut(800);
+}
 
 function showAboutUs(){
     hideMenu();
