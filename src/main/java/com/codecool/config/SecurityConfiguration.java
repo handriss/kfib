@@ -27,10 +27,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http.csrf().csrfTokenRepository(csrfTokenRepository());
+
         http.authorizeRequests()
-                .antMatchers("/", "/admin/posts", "/admin/create-post","/", "/assets/**", "/swagger-ui.html", "/v2/api-docs", "/configuration/ui", "/swagger-resources").permitAll()
-                .antMatchers("/authors").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/**").permitAll()
+                .anyRequest().authenticated()
             .and()
                 .formLogin()
                 .loginPage("/login")

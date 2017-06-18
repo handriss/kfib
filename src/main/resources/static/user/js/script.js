@@ -1,40 +1,22 @@
-/*
- --------------------------------------------------------
-
- [ INSTA , Javscript ]
-
- Template Name : INSTA - Responsive Onepage Resume Template
-
- Version       :  1.0
-
- Author        :  Pixel_Factory
-
- Author URI    :  http://themeforest.net/user/Pixel_Factory
-
- Author Email  : h.nafees.anwar@gmail.com
-
- --------------------------------------------------------
- */
-
 /*  ------------------
  Remove Preloader
  ------------------  */
 
 $(window).load(function () {
     $('#preloader').delay(350).fadeOut('slow', function () {
-        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page').hide();
+        $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page').hide();
     });
 });
 
 $(document).ready(function () {
 
+    $('.profile-page, .resume-page, .contact-page, .project-page, .donate-page, .press-page, .close-btn').hide();
+    // $('.resume-page, .contact-page, .project-page, .donate-page, .close-btn').hide();
     'use strict';
 
     /*  ---------------------
      Homepage Responsive
      ---------------------  */
-
-
     function homepageResponsive() {
 
         // Homepage Main Portions Responsive
@@ -91,52 +73,66 @@ $(document).ready(function () {
     // Hide Menu
 
     $('.menu > div').on('click', function () {
-
-        var introWidth = $('.introduction').width(),
-            menuWidth = $('.menu').width();
-
-        $('.introduction').animate({
-            left: '-' + introWidth
-        }, 1000, 'easeOutQuart');
-        $('.menu').animate({
-            left: menuWidth
-        }, 1000, 'easeOutQuart', function () {
-            $('.home-page').css({
-                visibility: 'hidden'
-            });
-        });
-
+        hideMenu();
     });
 
-    // Show Reletive Page Onclick
+    // Show Relative Page Onclick
 
     $('.menu div.profile-btn').on('click', function () {
-        $('.donate-page').css({
-            visibility: 'hidden'
-        });
-        $('.profile-page').css({
-            visibility: 'visible'
-        });
-        $('.profile-page').fadeIn(1200);
+        showAboutUs();
+        history.pushState(
+            {page: '/aboutus'},
+            'KFIB | Rólunk',
+            '/aboutus'
+        );
     });
 
     $('.menu div.resume-btn').on('click', function () {
-        $('.resume-page').fadeIn(1200);
+        showData();
+        history.pushState(
+            {page: '/data'},
+            'KFIB | Adatok',
+            '/data'
+        );
+    });
+
+    $('.menu div.press-btn').on('click', function () {
+        showPress();
+        history.pushState(
+            {page: '/press'},
+            'KFIB | Sajtó',
+            '/press'
+        );
+    });
+
+    $('.menu div.press-btn').on('click', function () {
+
+        $('.press-page').fadeIn(1200);
     });
 
     $('.menu div.portfolio-btn').on('click', function () {
-        $('.project-page').fadeIn(1200);
+        showProjects();
+        history.pushState(
+            {page: '/projects'},
+            'KFIB | Projektek',
+            '/projects'
+        );
     });
 
     $('.menu div.contact-btn').on('click', function () {
-        $('.contact-page').fadeIn(1200);
+        showContact();
+        history.pushState(
+            {page: '/contact'},
+            'KFIB | Kapcsolat',
+            '/contact'
+        );
     });
 
     $('.donate, .fa-cc-paypal').on('click', function () {
-        $('.profile-page').css({
+
+        $('.profile-page, .contact-page').css({
             visibility: 'hidden'
         });
-        console.log("cica");
         $('.donate-page').css({
             visibility: 'visible'
         });
@@ -148,14 +144,11 @@ $(document).ready(function () {
     // Close Button, Hide Menu
 
     $('.close-btn').on('click', function () {
-        $('.home-page').css({
-            visibility: 'visible'
-        });
-        $('.introduction, .menu').animate({
-            left: 0
-        }, 1000, 'easeOutQuart');
-        $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page').fadeOut(800);
+        showMainPage();
     });
+
+    // console.log(window.location.pathname);
+
 
     /*  --------------------------------
      Maximize Services Items Height
@@ -194,118 +187,229 @@ $(document).ready(function () {
 
     $('.project-tag [data-toggle="tooltip"]').tooltip();
 
+    setTimeout(function(){
+        switch(window.location.pathname){
 
-    /*  ------------
-     Pie Charts
-     ------------  */
+            case "/projects":
+                showProjects();
+                break;
 
-    $(function () {
+            case "/data":
+                showData();
+                break;
 
-        var fillColor = $('.footer').css('background-color'); // Get background color of footer to set relevent fill color in pie charts
+            case "/press":
+                showPress();
+                break;
 
-        // Initiate EasyPieChart
+            case "/aboutus":
+                showAboutUs();
+                break;
 
-        $('.skill').easyPieChart({
-            barColor: fillColor,
-            trackColor: '#c6c6c6',
-            scaleColor: '#c6c6c6',
-            scaleLength: 8,
-            lineWidth: 8,
-            size: 150,
-            lineCap: 'butt'
-        });
+            case "/contact":
+                showContact();
+                break;
 
-    });
-
-    /*  -------------------------------
-     Filterizer ( for portfolio page )
-     -------------------------------  */
-
-    $(function () {
-
-        var filterizd = $('.projet-items').filterizr({});
-
-
-    });
-
-    /*  -------------------------------
-     PopUp ( for portfolio page )
-     -------------------------------  */
-
-    $(function () {
-        $('.show-popup').popup({
-            keepInlineChanges: true,
-            speed: 500
-        });
-    });
-
-    /*  -----------------------------------------------------
-     OwlCarousel ( for portfolio page : testimonials slider )
-     -----------------------------------------------------  */
-
-    $(function () {
-        $(".owl-carousel").owlCarousel({
-            navigation: false, // Show next and prev buttons
-            slideSpeed: 200,
-            paginationSpeed: 300,
-            singleItem: true
-        });
-    });
-
-    /*  -------------
-     Contact Form
-     ------------- */
-
-    // $('#contactForm').submit(function () {
-    //
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "php/contact.php",
-    //         data: $('#contactForm').serialize(),
-    //         success: function (msg) {
-    //             if (msg == 'SEND') {
-    //                 $('.success').fadeIn();
-    //                 $('.error').fadeOut();
-    //                 $('#contactForm')[0].reset();
-    //             } else {
-    //                 $('.success').fadeOut();
-    //                 $('.error').fadeIn().find('h3').text(msg);
-    //             }
-    //         }
-    //     });
-    //     return false;
-    // });
-
-    /*  -------------------------------
-     Google Map ( for contact page )
-     -------------------------------  */
-
-    $('#google-map').gMap({
-        latitude: 31.562130,
-        longitude: 74.319460,
-        maptype: 'TERRAIN',
-        scrollwheel: false,
-        zoom: 14,
-        markers: [
-            {
-                latitude: 31.562130,
-                longitude: 74.319460,
-                html: "I am Here!",
-                icon: {
-                    image: "images/icon/map_marker.png",
-                    iconsize: [46, 46],
-                    iconanchor: [12, 46]
-                }
-            }
-        ],
-        controls: {
-            panControl: false,
-            zoomControl: true,
-            mapTypeControl: false,
-            scaleControl: false,
-            streetViewControl: false,
-            overviewMapControl: false
+            default:
+                showMainPage();
         }
+    }, 1000);
+
+
+    window.addEventListener('popstate', function(event){
+
+        switch(event.state.page){
+
+            case "/main":
+                showMainPage();
+                break;
+
+            case "/projects":
+                showProjects();
+                break;
+
+            case "/data":
+                showData();
+                break;
+
+            case "/press":
+                showPress();
+                break;
+
+            case "/aboutus":
+                showAboutUs();
+                break;
+
+            case "/contacts":
+                showContact();
+                break;
+
+        }
+
+        event.preventDefault();
+    });
+});
+
+function showMainPage(){
+    history.pushState(
+        {page: '/main'},
+        'KFIB | Budapest',
+        '/'
+    );
+
+    $('.close-btn').hide();
+
+    $('.home-page').css({
+        visibility: 'visible'
     });
 
+    $('.introduction, .menu').animate({
+        left: 0
+    }, 1000, 'easeOutQuart');
+
+    $('.profile-page').css({
+        visibility: 'hidden'
+    });
+    $('.resume-page').css({
+        visibility: 'visible'
+    });
+    $('.project-page').css({
+        visibility: 'visible'
+    });
+    $('.contact-page').css({
+        visibility: 'visible'
+    });
+    $('.donate-page').css({
+        visibility: 'visible'
+    });
+    $('.press-page').css({
+        visibility: 'visible'
+    });
+
+    $('.profile-page, .resume-page, .project-page, .contact-page, .donate-page, .press-page').fadeOut(800);
+}
+
+function showAboutUs(){
+    hideMenu();
+    $('.donate-page').css({
+        visibility: 'hidden'
+    });
+    $('.profile-page').css({
+        visibility: 'visible'
+    });
+    $('.profile-page').fadeIn(1200);
+}
+
+function showData(){
+    hideMenu();
+    $('.resume-page').fadeIn(1200);
+}
+
+function showPress(){
+    hideMenu();
+    $('.press-page').fadeIn(1200);
+}
+
+function showProjects(){
+    hideMenu();
+    $('.project-page').fadeIn(1200);
+}
+
+function showContact(){
+    hideMenu();
+    $('.donate-page').css({
+        visibility: 'hidden'
+    });
+    $('.contact-page').css({
+        visibility: 'visible'
+    });
+    $('.contact-page').fadeIn(1200);
+}
+
+function hideMenu(){
+    $('.close-btn').show();
+
+    var introWidth = $('.introduction').width(),
+        menuWidth = $('.menu').width();
+
+    $('.introduction').animate({
+        left: '-' + introWidth
+    }, 1000, 'easeOutQuart');
+    $('.menu').animate({
+        left: menuWidth
+    }, 1000, 'easeOutQuart', function () {
+        $('.home-page').css({
+            visibility: 'hidden'
+        });
+    });
+}
+
+/*  --------------------------------
+ Selector button code on the projects page
+ --------------------------------  */
+
+$(function () {
+    $('.button-checkbox').each(function () {
+
+        // Settings
+        var $widget = $(this),
+            $button = $widget.find('button'),
+            $checkbox = $widget.find('input:checkbox'),
+            color = $button.data('color'),
+            settings = {
+                on: {
+                    icon: 'glyphicon glyphicon-check'
+                },
+                off: {
+                    icon: 'glyphicon glyphicon-unchecked'
+                }
+            };
+
+        // Event Handlers
+        $button.on('click', function () {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+            $checkbox.triggerHandler('change');
+            updateDisplay();
+        });
+        $checkbox.on('change', function () {
+            updateDisplay();
+        });
+
+        // Actions
+        function updateDisplay() {
+            var isChecked = $checkbox.is(':checked');
+
+            // Set the button's state
+            $button.data('state', (isChecked) ? "on" : "off");
+
+            // Set the button's icon
+            $button.find('.state-icon')
+                .removeClass()
+                .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+            // Update the button's color
+            if (isChecked) {
+                $button
+                    .removeClass('btn-default')
+                    .addClass('btn-' + color + ' active');
+            }
+            else {
+                $button
+                    .removeClass('btn-' + color + ' active')
+                    .addClass('btn-default');
+            }
+        }
+
+        // Initialization
+        function init() {
+
+            updateDisplay();
+
+            // Inject the icon if applicable
+            if ($button.find('.state-icon').length == 0) {
+                $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+            }
+        }
+        init();
+    });
 });

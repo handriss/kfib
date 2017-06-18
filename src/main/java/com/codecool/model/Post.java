@@ -1,20 +1,16 @@
 package com.codecool.model;
 
 
-import com.codecool.model.enums.PostCategoryEnum;
-import com.codecool.model.enums.TargetCategoryEnum;
-import lombok.extern.slf4j.Slf4j;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
-@Slf4j
 @Getter
 @Setter
 @Entity
@@ -27,16 +23,23 @@ public class Post {
 
     private String title;
 
+    private Boolean isActive = false;
+
+    @Column(columnDefinition = "TEXT")
+    private String introduction;
+
     @Column(columnDefinition = "TEXT")
     private String body;
+
+    @ElementCollection
+    private Set<DocumentCategoryTag> documentCategoryTags = new HashSet<>();
+
+    @ElementCollection
+    private Set<TargetAudienceCategoryTag> targetAudienceCategoryTags = new HashSet<>();
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private Date postedOn;
-
-    private ArrayList<PostCategoryEnum> postCategories;
-
-    private ArrayList<TargetCategoryEnum> targetCategories;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_post", joinColumns = @JoinColumn(name="role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
@@ -46,16 +49,47 @@ public class Post {
     @JoinTable(name="post_file", joinColumns = @JoinColumn(name="post_id"), inverseJoinColumns = @JoinColumn(name="file_id"))
     private Set<File> files;
 
-    private Boolean isActive;
-
     public Post(){
-        this.isActive = false;
-        this.postedOn = new Timestamp(System.currentTimeMillis());
     }
 
     public Post(String title) {
-        this.isActive = false;
         this.title = title;
         this.postedOn = new Timestamp(System.currentTimeMillis());
     }
+
+    public Post(String title, String body) {
+        this.title = title;
+        this.body = body;
+        this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
+
+    public Post(String title, String introduction, String body) {
+        this.title = title;
+        this.introduction = introduction;
+        this.body = body;
+        this.postedOn = new Timestamp(System.currentTimeMillis());
+    }
+
+
+
+    public void addDocumentCategory(DocumentCategoryTag documentCategoryTag){
+        this.documentCategoryTags.add(documentCategoryTag);
+    }
+
+    public void removeDocumentCategory(DocumentCategoryTag documentCategoryTag){
+        this.documentCategoryTags.remove(documentCategoryTag);
+    }
+
+    public void addTargetAudienceCategory(TargetAudienceCategoryTag targetAudienceCategoryTag){
+        this.targetAudienceCategoryTags.add(targetAudienceCategoryTag);
+    }
+
+    public void removeTargetAudienceCategory(TargetAudienceCategoryTag targetAudienceCategoryTag){
+        this.targetAudienceCategoryTags.remove(targetAudienceCategoryTag);
+    }
+
+    public void addUser(User user){
+        this.users.add(user);
+    }
+
 }

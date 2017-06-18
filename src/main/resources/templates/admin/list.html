@@ -51,19 +51,17 @@
             <td th:text="${post.id}"></td>
             <td th:text="${post.title}"></td>
             <td>
-                <div th:each="category : ${post.postCategories}">
-                    <span th:text="${category.name}"></span>
+                <div th:each="category : ${post.documentCategoryTags}">
+                    <span th:text="${category.documentCategory}"></span>
                 </div>
             </td>
             <td>
-                <div th:each="category : ${post.targetCategories}">
-                    <span th:text="${category.name}"></span>
+                <div th:each="category : ${post.targetAudienceCategoryTags}">
+                    <span th:text="${category.targetAudienceCategory}"></span>
                 </div>
             </td>
-            <!--<td th:text="${post.isActive}"></td>-->
 
-
-            <td class="text-center"><span class="badge" th:text="${post.getIsActive() ? 'Aktív' : 'Inaktív'}"></span></td>
+            <td class="text-center"><span class="badge" th:text="${post.isActive ? 'Aktív' : 'Inaktív'}"></span></td>
 
             <td th:text="${#dates.format(post.postedOn, 'yyyy. MMMMMMMM. dd. HH:mm')}"></td>
             <td align="center">

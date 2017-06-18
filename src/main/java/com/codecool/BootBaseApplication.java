@@ -10,5 +10,4 @@ public class BootBaseApplication {
 		SpringApplication.run(BootBaseApplication.class, args);
 	}
 
-
 }

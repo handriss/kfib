@@ -40,44 +40,45 @@
         </div>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <!--TODO: fix this-->
 
-        <!--Target audience type-->
-        <div class="form-group">
-            <div class="row">
-                <h2 class="heading">Célközönség</h2>
-            </div>
-            <div class="row">
+        <!--&lt;!&ndash;Target audience type&ndash;&gt;-->
+        <!--<div class="form-group">-->
+            <!--<div class="row">-->
+                <!--<h2 class="heading">Célközönség</h2>-->
+            <!--</div>-->
+            <!--<div class="row">-->
 
-                <select th:field="*{postCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
-                    <option th:each="category : ${T(com.codecool.model.enums.PostCategoryEnum).values()}"
-                            th:value="${category}"
-                            th:text="${category.name}"
-                            data-icon="glyphicon-link">
-                    </option>
-                </select>
+                <!--<select th:field="*{postCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">-->
+                    <!--<option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"-->
+                            <!--th:value="${category}"-->
+                            <!--th:text="${category.name}"-->
+                            <!--data-icon="glyphicon-link">-->
+                    <!--</option>-->
+                <!--</select>-->
 
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <!--TODO: fix this-->
+        <!--&lt;!&ndash;Analysis type&ndash;&gt;-->
+        <!--<div class="form-group">-->
+            <!--<div class="row">-->
+                <!--<h2 class="heading">Elemzés fajtája</h2>-->
+            <!--</div>-->
+            <!--<div class="row">-->
 
-        <!--Analysis type-->
-        <div class="form-group">
-            <div class="row">
-                <h2 class="heading">Elemzés fajtája</h2>
-            </div>
-            <div class="row">
+                <!--<select th:field="*{targetCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">-->
+                    <!--<option th:each="category : ${T(com.codecool.model.enums.TargetAudienceCategory).values()}"-->
+                            <!--th:value="${category}"-->
+                            <!--th:text="${category.name}"-->
+                            <!--data-icon="glyphicon-link">-->
+                    <!--</option>-->
+                <!--</select>-->
 
-                <select th:field="*{targetCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
-                    <option th:each="category : ${T(com.codecool.model.enums.TargetCategoryEnum).values()}"
-                            th:value="${category}"
-                            th:text="${category.name}"
-                            data-icon="glyphicon-link">
-                    </option>
-                </select>
-
-            </div>
-        </div>
+            <!--</div>-->
+        <!--</div>-->
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 

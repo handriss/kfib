@@ -50,7 +50,6 @@ public class AdminController {
     @PostMapping("/create-post")
     public String savePost(Post post){
 
-        log.info(post.getPostCategories().toString());
         postService.save(post);
         return "redirect:/admin/posts";
     }
