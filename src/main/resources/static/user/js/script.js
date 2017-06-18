@@ -188,11 +188,15 @@ $(document).ready(function () {
     setTimeout(function(){
         console.log("cicafül");
 
-        console.log("clicked");
-
         hideMenu();
-        $('.resume-page').fadeIn(1200);
-    }, 250);
+        $('.donate-page').css({
+            visibility: 'hidden'
+        });
+        $('.profile-page').css({
+            visibility: 'visible'
+        });
+        $('.profile-page').fadeIn(1200);
+    }, 2000);
 
 });
 
