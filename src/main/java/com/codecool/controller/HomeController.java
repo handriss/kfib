@@ -20,52 +20,11 @@ public class HomeController {
         this.tagService = tagService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value={"/", "", "/projects", "/data", "/press", "/aboutus", "/contact"})
     public String home(Model model){
         model.addAttribute("posts", postService.findAll());
         model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
         model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
         return "index";
     }
-
-    @RequestMapping("/projects")
-    public String getProjects(Model model){
-        model.addAttribute("posts", postService.findAll());
-        model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
-        model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
-        return "index";
-    }
-
-    @RequestMapping("/data")
-    public String getData(Model model){
-        model.addAttribute("posts", postService.findAll());
-        model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
-        model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
-        return "index";
-    }
-
-    @RequestMapping("/press")
-    public String getPress(Model model){
-        model.addAttribute("posts", postService.findAll());
-        model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
-        model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
-        return "index";
-    }
-
-    @RequestMapping("/aboutus")
-    public String getAboutUs(Model model){
-        model.addAttribute("posts", postService.findAll());
-        model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
-        model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
-        return "index";
-    }
-
-    @RequestMapping("/contact")
-    public String getContact(Model model){
-        model.addAttribute("posts", postService.findAll());
-        model.addAttribute("documentCategoryTags", tagService.getDocumentCategories());
-        model.addAttribute("targetAudienceTags", tagService.getTargetAudienceCategories());
-        return "index";
-    }
-
 }
