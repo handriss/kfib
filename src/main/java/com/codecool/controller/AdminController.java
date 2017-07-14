@@ -4,11 +4,15 @@ package com.codecool.controller;
 import com.codecool.exception.PostNotFoundException;
 import com.codecool.model.File;
 import com.codecool.model.Post;
-import com.codecool.service.*;
+import com.codecool.model.dto.PostDto;
+import com.codecool.service.FileService;
+import com.codecool.service.PostService;
+import com.codecool.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,15 +46,30 @@ public class AdminController {
         List<File> files = fileService.findAll();
         model.addAttribute("files", files);
 
-        Post post = new Post();
-        model.addAttribute("post", post);
+//        Post post = new Post();
+//        model.addAttribute("post", post);
+//        return "admin/create-post";
+
+        PostDto postDto = new PostDto();
+        model.addAttribute("postDto", postDto);
         return "admin/create-post";
     }
 
-    @PostMapping("/create-post")
-    public String savePost(Post post){
+//    @PostMapping("/create-post")
+//    public String savePost(Post post){
+//
+//        System.out.println("About to save a post...");
+//        System.out.println(post);
+//
+////        postService.save(post);
+//        return "redirect:/admin/posts";
+//    }
 
-        postService.save(post);
+    @PostMapping("/create-post")
+    public String savePost(PostDto postDto, BindingResult result){
+
+        postService.save(postDto);
+
         return "redirect:/admin/posts";
     }
 

@@ -1,14 +1,19 @@
 package com.codecool.service;
 
 
+import com.codecool.model.DocumentCategoryTag;
 import com.codecool.model.Post;
+import com.codecool.model.dto.PostDto;
+import com.codecool.model.enums.DocumentCategory;
 import com.codecool.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @Service
@@ -24,6 +29,44 @@ public class PostService {
     public void save(Post post) {
         post.setPostedOn(new Timestamp(System.currentTimeMillis()));
         postRepository.save(post);
+    }
+
+    public void save(PostDto postDto){
+        postDto.getPost().setPostedOn(new Timestamp(System.currentTimeMillis()));
+
+        System.out.println(postDto.getDocumentCategories());
+
+        Set<DocumentCategoryTag> documentCategoryTags = new HashSet<>();
+
+        for(String currentTag : postDto.getDocumentCategories()){
+            if(currentTag.equals("transparency")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.transparency));
+
+            }else if(currentTag.equals("baselineProjection")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.baselineProjection));
+
+            }else if(currentTag.equals("budgetAnalysis")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.budgetAnalysis));
+
+            }else if(currentTag.equals("obi")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.obi));
+
+            }else if(currentTag.equals("impactAssessment")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.impactAssessment));
+
+            }else if(currentTag.equals("other")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.other));
+
+            }else if(currentTag.equals("methodology")){
+                documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.methodology));
+
+            }
+
+        }
+
+        postDto.getPost().setDocumentCategoryTags(documentCategoryTags);
+
+        postRepository.save(postDto.getPost());
     }
 
     public void delete(Post post) {

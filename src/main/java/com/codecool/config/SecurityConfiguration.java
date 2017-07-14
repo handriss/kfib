@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().csrfTokenRepository(csrfTokenRepository());
 
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/admin/**").hasRole("ADMIN") TODO: uncomment it before production!!
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
             .and()

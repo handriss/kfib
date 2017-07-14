@@ -13,9 +13,9 @@
 
 <div class="container">
 
-    <form action="#" th:action="@{/admin/create-post}" th:object="${post}" method="post">
+    <form action="#" th:action="@{/admin/create-post}" th:object="${postDto}" method="post">
 
-        <input type="hidden" th:field="*{id}" />
+        <input type="hidden" th:field="*{post.id}" />
 
 
         <!--Title and post body-->
@@ -26,14 +26,14 @@
 
             <div class="row">
                 <div class="controls">
-                    <input type="text" th:field="*{title}" id="title" class="floatLabel" required="required" autofocus="autofocus" name="name"/>
+                    <input type="text" th:field="*{post.title}" id="title" class="floatLabel" required="required" autofocus="autofocus" name="name"/>
                     <label for="title">Cím</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="controls">
-                    <textarea th:field="*{body}" name="body" required="required" class="floatLabel" id="body"></textarea>
+                    <textarea th:field="*{post.body}" name="body" required="required" class="floatLabel" id="body"></textarea>
                     <label for="body">Tartalom</label>
                 </div>
             </div>
@@ -42,26 +42,26 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!--TODO: fix this-->
 
-        <!--&lt;!&ndash;Target audience type&ndash;&gt;-->
-        <!--<div class="form-group">-->
-            <!--<div class="row">-->
-                <!--<h2 class="heading">Célközönség</h2>-->
-            <!--</div>-->
-            <!--<div class="row">-->
+        <!--Target audience type-->
+        <div class="form-group">
+            <div class="row">
+                <h2 class="heading">Célközönség</h2>
+            </div>
+            <div class="row">
 
-                <!--<select th:field="*{postCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">-->
-                    <!--<option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"-->
-                            <!--th:value="${category}"-->
-                            <!--th:text="${category.name}"-->
-                            <!--data-icon="glyphicon-link">-->
-                    <!--</option>-->
-                <!--</select>-->
+                <select th:field="*{documentCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
+                    <option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"
+                            th:value="${category}"
+                            th:text="${category.name}"
+                            data-icon="glyphicon-link">
+                    </option>
+                </select>
 
-            <!--</div>-->
-        <!--</div>-->
+            </div>
+        </div>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!--TODO: fix this-->
+        <!--&lt;!&ndash;TODO: fix this&ndash;&gt;-->
         <!--&lt;!&ndash;Analysis type&ndash;&gt;-->
         <!--<div class="form-group">-->
             <!--<div class="row">-->
@@ -134,7 +134,7 @@
             </div>
             <div class="row little-left-margin">
                 <!--<input type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>-->
-                <input th:field="*{isActive}" type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
+                <input th:field="*{post.isActive}" type="checkbox" checked="checked" data-toggle="toggle" data-on="Igen" data-off="Még nem" data-onstyle="success" data-offstyle="danger"/>
             </div>
 
         </div>
