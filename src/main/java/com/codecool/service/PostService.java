@@ -3,8 +3,10 @@ package com.codecool.service;
 
 import com.codecool.model.DocumentCategoryTag;
 import com.codecool.model.Post;
+import com.codecool.model.TargetAudienceCategoryTag;
 import com.codecool.model.dto.PostDto;
 import com.codecool.model.enums.DocumentCategory;
+import com.codecool.model.enums.TargetAudienceCategory;
 import com.codecool.repository.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,10 +63,32 @@ public class PostService {
                 documentCategoryTags.add(new DocumentCategoryTag(DocumentCategory.methodology));
 
             }
+        }
 
+        System.out.println(postDto.getTargetAudienceCategories());
+
+        Set<TargetAudienceCategoryTag> targetAudienceCategories = new HashSet<>();
+
+        for(String currentTag : postDto.getTargetAudienceCategories()){
+            if(currentTag.equals("journalist")){
+                targetAudienceCategories.add(new TargetAudienceCategoryTag(TargetAudienceCategory.journalist));
+
+            }else if(currentTag.equals("decisionMaker")){
+                targetAudienceCategories.add(new TargetAudienceCategoryTag(TargetAudienceCategory.decisionMaker));
+
+            }else if(currentTag.equals("ngo")){
+                targetAudienceCategories.add(new TargetAudienceCategoryTag(TargetAudienceCategory.ngo));
+
+            }else if(currentTag.equals("analyst")){
+                targetAudienceCategories.add(new TargetAudienceCategoryTag(TargetAudienceCategory.analyst));
+
+            }else if(currentTag.equals("citizen")){
+                targetAudienceCategories.add(new TargetAudienceCategoryTag(TargetAudienceCategory.citizen));
+            }
         }
 
         postDto.getPost().setDocumentCategoryTags(documentCategoryTags);
+        postDto.getPost().setTargetAudienceCategoryTags(targetAudienceCategories);
 
         postRepository.save(postDto.getPost());
     }

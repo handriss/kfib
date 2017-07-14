@@ -18,6 +18,6 @@ public class PostDto {
 
     private List<String> documentCategories;
 
-    private String targetAudienceCategories;
+    private List<String> targetAudienceCategories;
 
 }
