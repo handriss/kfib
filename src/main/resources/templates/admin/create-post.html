@@ -40,8 +40,6 @@
         </div>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-        <!--TODO: fix this-->
-
 
         <!--Target audience type-->
         <div class="form-group">
@@ -91,11 +89,6 @@
                             }
                         });
                     }
-
-                    console.log(' a');
-                    console.log(' a');
-                    console.log(' a');
-
                     /*]]>*/
                 </script>
             </div>
@@ -107,16 +100,52 @@
             <div class="row">
                 <h2 class="heading">Célközönség</h2>
             </div>
+
             <div class="row">
 
-                <select th:field="*{targetAudienceCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
-                    <option th:each="category : ${T(com.codecool.model.enums.TargetAudienceCategory).values()}"
-                            th:value="${category}"
-                            th:text="${category.name}"
-                            data-icon="glyphicon-link">
-                    </option>
+                <select id="targetOptions" th:field="*{targetAudienceCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
+                    <div>
+                        <option th:each="category : ${T(com.codecool.model.enums.TargetAudienceCategory).values()}"
+                                th:value="${category}"
+                                th:text="${category.name}"
+                                data-icon="glyphicon-link">
+                        </option>
+
+                    </div>
                 </select>
 
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+
+                    var tagArray = [];
+
+                    var currentTag = /*[[${postDto.post.targetAudienceCategoryTags}]]*/ 'none';
+                    currentTag.forEach(function(tag) {
+
+                        var currentValue = /*[[${T(com.codecool.model.enums.TargetAudienceCategory).values()}]]*/ 'none';
+                        currentValue.forEach(function(value){
+                            if(tag.targetAudienceCategory.$name == value.$name){
+                                tagArray.push(value.$name);
+                            }
+                        });
+                    });
+
+                    var options = document.getElementById("targetOptions").children;
+
+                    for (var key in options) {
+
+                        tagArray.forEach(function(tag){
+
+                            console.log(tag);
+                            console.log(options[key].value);
+                            if(tag == options[key].value){
+                                options[key].selected = 'selected';
+
+                            }
+                        });
+                    }
+                    /*]]>*/
+                </script>
             </div>
         </div>
 
