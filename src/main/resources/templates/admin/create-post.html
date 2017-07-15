@@ -42,20 +42,46 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
         <!--TODO: fix this-->
 
+
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            var username = /*[[${postDto.post.documentCategoryTags}]]*/ 'Sebastian';
+            username.forEach(function(entry) {
+                console.log(entry.documentCategory.$name);
+            });
+            /*]]>*/
+        </script>
+
         <!--Target audience type-->
         <div class="form-group">
             <div class="row">
-                <h2 class="heading">Célközönség</h2>
+                <h2 class="heading">Elemzés fajtája</h2>
+                <!--<ul th:each="category : ${post.documentCategoryTags}">-->
+                    <!--<li th:text="category">cica</li>-->
+                <!--</ul>-->
             </div>
             <div class="row">
 
                 <select th:field="*{documentCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
-                    <option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"
-                            th:value="${category}"
-                            th:text="${category.name}"
-                            data-icon="glyphicon-link">
-                    </option>
+                    <div>
+                        <option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"
+                                th:value="${category}"
+                                th:text="${category}"
+                                th:attr="selected='selected'"
+                                data-icon="glyphicon-link">
+                        </option>
+                    </div>
                 </select>
+
+                <p th:text="cica">kutya</p>
+                <ul th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}">
+                    <li th:text="${category}"></li>
+                    <li th:text="${postDto.post.documentCategoryTags}"></li>
+                    <li th:text="${#lists.contains(postDto.post.documentCategoryTags, category)}"></li>
+                </ul>
+                <!--th:text="${category.name}"-->
+                <!--th:attr="required=${field.isRequired ? 'required' : null}, data-parsley-range=${field.validStringLengthMin ? [${field.validStringLengthMin},${field.validStringLengthMax}] : null}"-->
+
 
             </div>
         </div>
@@ -64,7 +90,7 @@
         <!--Analysis type-->
         <div class="form-group">
             <div class="row">
-                <h2 class="heading">Elemzés fajtája</h2>
+                <h2 class="heading">Célközönség</h2>
             </div>
             <div class="row">
 
