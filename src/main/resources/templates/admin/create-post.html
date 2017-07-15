@@ -43,14 +43,14 @@
         <!--TODO: fix this-->
 
 
-        <script th:inline="javascript">
-            /*<![CDATA[*/
-            var username = /*[[${postDto.post.documentCategoryTags}]]*/ 'Sebastian';
-            username.forEach(function(entry) {
-                console.log(entry.documentCategory.$name);
-            });
-            /*]]>*/
-        </script>
+        <!--<script th:inline="javascript">-->
+            <!--/*<![CDATA[*/-->
+            <!--var username = /*[[${postDto.post.documentCategoryTags}]]*/ 'Sebastian';-->
+            <!--username.forEach(function(entry) {-->
+                <!--console.log(entry.documentCategory.$name);-->
+            <!--});-->
+            <!--/*]]>*/-->
+        <!--</script>-->
 
         <!--Target audience type-->
         <div class="form-group">
@@ -73,12 +73,35 @@
                     </div>
                 </select>
 
-                <p th:text="cica">kutya</p>
-                <ul th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}">
-                    <li th:text="${category}"></li>
-                    <li th:text="${postDto.post.documentCategoryTags}"></li>
-                    <li th:text="${#lists.contains(postDto.post.documentCategoryTags, category)}"></li>
-                </ul>
+                <script th:inline="javascript">
+
+                    var tagArray = [];
+
+                    var currentTag = /*[[${postDto.post.documentCategoryTags}]]*/ 'none';
+                    currentTag.forEach(function(tag) {
+//                        console.log(tag.documentCategory.$name);
+
+                        var currentValue = /*[[${T(com.codecool.model.enums.DocumentCategory).values()}]]*/ 'none';
+                        currentValue.forEach(function(value){
+//                            console.log(tag.documentCategory.$name);
+//                            console.log(value.$name);
+                            if(tag.documentCategory.$name == value.$name){
+                                tagArray.push(value.$name);
+                            }
+                        });
+                    });
+
+                    console.log(tagArray);
+
+                </script>
+
+                <!--<p th:text="cica">kutya</p>-->
+                <!--<ul th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}">-->
+                    <!--<li th:text="${category}"></li>-->
+                    <!--<li th:text="${postDto.post.documentCategoryTags}"></li>-->
+                    <!--<li th:text="${#lists.contains(postDto.post.documentCategoryTags, category)}"></li>-->
+
+                <!--</ul>-->
                 <!--th:text="${category.name}"-->
                 <!--th:attr="required=${field.isRequired ? 'required' : null}, data-parsley-range=${field.validStringLengthMin ? [${field.validStringLengthMin},${field.validStringLengthMax}] : null}"-->
 
