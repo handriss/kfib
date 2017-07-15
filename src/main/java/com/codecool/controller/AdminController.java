@@ -46,24 +46,11 @@ public class AdminController {
         List<File> files = fileService.findAll();
         model.addAttribute("files", files);
 
-//        Post post = new Post();
-//        model.addAttribute("post", post);
-//        return "admin/create-post";
 
         PostDto postDto = new PostDto();
         model.addAttribute("postDto", postDto);
         return "admin/create-post";
     }
-
-//    @PostMapping("/create-post")
-//    public String savePost(Post post){
-//
-//        System.out.println("About to save a post...");
-//        System.out.println(post);
-//
-////        postService.save(post);
-//        return "redirect:/admin/posts";
-//    }
 
     @PostMapping("/create-post")
     public String savePost(PostDto postDto, BindingResult result){
@@ -97,7 +84,13 @@ public class AdminController {
             throw new PostNotFoundException("Az általad megadott azonosítóhoz (" + id + ") nem tartozik tartalom.");
         }
 
-        model.addAttribute("post", post);
+        List<File> files = fileService.findAll();
+        model.addAttribute("files", files);
+
+
+        PostDto postDto = new PostDto();
+        postDto.setPost(post);
+        model.addAttribute("postDto", postDto);
 
         return "admin/create-post";
     }

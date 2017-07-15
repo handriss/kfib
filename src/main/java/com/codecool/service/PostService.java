@@ -36,8 +36,6 @@ public class PostService {
     public void save(PostDto postDto){
         postDto.getPost().setPostedOn(new Timestamp(System.currentTimeMillis()));
 
-        System.out.println(postDto.getDocumentCategories());
-
         Set<DocumentCategoryTag> documentCategoryTags = new HashSet<>();
 
         for(String currentTag : postDto.getDocumentCategories()){
@@ -64,8 +62,6 @@ public class PostService {
 
             }
         }
-
-        System.out.println(postDto.getTargetAudienceCategories());
 
         Set<TargetAudienceCategoryTag> targetAudienceCategories = new HashSet<>();
 
