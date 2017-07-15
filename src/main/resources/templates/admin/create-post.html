@@ -43,69 +43,61 @@
         <!--TODO: fix this-->
 
 
-        <!--<script th:inline="javascript">-->
-            <!--/*<![CDATA[*/-->
-            <!--var username = /*[[${postDto.post.documentCategoryTags}]]*/ 'Sebastian';-->
-            <!--username.forEach(function(entry) {-->
-                <!--console.log(entry.documentCategory.$name);-->
-            <!--});-->
-            <!--/*]]>*/-->
-        <!--</script>-->
-
         <!--Target audience type-->
         <div class="form-group">
             <div class="row">
                 <h2 class="heading">Elemzés fajtája</h2>
-                <!--<ul th:each="category : ${post.documentCategoryTags}">-->
-                    <!--<li th:text="category">cica</li>-->
-                <!--</ul>-->
             </div>
             <div class="row">
 
-                <select th:field="*{documentCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
+                <select id="documentOptions" th:field="*{documentCategories}" type="text" class="form-control multiselect multiselect-icon" multiple="multiple" role="multiselect">
                     <div>
                         <option th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}"
                                 th:value="${category}"
-                                th:text="${category}"
-                                th:attr="selected='selected'"
+                                th:text="${category.name}"
                                 data-icon="glyphicon-link">
                         </option>
+
                     </div>
                 </select>
 
                 <script th:inline="javascript">
+                    /*<![CDATA[*/
 
                     var tagArray = [];
 
                     var currentTag = /*[[${postDto.post.documentCategoryTags}]]*/ 'none';
                     currentTag.forEach(function(tag) {
-//                        console.log(tag.documentCategory.$name);
 
                         var currentValue = /*[[${T(com.codecool.model.enums.DocumentCategory).values()}]]*/ 'none';
                         currentValue.forEach(function(value){
-//                            console.log(tag.documentCategory.$name);
-//                            console.log(value.$name);
                             if(tag.documentCategory.$name == value.$name){
                                 tagArray.push(value.$name);
                             }
                         });
                     });
 
-                    console.log(tagArray);
+                    var options = document.getElementById("documentOptions").children;
 
+                    for (var key in options) {
+
+                        tagArray.forEach(function(tag){
+
+                            console.log(tag);
+                            console.log(options[key].value);
+                            if(tag == options[key].value){
+                                options[key].selected = 'selected';
+
+                            }
+                        });
+                    }
+
+                    console.log(' a');
+                    console.log(' a');
+                    console.log(' a');
+
+                    /*]]>*/
                 </script>
-
-                <!--<p th:text="cica">kutya</p>-->
-                <!--<ul th:each="category : ${T(com.codecool.model.enums.DocumentCategory).values()}">-->
-                    <!--<li th:text="${category}"></li>-->
-                    <!--<li th:text="${postDto.post.documentCategoryTags}"></li>-->
-                    <!--<li th:text="${#lists.contains(postDto.post.documentCategoryTags, category)}"></li>-->
-
-                <!--</ul>-->
-                <!--th:text="${category.name}"-->
-                <!--th:attr="required=${field.isRequired ? 'required' : null}, data-parsley-range=${field.validStringLengthMin ? [${field.validStringLengthMin},${field.validStringLengthMax}] : null}"-->
-
-
             </div>
         </div>
 
